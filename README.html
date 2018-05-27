@@ -1,0 +1,4192 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>body {
+  max-width: 980px;
+  border: 1px solid #ddd;
+  outline: 1300px solid #fff;
+  margin: 16px auto;
+}
+
+body .markdown-body
+{
+  padding: 45px;
+}
+
+@font-face {
+  font-family: fontawesome-mini;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+.markdown-body {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  color: #333333;
+  overflow: hidden;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+.markdown-body a {
+  background: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline: 0;
+}
+
+.markdown-body b,
+.markdown-body strong {
+  font-weight: bold;
+}
+
+.markdown-body mark {
+  background: #ff0;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body sub,
+.markdown-body sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+.markdown-body sup {
+  top: -0.5em;
+}
+.markdown-body sub {
+  bottom: -0.25em;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+.markdown-body img {
+  border: 0;
+}
+
+.markdown-body hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+.markdown-body pre {
+  overflow: auto;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre,
+.markdown-body samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+.markdown-body input {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body html input[disabled] {
+  cursor: default;
+}
+
+.markdown-body input {
+  line-height: normal;
+}
+
+.markdown-body input[type="checkbox"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body .codehilitetable {
+  border: 0;
+  border-spacing: 0;
+}
+
+.markdown-body .codehilitetable tr {
+  border: 0;
+}
+
+.markdown-body .codehilitetable pre,
+.markdown-body .codehilitetable div.codehilite {
+  margin: 0;
+}
+
+.markdown-body .linenos,
+.markdown-body .code,
+.markdown-body .codehilitetable td {
+  border: 0;
+  padding: 0;
+}
+
+.markdown-body td:not(.linenos) .linenodiv {
+  padding: 0 !important;
+}
+
+.markdown-body .code {
+  width: 100%;
+}
+
+.markdown-body .linenos div pre,
+.markdown-body .linenodiv pre,
+.markdown-body .linenodiv {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-left-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.markdown-body .code div pre,
+.markdown-body .code div {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-right-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  -moz-border-radius-topright: 3px;
+  -moz-border-radius-bottomright: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.markdown-body * {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font: 13px Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+  line-height: 1.4;
+}
+
+.markdown-body a {
+  color: #4183c4;
+  text-decoration: none;
+}
+
+.markdown-body a:hover,
+.markdown-body a:focus,
+.markdown-body a:active {
+  text-decoration: underline;
+}
+
+.markdown-body hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.markdown-body hr:before,
+.markdown-body hr:after {
+  display: table;
+  content: " ";
+}
+
+.markdown-body hr:after {
+  clear: both;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  line-height: 1.1;
+}
+
+.markdown-body h1 {
+  font-size: 30px;
+}
+
+.markdown-body h2 {
+  font-size: 21px;
+}
+
+.markdown-body h3 {
+  font-size: 16px;
+}
+
+.markdown-body h4 {
+  font-size: 14px;
+}
+
+.markdown-body h5 {
+  font-size: 12px;
+}
+
+.markdown-body h6 {
+  font-size: 11px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code,
+.markdown-body pre,
+.markdown-body samp {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body kbd {
+  background-color: #e7e7e7;
+  background-image: -moz-linear-gradient(#fefefe, #e7e7e7);
+  background-image: -webkit-linear-gradient(#fefefe, #e7e7e7);
+  background-image: linear-gradient(#fefefe, #e7e7e7);
+  background-repeat: repeat-x;
+  border-radius: 2px;
+  border: 1px solid #cfcfcf;
+  color: #000;
+  padding: 3px 5px;
+  line-height: 10px;
+  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  display: inline-block;
+}
+
+.markdown-body>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+.markdown-body .headerlink {
+  font: normal 400 16px fontawesome-mini;
+  vertical-align: middle;
+  margin-left: -16px;
+  float: left;
+  display: inline-block;
+  text-decoration: none;
+  opacity: 0;
+  color: #333;
+}
+
+.markdown-body .headerlink:focus {
+  outline: none;
+}
+
+.markdown-body h1 .headerlink {
+  margin-top: 0.8rem;
+}
+
+.markdown-body h2 .headerlink,
+.markdown-body h3 .headerlink {
+  margin-top: 0.6rem;
+}
+
+.markdown-body h4 .headerlink {
+  margin-top: 0.2rem;
+}
+
+.markdown-body h5 .headerlink,
+.markdown-body h6 .headerlink {
+  margin-top: 0;
+}
+
+.markdown-body .headerlink:hover,
+.markdown-body h1:hover .headerlink,
+.markdown-body h2:hover .headerlink,
+.markdown-body h3:hover .headerlink,
+.markdown-body h4:hover .headerlink,
+.markdown-body h5:hover .headerlink,
+.markdown-body h6:hover .headerlink {
+  opacity: 1;
+  text-decoration: none;
+}
+
+.markdown-body h1 {
+  padding-bottom: 0.3em;
+  font-size: 2.25em;
+  line-height: 1.2;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.75em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h3 {
+  font-size: 1.5em;
+  line-height: 1.43;
+}
+
+.markdown-body h4 {
+  font-size: 1.25em;
+}
+
+.markdown-body h5 {
+  font-size: 1em;
+}
+
+.markdown-body h6 {
+  font-size: 1em;
+  color: #777;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre,
+.markdown-body .admonition {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: 4px;
+  padding: 0;
+  margin: 16px 0;
+  background-color: #e7e7e7;
+  border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+  padding: 0 15px;
+  color: #777;
+  border-left: 4px solid #ddd;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+}
+
+.markdown-body table th {
+  font-weight: bold;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body code,
+.markdown-body samp {
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0,0,0,0.04);
+  border-radius: 3px;
+}
+
+.markdown-body code:before,
+.markdown-body code:after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .codehilite {
+  margin-bottom: 16px;
+}
+
+.markdown-body .codehilite pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+}
+
+.markdown-body .codehilite pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after {
+  content: normal;
+}
+
+/* Admonition */
+.markdown-body .admonition {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  position: relative;
+  border-radius: 3px;
+  border: 1px solid #e0e0e0;
+  border-left: 6px solid #333;
+  padding: 10px 10px 10px 30px;
+}
+
+.markdown-body .admonition table {
+  color: #333;
+}
+
+.markdown-body .admonition p {
+  padding: 0;
+}
+
+.markdown-body .admonition-title {
+  font-weight: bold;
+  margin: 0;
+}
+
+.markdown-body .admonition>.admonition-title {
+  color: #333;
+}
+
+.markdown-body .attention>.admonition-title {
+  color: #a6d796;
+}
+
+.markdown-body .caution>.admonition-title {
+  color: #d7a796;
+}
+
+.markdown-body .hint>.admonition-title {
+  color: #96c6d7;
+}
+
+.markdown-body .danger>.admonition-title {
+  color: #c25f77;
+}
+
+.markdown-body .question>.admonition-title {
+  color: #96a6d7;
+}
+
+.markdown-body .note>.admonition-title {
+  color: #d7c896;
+}
+
+.markdown-body .admonition:before,
+.markdown-body .attention:before,
+.markdown-body .caution:before,
+.markdown-body .hint:before,
+.markdown-body .danger:before,
+.markdown-body .question:before,
+.markdown-body .note:before {
+  font: normal normal 16px fontawesome-mini;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  line-height: 1.5;
+  color: #333;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.markdown-body .admonition:before {
+  content: "\f056\00a0";
+  color: 333;
+}
+
+.markdown-body .attention:before {
+  content: "\f058\00a0";
+  color: #a6d796;
+}
+
+.markdown-body .caution:before {
+  content: "\f06a\00a0";
+  color: #d7a796;
+}
+
+.markdown-body .hint:before {
+  content: "\f05a\00a0";
+  color: #96c6d7;
+}
+
+.markdown-body .danger:before {
+  content: "\f057\00a0";
+  color: #c25f77;
+}
+
+.markdown-body .question:before {
+  content: "\f059\00a0";
+  color: #96a6d7;
+}
+
+.markdown-body .note:before {
+  content: "\f040\00a0";
+  color: #d7c896;
+}
+
+.markdown-body .admonition::after {
+  content: normal;
+}
+
+.markdown-body .attention {
+  border-left: 6px solid #a6d796;
+}
+
+.markdown-body .caution {
+  border-left: 6px solid #d7a796;
+}
+
+.markdown-body .hint {
+  border-left: 6px solid #96c6d7;
+}
+
+.markdown-body .danger {
+  border-left: 6px solid #c25f77;
+}
+
+.markdown-body .question {
+  border-left: 6px solid #96a6d7;
+}
+
+.markdown-body .note {
+  border-left: 6px solid #d7c896;
+}
+
+.markdown-body .admonition>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body .admonition>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* progress bar*/
+.markdown-body .progress {
+  display: block;
+  width: 300px;
+  margin: 10px 0;
+  height: 24px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #ededed;
+  position: relative;
+  box-shadow: inset -1px 1px 3px rgba(0, 0, 0, .1);
+}
+
+.markdown-body .progress-label {
+  position: absolute;
+  text-align: center;
+  font-weight: bold;
+  width: 100%; margin: 0;
+  line-height: 24px;
+  color: #333;
+  text-shadow: 1px 1px 0 #fefefe, -1px -1px 0 #fefefe, -1px 1px 0 #fefefe, 1px -1px 0 #fefefe, 0 1px 0 #fefefe, 0 -1px 0 #fefefe, 1px 0 0 #fefefe, -1px 0 0 #fefefe, 1px 1px 2px #000;
+  -webkit-font-smoothing: antialiased !important;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.markdown-body .progress-bar {
+  height: 24px;
+  float: left;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #96c6d7;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5), inset 0 -1px 0 rgba(0, 0, 0, .1);
+  background-size: 30px 30px;
+  background-image: -webkit-linear-gradient(
+    135deg, rgba(255, 255, 255, .4) 27%,
+    transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%,
+    transparent 77%, transparent
+  );
+  background-image: -moz-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -ms-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -o-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+}
+
+.markdown-body .progress-100plus .progress-bar {
+  background-color: #a6d796;
+}
+
+.markdown-body .progress-80plus .progress-bar {
+  background-color: #c6d796;
+}
+
+.markdown-body .progress-60plus .progress-bar {
+  background-color: #d7c896;
+}
+
+.markdown-body .progress-40plus .progress-bar {
+  background-color: #d7a796;
+}
+
+.markdown-body .progress-20plus .progress-bar {
+  background-color: #d796a6;
+}
+
+.markdown-body .progress-0plus .progress-bar {
+  background-color: #c25f77;
+}
+
+.markdown-body .candystripe-animate .progress-bar{
+  -webkit-animation: animate-stripes 3s linear infinite;
+  -moz-animation: animate-stripes 3s linear infinite;
+  animation: animate-stripes 3s linear infinite;
+}
+
+@-webkit-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@-moz-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+.markdown-body .gloss .progress-bar {
+  box-shadow:
+    inset 0 4px 12px rgba(255, 255, 255, .7),
+    inset 0 -12px 0 rgba(0, 0, 0, .05);
+}
+
+/* Multimarkdown Critic Blocks */
+.markdown-body .critic_mark {
+  background: #ff0;
+}
+
+.markdown-body .critic_delete {
+  color: #c82829;
+  text-decoration: line-through;
+}
+
+.markdown-body .critic_insert {
+  color: #718c00 ;
+  text-decoration: underline;
+}
+
+.markdown-body .critic_comment {
+  color: #8e908c;
+  font-style: italic;
+}
+
+.markdown-body .headeranchor {
+  font: normal normal 16px fontawesome-mini;
+  line-height: 1;
+  display: inline-block;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.headeranchor:before {
+  content: '\e157';
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 4px 0.25em -20px;
+  vertical-align: middle;
+}
+
+/* Media */
+@media only screen and (min-width: 480px) {
+  .markdown-body {
+    font-size:14px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .markdown-body {
+    font-size:16px;
+  }
+}
+
+@media print {
+  .markdown-body * {
+    background: transparent !important;
+    color: black !important;
+    filter:none !important;
+    -ms-filter: none !important;
+  }
+
+  .markdown-body {
+    font-size:12pt;
+    max-width:100%;
+    outline:none;
+    border: 0;
+  }
+
+  .markdown-body a,
+  .markdown-body a:visited {
+    text-decoration: underline;
+  }
+
+  .markdown-body .headeranchor-link {
+    display: none;
+  }
+
+  .markdown-body a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  .markdown-body abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  .markdown-body .ir a:after,
+  .markdown-body a[href^="javascript:"]:after,
+  .markdown-body a[href^="#"]:after {
+    content: "";
+  }
+
+  .markdown-body pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  .markdown-body pre,
+  .markdown-body blockquote {
+    border: 1px solid #999;
+    padding-right: 1em;
+    page-break-inside: avoid;
+  }
+
+  .markdown-body .progress,
+  .markdown-body .progress-bar {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .markdown-body .progress {
+    border: 1px solid #ddd;
+  }
+
+  .markdown-body .progress-bar {
+    height: 22px;
+    border-right: 1px solid #ddd;
+  }
+
+  .markdown-body tr,
+  .markdown-body img {
+    page-break-inside: avoid;
+  }
+
+  .markdown-body img {
+    max-width: 100% !important;
+  }
+
+  .markdown-body p,
+  .markdown-body h2,
+  .markdown-body h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  .markdown-body h2,
+  .markdown-body h3 {
+    page-break-after: avoid;
+  }
+}
+</style><style>/*github*/
+.codehilite {background-color:#fff;color:#333333;}
+.codehilite .hll {background-color:#ffffcc;}
+.codehilite .c{color:#999988;font-style:italic}
+.codehilite .err{color:#a61717;background-color:#e3d2d2}
+.codehilite .k{font-weight:bold}
+.codehilite .o{font-weight:bold}
+.codehilite .cm{color:#999988;font-style:italic}
+.codehilite .cp{color:#999999;font-weight:bold}
+.codehilite .c1{color:#999988;font-style:italic}
+.codehilite .cs{color:#999999;font-weight:bold;font-style:italic}
+.codehilite .gd{color:#000000;background-color:#ffdddd}
+.codehilite .ge{font-style:italic}
+.codehilite .gr{color:#aa0000}
+.codehilite .gh{color:#999999}
+.codehilite .gi{color:#000000;background-color:#ddffdd}
+.codehilite .go{color:#888888}
+.codehilite .gp{color:#555555}
+.codehilite .gs{font-weight:bold}
+.codehilite .gu{color:#800080;font-weight:bold}
+.codehilite .gt{color:#aa0000}
+.codehilite .kc{font-weight:bold}
+.codehilite .kd{font-weight:bold}
+.codehilite .kn{font-weight:bold}
+.codehilite .kp{font-weight:bold}
+.codehilite .kr{font-weight:bold}
+.codehilite .kt{color:#445588;font-weight:bold}
+.codehilite .m{color:#009999}
+.codehilite .s{color:#dd1144}
+.codehilite .n{color:#333333}
+.codehilite .na{color:teal}
+.codehilite .nb{color:#0086b3}
+.codehilite .nc{color:#445588;font-weight:bold}
+.codehilite .no{color:teal}
+.codehilite .ni{color:purple}
+.codehilite .ne{color:#990000;font-weight:bold}
+.codehilite .nf{color:#990000;font-weight:bold}
+.codehilite .nn{color:#555555}
+.codehilite .nt{color:navy}
+.codehilite .nv{color:teal}
+.codehilite .ow{font-weight:bold}
+.codehilite .w{color:#bbbbbb}
+.codehilite .mf{color:#009999}
+.codehilite .mh{color:#009999}
+.codehilite .mi{color:#009999}
+.codehilite .mo{color:#009999}
+.codehilite .sb{color:#dd1144}
+.codehilite .sc{color:#dd1144}
+.codehilite .sd{color:#dd1144}
+.codehilite .s2{color:#dd1144}
+.codehilite .se{color:#dd1144}
+.codehilite .sh{color:#dd1144}
+.codehilite .si{color:#dd1144}
+.codehilite .sx{color:#dd1144}
+.codehilite .sr{color:#009926}
+.codehilite .s1{color:#dd1144}
+.codehilite .ss{color:#990073}
+.codehilite .bp{color:#999999}
+.codehilite .vc{color:teal}
+.codehilite .vg{color:teal}
+.codehilite .vi{color:teal}
+.codehilite .il{color:#009999}
+.codehilite .gc{color:#999;background-color:#EAF2F5}
+</style><title>README</title></head><body><article class="markdown-body"><h1 id="linux_study">Linux_Study<a class="headerlink" href="#linux_study" title="Permanent link"></a></h1>
+<hr />
+<h4 id="_1">作者：冰红茶<a class="headerlink" href="#_1" title="Permanent link"></a></h4>
+<h4 id="linux">参考书籍：《鸟哥的Linux私房菜》 第三版 鸟哥<a class="headerlink" href="#linux" title="Permanent link"></a></h4>
+<hr />
+<p>想想自己以后多半在Linux环境中摸爬滚打了，学习Linux的基本操作必不可少。半年前我学了一半，但是由于一些原因中断了学习。后来学C和Node.js等后端语言的时候，明显感受到shell命令行和Linux环境对于开发的重要性。所以后面打算再补三章的内容：script和软件安装和Linux中常见的网络命令^_ ^</p>
+<h2 id="_2">目录<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
+<h2 id="linux_1"><a href="#1">一、计算机系统与Linux</a><a class="headerlink" href="#linux_1" title="Permanent link"></a></h2>
+<h3 id="11"><a href="#1.1">1.1 计算机系统</a><a class="headerlink" href="#11" title="Permanent link"></a></h3>
+<h3 id="12-linux"><a href="#1.2">1.2 Linux是什么</a><a class="headerlink" href="#12-linux" title="Permanent link"></a></h3>
+<h3 id="13-linux"><a href="#1.3">1.3 Linux如何学习</a><a class="headerlink" href="#13-linux" title="Permanent link"></a></h3>
+<h2 id="_3"><a href="#4">二、 主机规划与磁盘分区</a><a class="headerlink" href="#_3" title="Permanent link"></a></h2>
+<h3 id="21-linux"><a href="#4.1">2.1 各种硬件设备在Linux中的文件名</a><a class="headerlink" href="#21-linux" title="Permanent link"></a></h3>
+<h3 id="22"><a href="#4.2">2.2 磁盘分区与组成</a><a class="headerlink" href="#22" title="Permanent link"></a></h3>
+<h3 id="23-mbr"><a href="#4.3">2.3 开机流程与主引导分区（MBR）</a><a class="headerlink" href="#23-mbr" title="Permanent link"></a></h3>
+<h2 id="man-page"><a href="#3">三、 首次登陆和在线求助man page</a><a class="headerlink" href="#man-page" title="Permanent link"></a></h2>
+<h3 id="31"><a href="#3.1">3.1 首次登陆系统</a><a class="headerlink" href="#31" title="Permanent link"></a></h3>
+<h3 id="32-nano"><a href="#3.2">3.2 超简单的文本编辑器：nano</a><a class="headerlink" href="#32-nano" title="Permanent link"></a></h3>
+<h3 id="33"><a href="#3.3">3.3 正确的开关机</a><a class="headerlink" href="#33" title="Permanent link"></a></h3>
+<h2 id="_4"><a href="#4">四、 文件权限和目录配置</a><a class="headerlink" href="#_4" title="Permanent link"></a></h2>
+<h3 id="41"><a href="#4.1">4.1 文件权限的概念</a><a class="headerlink" href="#41" title="Permanent link"></a></h3>
+<h3 id="42"><a href="#4.2">4.2 改变文件的属性和权限</a><a class="headerlink" href="#42" title="Permanent link"></a></h3>
+<h3 id="43"><a href="#4.3">4.3 目录与文件的权限意义</a><a class="headerlink" href="#43" title="Permanent link"></a></h3>
+<h3 id="44-linux"><a href="#4.4">4.4 Linux的目录配置</a><a class="headerlink" href="#44-linux" title="Permanent link"></a></h3>
+<h2 id="linux_2"><a href="#5">五、 Linux文件与目录管理</a><a class="headerlink" href="#linux_2" title="Permanent link"></a></h2>
+<h3 id="51"><a href="#5.1">5.1 目录的相关操作</a><a class="headerlink" href="#51" title="Permanent link"></a></h3>
+<h3 id="52-path"><a href="#5.2">5.2 关于执行文件路径的变量：$PATH</a><a class="headerlink" href="#52-path" title="Permanent link"></a></h3>
+<h3 id="53"><a href="#5.3">5.3 文件内容查阅</a><a class="headerlink" href="#53" title="Permanent link"></a></h3>
+<h3 id="54-touch"><a href="#5.4">5.4 修改文件时间或创建新文件：touch</a><a class="headerlink" href="#54-touch" title="Permanent link"></a></h3>
+<h3 id="55"><a href="#5.5">5.5 文件的默认权限与隐藏属性与特殊权限</a><a class="headerlink" href="#55" title="Permanent link"></a></h3>
+<h3 id="56"><a href="#5.6">5.6 命令和文件的查询</a><a class="headerlink" href="#56" title="Permanent link"></a></h3>
+<h2 id="linux_3"><a href="#6">六、 Linux磁盘与文件系统的管理</a><a class="headerlink" href="#linux_3" title="Permanent link"></a></h2>
+<h3 id="61-ext2"><a href="#6.1">6.1 EXT2文件系统</a><a class="headerlink" href="#61-ext2" title="Permanent link"></a></h3>
+<h3 id="62"><a href="#6.2">6.2 注意</a><a class="headerlink" href="#62" title="Permanent link"></a></h3>
+<h3 id="63"><a href="#6.3">6.3 相关命令</a><a class="headerlink" href="#63" title="Permanent link"></a></h3>
+<h3 id="64"><a href="#6.4">6.4 目录树与其他文件系统</a><a class="headerlink" href="#64" title="Permanent link"></a></h3>
+<h3 id="65"><a href="#6.5">6.5 文件系统的简单操作</a><a class="headerlink" href="#65" title="Permanent link"></a></h3>
+<h3 id="66"><a href="#6.6">6.6 磁盘的分区，格式化，检验和挂载</a><a class="headerlink" href="#66" title="Permanent link"></a></h3>
+<h2 id="_5"><a href="#7">七、 文件与文件系统的压缩与打包</a><a class="headerlink" href="#_5" title="Permanent link"></a></h2>
+<h3 id="71"><a href="#7.1">7.1 常见的压缩命令</a><a class="headerlink" href="#71" title="Permanent link"></a></h3>
+<h3 id="72-dumprestore"><a href="#7.2">7.2 完整的备份工具dump和恢复工具restore</a><a class="headerlink" href="#72-dumprestore" title="Permanent link"></a></h3>
+<h2 id="vim"><a href="#8">八、 vim程序编辑工具</a><a class="headerlink" href="#vim" title="Permanent link"></a></h2>
+<h3 id="81-vivim"><a href="#8.1">8.1 vi与vim</a><a class="headerlink" href="#81-vivim" title="Permanent link"></a></h3>
+<h3 id="82"><a href="#8.2">8.2 一些常用的命令</a><a class="headerlink" href="#82" title="Permanent link"></a></h3>
+<h3 id="83-vim"><a href="#8.3">8.3 Vim的文件保存，恢复与打开时的警告信息</a><a class="headerlink" href="#83-vim" title="Permanent link"></a></h3>
+<h3 id="84"><a href="#8.4">8.4 其他操作与语系转换</a><a class="headerlink" href="#84" title="Permanent link"></a></h3>
+<h2 id="bash"><a href="#9">九、 bash</a><a class="headerlink" href="#bash" title="Permanent link"></a></h2>
+<h3 id="91-shellbash"><a href="#9.1">9.1  硬件，内核，shell和bash的关系</a><a class="headerlink" href="#91-shellbash" title="Permanent link"></a></h3>
+<h3 id="92-shell"><a href="#9.2">9.2 shell的变量功能</a><a class="headerlink" href="#92-shell" title="Permanent link"></a></h3>
+<h3 id="93-bash-shell"><a href="#9.3">9.3 Bash shell的操作环境</a><a class="headerlink" href="#93-bash-shell" title="Permanent link"></a></h3>
+<h3 id="94-bash-shell"><a href="#9.4">9.4 Bash shell的环境配置文件（太复杂了，不看）</a><a class="headerlink" href="#94-bash-shell" title="Permanent link"></a></h3>
+<h3 id="95"><a href="#9.5">9.5 数据的重定向</a><a class="headerlink" href="#95" title="Permanent link"></a></h3>
+<h3 id="96"><a href="#9.6">9.6 命令与管道命令</a><a class="headerlink" href="#96" title="Permanent link"></a></h3>
+<h2 id="_6"><a href="#10">十、 正则表达式</a><a class="headerlink" href="#_6" title="Permanent link"></a></h2>
+<h3 id="101"><a href="#10.1">10.1 基础正则表达式</a><a class="headerlink" href="#101" title="Permanent link"></a></h3>
+<h3 id="102"><a href="#10.2">10.2 拓展正则表达式</a><a class="headerlink" href="#102" title="Permanent link"></a></h3>
+<h3 id="103-sed"><a href="#10.3">10.3 sed工具</a><a class="headerlink" href="#103-sed" title="Permanent link"></a></h3>
+<h3 id="104-printf"><a href="#10.4">10.4 格式化打印：printf</a><a class="headerlink" href="#104-printf" title="Permanent link"></a></h3>
+<h3 id="105-awk"><a href="#10.5">10.5 awk：好用的数据处理工具</a><a class="headerlink" href="#105-awk" title="Permanent link"></a></h3>
+<h3 id="106"><a href="#10.6">10.6 文件比较工具</a><a class="headerlink" href="#106" title="Permanent link"></a></h3>
+<h2 id="shell-script"><a href="#11">十一、 Shell Script</a><a class="headerlink" href="#shell-script" title="Permanent link"></a></h2>
+<h3 id="111"><a href="#11.1">11.1 基础正则表达式</a><a class="headerlink" href="#111" title="Permanent link"></a></h3>
+<h2 id="_7"><a href="#12">十二、 软件安装</a><a class="headerlink" href="#_7" title="Permanent link"></a></h2>
+<h3 id="121"><a href="#12.1">12.1 基础正则表达式</a><a class="headerlink" href="#121" title="Permanent link"></a></h3>
+<hr />
+<h2 id='1'> 一、计算机系统与Linux</h2>
+
+<h3 id='1.1'>1.1 计算机系统</h3>
+
+<h4 id="1">1) 五大单元<a class="headerlink" href="#1" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>输入单元，内存，CPU，输出单元，外部存储设备</li>
+</ul>
+</blockquote>
+<h4 id="2">2) 存储单位<a class="headerlink" href="#2" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>八进制：<blockquote>
+<ul>
+<li>1Byte（字节）=8bit</li>
+<li>1KB=1024Byte</li>
+<li>1MB=1024KB</li>
+<li>1GB=1024MB</li>
+<li>1TB=1024GB</li>
+<li>1PB=1024TB</li>
+</ul>
+</blockquote>
+</li>
+<li>十进制：<blockquote>
+<ul>
+<li>1KB=1000Byte</li>
+<li>1MB=1000KB</li>
+<li>1GB=1000MB</li>
+<li>1TB=1000GB</li>
+<li>1PB=1000TB</li>
+</ul>
+</blockquote>
+</li>
+<li>网络上常用的单位是Mbit/s，1MB/s=8Mbit/s</li>
+<li>硬盘上的存储单位是采用十进制Byte，所以500G=500,000,000,000Byte（十进制）≈460GB（八进制）</li>
+</ul>
+</blockquote>
+<h4 id="3-cpu">3) CPU<a class="headerlink" href="#3-cpu" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>主板最重要的是芯片组，芯片组有两个桥接器，北桥负责连接速度较快的CPU，内存和显卡，南桥负责连接速度比较慢的周边接口，如硬盘，USB，网卡等；</li>
+</ul>
+</blockquote>
+<h4 id="4-vs">4) 北桥VS南桥<a class="headerlink" href="#4-vs" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>AMD的CPU为了加快内存和CPU的通讯，直接让内存控制组件集成到CPU中，而不通过北桥让内存和CPU通讯，理论上加速了CPU和内存的传输速度；</li>
+<li>北桥的总线称为系统总线，因为是内存传输的主要通道，南桥就是输入输出（I/O）总线，主要用于连接硬盘、USB、网卡等设备。</li>
+<li>北桥所支持的频率称为前端总线速度（Front Side
+Bus，FSB）。而每次传送的位数则为总线宽度，而总线频宽= FSB*总线宽度。</li>
+<li>与总线宽度相似的，CPU每次能处理的数据量称为字组大小（word
+size），字组大小依据CPU的涉及有32位和64位之分，也就是现在我们常说的电脑32位和64位的由来。</li>
+</ul>
+</blockquote>
+<h4 id="5-vs">5) 外频VS倍频<a class="headerlink" href="#5-vs" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>外频指的是CPU与外部组件进行数据传输/运算时的速度，倍频是CPU内部用来加速工作的一个倍数，两者相乘才是CPU的频率。</li>
+</ul>
+</blockquote>
+<h4 id="6-memory">6) 内存Memory<a class="headerlink" href="#6-memory" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>DRAM，Dynamic Random Access
+Memory，动态随机访问内存，由于断电即消失，又称这种RAM为挥发性内存；</li>
+<li>SRAM，Static Random Access
+Memory，动态随机访问内存，晶体管比较多，价格比较贵，不易做成大容量，不过由于速度比较快，因此集成到CPU内称为高速缓存以加快数据的访问。</li>
+<li>ROM只读存储器，非挥发性内存，Read Only Memory，BIOS（Basic Input Output
+System）就是写在ROM里面；</li>
+</ul>
+</blockquote>
+<h4 id="7">7) 操作系统<a class="headerlink" href="#7" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>内核：Kernel</li>
+<li>其实是一组程序，重点在于管理计算机的所有活动以及驱动系统中的所有硬件。即硬件的所有操作都必须通过操作系统来完成，负责整个计算机系统相关的资源分配和管理，内核的功能至少也要有：<blockquote>
+<ul>
+<li>系统调用的接口</li>
+<li>程序管理</li>
+<li>内存管理</li>
+<li>文件系统管理</li>
+<li>设备驱动</li>
+</ul>
+</blockquote>
+</li>
+<li>系统调用：System Call</li>
+<li>操作系统提供一整组的开发接口给工程师来开发软件。</li>
+<li>在定义上讲，只要能够让计算机硬件正确无误的运行，那就是操作系统了，所以也就说操作系统就是内核与其提供的接口工具。</li>
+<li>驱动程序 操作系统通常会提供给一个开发接口给硬件开发商，让他们可以根据这个接口设计可以驱动他们硬件的驱动程序。</li>
+</ul>
+</blockquote>
+<h3 id='1.2'>1.2 Linux是什么</h3>
+
+<blockquote>
+<ul>
+<li>Linux的内核原型是1991年由托瓦兹（Linux Torvalds）写出来的，</li>
+</ul>
+</blockquote>
+<h4 id="1-linux">1) Linux是一套操作系统<a class="headerlink" href="#1-linux" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>早期是针对386写的，Torvalds先生再写Linux的时候，其实该内核仅能“驱动386的所有硬件”而已，即所谓的“让386计算机开始运行，并且等待用户指令输入”。</li>
+<li>Linux是Open
+Source的，具备“可移植性”，提供了一个完整操作系统当中最底层的硬件控制与资源管理的完整架构。</li>
+<li>Linux之前UNIX的历史，UNIX一开始是由Ken
+Thompson用汇编写出来的，后来用高级语言的B语言写，发现性能不好，后来他们把B语言改进成C语言，再用C语言去写，最后放出UNIX的发行版（1973年）。              </li>
+</ul>
+</blockquote>
+<h3 id='1.3'>1.3 Linux如何学习</h3>
+
+<h4 id="1-linux_1">1) Linux有两种界面<a class="headerlink" href="#1-linux_1" title="Permanent link"></a></h4>
+<p>分别是图形界面X Window和命令行界面Common Line，X Window
+System也只是运行在Linux上的一套软件。</p>
+<h4 id="2_1">2) 基础知识：<a class="headerlink" href="#2_1" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>计算机概论与硬件相关知识；</li>
+<li>先从Linux的安装和命令学起；</li>
+<li>Linux操作系统的基础技能；</li>
+<li>务必学会vi文本编辑器；</li>
+<li>Shell和Shell脚本的学习；</li>
+<li>一定要会软件管理员；</li>
+<li>网络基础的建立；</li>
+</ul>
+</blockquote>
+<h4 id="3-centos72-grub2">3) <a href="https://www.cnblogs.com/nidey/p/6374860.html">CentOS7.2 设置GRUB2引导界面分辨率</a><a class="headerlink" href="#3-centos72-grub2" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>最近在学习OS引导启动，GRUB2的学习材料也不少，主要还看官方手册清晰些。公司里办公机的多启动用的ubuntu的界面，还挺炫酷的。之前看其他博客网文里看到可以设置grub2的分辨率，我拿CentOS7.2试了下，发现不行。网上都是说设置GRUB_GFXMODE=1440x900，再update-grub更新下grub.cfg，但是没生效（我又拿ubuntu14.04 server 试了，可以的）后来还是看GRUB官方手册解决了。进入系统后，更改分辨率，设置如下</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>    [root\@min-base \~]\# vim /etc/default/grub
+</pre></div>
+
+
+<p>将GRUB_TERMINAL_OUTPUT值由默认的&rdquo;console&rdquo;改为&rdquo;gfxterm&rdquo;，并添加GRUB_GFXMODE</p>
+<div class="codehilite"><pre>    GRUB_TIMEOUT=2
+
+    GRUB_DISTRIBUTOR=&quot;$(sed &#39;s, release .\*$,,g&#39; /etc/system-release)&quot;
+
+    GRUB_DEFAULT=saved
+
+    GRUB_DISABLE_SUBMENU=true
+
+    GRUB_TERMINAL_OUTPUT=&quot;gfxterm&quot;
+
+    GRUB_CMDLINE_LINUX=&quot;crashkernel=auto rd.lvm.lv=centos/root rd.lvm.lv=centos/swap
+    rhgb quiet&quot;
+
+    GRUB_DISABLE_RECOVERY=&quot;true&quot;
+
+    GRUB_GFXMODE=1440x900,1024x768,640x480
+</pre></div>
+
+
+<h4 id="4">4) <a href="https://www.cnblogs.com/Q--T/p/5394993.html">修改命令行颜色</a><a class="headerlink" href="#4" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>PS1应用之——修改linux终端命令行各字体颜色</li>
+<li>最近在学习linux操作系统（CentOS 6 &amp; CentOS
+7）。觉得linux终端命令行全部为白色,会经常导致命令与输出内容难以分辨。于是上网找到修改linux终端命令行颜色的方法，发现通过定义PS1环境变量即可实现,下面我以root用户身份进行操作。</li>
+<li><strong>1.了解PS1</strong> PS1是Linux终端用户的一个环境变量，用来定义命令行提示符的参数。在终端输入命令.可得到当前PS1的定义值</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>            [root@MiWiFi-R3-srv software]# echo $PS1
+            //当前用户的账号名称\@主机名的第一个名字工作目录的最后一层目录名
+            [\u@\h \W]$
+</pre></div>
+
+
+<p><center>PS1的常用参数以及含义:</center></p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th><strong>PS1的常用参数</strong></th>
+<th><strong>含义</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\d</td>
+<td>代表日期，格式为weekday month date，例如：&rdquo;Mon Aug 1&rdquo;</td>
+</tr>
+<tr>
+<td>\H</td>
+<td>完整的主机名称</td>
+</tr>
+<tr>
+<td>\h</td>
+<td>仅取主机名中的第一个名字</td>
+</tr>
+<tr>
+<td>\t</td>
+<td>显示时间为24小时格式，如：HH：MM：SS</td>
+</tr>
+<tr>
+<td>\T</td>
+<td>显示时间为12小时格式</td>
+</tr>
+<tr>
+<td>\A</td>
+<td>显示时间为24小时格式：HH：MM</td>
+</tr>
+<tr>
+<td>\u</td>
+<td>当前用户的账号名称</td>
+</tr>
+<tr>
+<td>\v</td>
+<td>BASH的版本信息</td>
+</tr>
+<tr>
+<td>\w</td>
+<td>完整的工作目录名称</td>
+</tr>
+<tr>
+<td>\W</td>
+<td>利用basename取得工作目录名称，只显示最后一个目录名</td>
+</tr>
+<tr>
+<td>\#</td>
+<td>下达的第几个命令</td>
+</tr>
+<tr>
+<td>\$</td>
+<td>提示字符，如果是root用户，提示符为\# ，普通用户则为 \$</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</blockquote>
+</blockquote>
+<ul>
+<li><strong>2.颜色设置参数</strong> 在PS1中设置字符颜色的格式为：\[\e[F;Bm\]........\[\e[0m\]，其中“F“为字体颜色，编号为30-37，“B”为背景颜色，编号为40-47,\[\e[0m\]作为颜色设定的结束。</li>
+</ul>
+<blockquote>
+<blockquote>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th><strong>F</strong></th>
+<th><strong>B</strong></th>
+<th><strong>颜色</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F</td>
+<td>B</td>
+<td>颜色</td>
+</tr>
+<tr>
+<td>30</td>
+<td>40</td>
+<td>黑色</td>
+</tr>
+<tr>
+<td>31</td>
+<td>41</td>
+<td>红色</td>
+</tr>
+<tr>
+<td>32</td>
+<td>42</td>
+<td>绿色</td>
+</tr>
+<tr>
+<td>33</td>
+<td>43</td>
+<td>黄色</td>
+</tr>
+<tr>
+<td>34</td>
+<td>44</td>
+<td>蓝色</td>
+</tr>
+<tr>
+<td>35</td>
+<td>45</td>
+<td>紫红色</td>
+</tr>
+<tr>
+<td>36</td>
+<td>46</td>
+<td>青蓝色</td>
+</tr>
+<tr>
+<td>37</td>
+<td>47</td>
+<td>白色</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</blockquote>
+</blockquote>
+<ul>
+<li>比如要设置命令行的格式为绿字黑底(\[\e[32;40m\])，显示当前用户的账号名称(\u)、主机的第一个名字(\h)、完整的当前工作目录名称(\w)、24小时格式时间(\t)，可以直接在命令行键入如下命令：</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>            # PS1=&#39;[\[\e[32;40m\]\u@\h \w \t]$ \[\e[0m\]&#39;
+</pre></div>
+
+
+<blockquote>
+<ul>
+<li>个人比较喜欢的的格式:</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>            PS1=&quot;\[\e[37;40m\][\[\e[32;40m\]\u\[\e[37;40m\]@\h \[\e[36;40m\]\w\[\e[0m\]]\$ &quot;
+</pre></div>
+
+
+<blockquote>
+<ul>
+<li>但注意这样的设置只是临时性的.</li>
+<li><strong>3.修改.bashrc文件,永久保存命令行样式.</strong> 上面的设置的作用域只有当前终端的登陆有效，关闭终端或退出登录即刻失效。要想永久性的保存设置，需要修改.bashrc配置文件。</li>
+<li>键入命令：</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>            # cd
+            # ls -la
+</pre></div>
+
+
+<blockquote>
+<ul>
+<li>现在可以看到.bashrc这个文件。编辑.bashrc:</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>            # vim .bashrc
+            PS1=&quot;\[\e[37;40m\][\[\e[32;40m\]\u\[\e[37;40m\]@\h \[\e[36;40m\]\w\[\e[0m\]]\$ &quot;
+</pre></div>
+
+
+<blockquote>
+<ul>
+<li>保存退出。</li>
+<li>重新加载bash配置文件:</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>            # source .bashrc
+</pre></div>
+
+
+<blockquote>
+<ul>
+<li>即可立即并永久生效了。</li>
+</ul>
+</blockquote>
+<hr />
+<h2 id='2'>二、 主机规划与磁盘分区</h2>
+
+<h3 id='2.1'>2.1 各种硬件设备在Linux中的文件名</h3>
+
+<h4 id="1-linux_2">1) 各种硬件设备在Linux中的文件名<a class="headerlink" href="#1-linux_2" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>在Linux这个系统中，几乎所有额硬件设备文件都在/dev这个目录内：</li>
+</ul>
+<blockquote>
+<blockquote>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th>设备</th>
+<th>设备在Linux内的文件名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IDE硬盘</td>
+<td>/dev/hd[a-d]</td>
+</tr>
+<tr>
+<td>SCSI/SATA/USB</td>
+<td>/dev/sd[a-p]</td>
+</tr>
+<tr>
+<td>软驱</td>
+<td>/dev/fd[a-p]</td>
+</tr>
+<tr>
+<td>打印机</td>
+<td>25针：/dev/lp[0-2] USB：/dev/usb/lp[0-15]</td>
+</tr>
+<tr>
+<td>鼠标</td>
+<td>USB：/dev/usb/mouse[0-15] PS2：/dev/psaux</td>
+</tr>
+<tr>
+<td>当前的CD ROM/DVD ROM</td>
+<td>/dev/cdrom</td>
+</tr>
+<tr>
+<td>当前鼠标</td>
+<td>/dev/mouse</td>
+</tr>
+<tr>
+<td>磁带机</td>
+<td>IDE：/dev/ht0 SCSI：/dev/st0</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<h3 id='2.2'>2.2 磁盘分区与组成</h3>
+
+<h4 id="1-ide">1) IDE硬盘<a class="headerlink" href="#1-ide" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>通常主机会提供两个IDE接口，分别叫IDE1(Primary)和IDE2(Secondary)，每个IDE接口可以连接一条IDE扁平电缆，每条IDE扁平电缆可以连接两个IDE</li>
+<li>Master（主设备）和Slave（从设备）</li>
+</ul>
+<blockquote>
+<blockquote>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th><strong>IDE/Jumping</strong></th>
+<th><strong>Master</strong></th>
+<th><strong>Slave</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IDE1(Primary)</td>
+<td>/dev/hda</td>
+<td>/dev/hdb</td>
+</tr>
+<tr>
+<td>IDE2(Secondary)</td>
+<td>/dev/hdc</td>
+<td>/dev/hdd</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<h4 id="2-scsisatausb">2) SCSI/SATA/USB<a class="headerlink" href="#2-scsisatausb" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>磁盘没有一定的顺序，要看Linux内核具体检测到的磁盘顺序；</li>
+</ul>
+</blockquote>
+<h4 id="3">3) 磁盘的组成<a class="headerlink" href="#3" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>磁盘由盘片，机械手臂，磁头和主轴马达组成，数据在盘片上，盘片又可以细分为扇区（Sector）和柱面（Cylinder），其中扇区每个为512Bytes。</li>
+<li>其实这个扇盘的第一扇区特别重要，因为它主要记录了两个重要的信息：<blockquote>
+<ul>
+<li>主引导分区（Master Boot Record, MBR）可以安装引导加载程序的地方，有446Bytes</li>
+<li>分区表（partition
+table）记录整块硬盘分区的状态，有64Bytes。分区的最小单位是煮柱面，总共分为4组记录区P1~P4，每组记录区记录了该区段的起始和结束的柱面号码。分区分为主分区primary和拓展分区 extended</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<blockquote>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th><strong>设备</strong></th>
+<th><strong>设备在Linux内的文件名</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P1</td>
+<td>/dev/hda1</td>
+</tr>
+<tr>
+<td>P2</td>
+<td>/dev/hda2</td>
+</tr>
+<tr>
+<td>P3</td>
+<td>/dev/hda3</td>
+</tr>
+<tr>
+<td>P4</td>
+<td>/dev/hda4</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</blockquote>
+</blockquote>
+<ul>
+<li>简单的定义<blockquote>
+<ul>
+<li>主分区和拓展分区最多可以有4个；</li>
+<li>拓展分区最多有一个；</li>
+<li>逻辑分区是由拓展分区持续切割出来的分区；</li>
+<li>能够被格式化后作为数据访问的分区为主分区和逻辑分区，拓展分区无法格式化；</li>
+<li>逻辑分区的数量依操作系统的不同而有所区别，IDE硬盘最多有59个逻辑分区（5号~63号），SATA硬盘最多有11个（5号~15号）</li>
+<li>主分区和逻辑分区不能够被整合，若强制整合则会破坏拓展分区，拓展分区遭到破坏，其他逻辑分区也会收到牵连。</li>
+<li>拓展分区的目的是使用额外的扇区来记录分区信息，其本身并不能拿来格式化，但可以继续切为逻辑分区（Logical partition）而逻辑分区的命名则从/dev/hda5开始。给新硬盘上建立分区时都要遵循以下的顺序：建立主分区→建立扩展分区→建立逻辑分区→激活主分区→格式化所有分区。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h3 id='2.3'>2.3 开机流程与主引导分区(MBR）</h3>
+
+<blockquote>
+<ul>
+<li>定义：韧体，写入到硬件上的一个软件程序，BIOS是一个韧体。</li>
+<li>流程：开机 BIOS MBR 引导加载程序 内核文件</li>
+<li>位于MBR里面的引导加载程序叫Boot roader：<blockquote>
+<ul>
+<li>提供选择不同系统的选项；</li>
+<li>载入内核文件；</li>
+<li>转交其他loader</li>
+</ul>
+</blockquote>
+</li>
+<li>位于分区里面启动扇区（boot sector）的引导加载程序：<blockquote>
+<ul>
+<li>每个分区都拥有自己的启动扇区（boot sector）；</li>
+<li>实际可开机的内核文件放置到各个分区里面；</li>
+<li>loader只认自己分区的内核文件，以及其他loader；</li>
+<li>loader可将管理权交给另外的管理程序；</li>
+</ul>
+</blockquote>
+</li>
+<li>此特色造就了“多重引导”的功能。</li>
+</ul>
+</blockquote>
+<hr />
+<h2 id='3'>三、 首次登陆和在线求助man page</h2>
+
+<h3 id='3.1'>3.1 首次登陆系统</h3>
+
+<h4 id="1_1">1) 窗口模式和命令行模式的切换<a class="headerlink" href="#1_1" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>Ctrl+Alt+F1 窗口模式</li>
+<li>Ctrl+Alt+F2~F6 命令行模式</li>
+<li>命令行模式登陆输入密码的时候“不会显示任何字样。”</li>
+<li>退出账号的时候使用命令：exit</li>
+<li>模式登陆后所求的程序被称为shell，由于这个程序是内核最外层跟用户进行通讯工作的，所以戏称为“shell”；</li>
+</ul>
+</blockquote>
+<h4 id="2_2">2) 命令格式<a class="headerlink" href="#2_2" title="Permanent link"></a></h4>
+<div class="codehilite"><pre>            [lvhongbin@loccalhost ~]$ command [-option] parameter1 parameter2 …
+            账号名                     命令  选项  参数1     参数二
+</pre></div>
+
+
+<blockquote>
+<ul>
+<li>一行命令中第一个输入的绝对是“命令”或者是“可执行文件”；</li>
+<li>中括号并不实际存在，选项前添加一个短横线-；</li>
+<li>命令太长的时候，可以使用反斜杠“\”来转义[Enter]符号，使命令连续到下一行</li>
+</ul>
+</blockquote>
+<h4 id="3-linux">3) Linux是区分大小写的；<a class="headerlink" href="#3-linux" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>如ls这个命令列出“自己主文件夹（~）”，显示日期的date，显示日历cal，显示好用的计算器：bc，离开计算器回到命令提示符时用quit。</li>
+</ul>
+</blockquote>
+<h4 id="4_1">4) 重要的热键<a class="headerlink" href="#4_1" title="Permanent link"></a></h4>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th><strong>快捷键</strong></th>
+<th><strong>含义</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>【Tab】【Tab】</td>
+<td>具有“命令补全”和“文件补齐”的功能；</td>
+</tr>
+<tr>
+<td>【Ctrl】+ c</td>
+<td>强制当前程序“停止”；</td>
+</tr>
+<tr>
+<td>【Ctrl】+ d</td>
+<td>关闭文字界面；</td>
+</tr>
+<tr>
+<td>man命令</td>
+<td>按下空格键进行往下翻页，按下“q”离开man环境</td>
+</tr>
+<tr>
+<td>info命令</td>
+<td>可以按下N、P、U分别进行下一个，上一个和上一个节点的选择，光标选中开头具有“*”命令的一行并按下【ENTER】便可进入该节点，？号显示命令一览表</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<h3 id='3.2'>3.2 超简单的文本编辑器：nano</h3>
+
+<blockquote>
+<ul>
+<li>打开或者新建一个新的文件：nano text.txt</li>
+<li>其中，指数符号\^ 表示【Ctrl】M表示【Alt】        </li>
+</ul>
+</blockquote>
+<h3 id='3.3'>3.3 正确的开关机</h3>
+
+<h4 id="1_2">1) 注意<a class="headerlink" href="#1_2" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>Linux是一个多用户工作的系统，不能随便关掉电源来关机。在关机时需要注意：<blockquote>
+<ul>
+<li>查看系统的使用状态 如果看网络的联机状态，可以执行“netstat&gt; - -a”的命令，</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>            [root@MiWiFi-R3-srv software]# netstat -a
+            Active Internet connections (servers and established)
+            Proto Recv-Q Send-Q Local Address           Foreign Address         State      
+            tcp        0      0 0.0.0.0:sunrpc          0.0.0.0:*               LISTEN     
+            tcp        0      0 MiWiFi-R3-srv:domain    0.0.0.0:*               LISTEN     
+            tcp        0      0 0.0.0.0:ssh             0.0.0.0:*               LISTEN     
+            tcp        0      0 localhost:ipp           0.0.0.0:*               LISTEN     
+            tcp        0      0 localhost:smtp          0.0.0.0:*               LISTEN     
+            tcp6       0      0 [::]:sunrpc             [::]:*                  LISTEN     
+            tcp6       0      0 [::]:ssh                [::]:*                  LISTEN     
+            tcp6       0      0 localhost:ipp           [::]:*                  LISTEN     
+            tcp6       0      0 localhost:smtp          [::]:*                  LISTEN     
+            udp        0      0 0.0.0.0:51977           0.0.0.0:*                          
+            udp        0      0 0.0.0.0:54043           0.0.0.0:*                          
+            udp        0      0 0.0.0.0:mdns            0.0.0.0:*                          
+            udp        0      0 MiWiFi-R3-srv:domain    0.0.0.0:*                          
+            udp        0      0 0.0.0.0:bootps          0.0.0.0:*                          
+            udp        0      0 0.0.0.0:bootpc          0.0.0.0:*                          
+            udp        0      0 localhost:323           0.0.0.0:*                          
+            udp6       0      0 [::]:49660              [::]:*                             
+            udp6       0      0 localhost:323           [::]:*                             
+            raw6       0      0 [::]:ipv6-icmp          [::]:*                  7          
+            Active UNIX domain sockets (servers and established)
+            Proto RefCnt Flags       Type       State         I-Node   Path
+            unix  2      [ ACC ]     STREAM     LISTENING     16128    /var/run/rpcbind.sock
+            unix  2      [ ACC ]     STREAM     LISTENING     13569    /run/lvm/lvmetad.socket
+            unix  2      [ ACC ]     STREAM     LISTENING     16132    /var/run/libvirt/virtlogd-sock
+            unix  2      [ ACC ]     STREAM     LISTENING     36700    @/tmp/dbus-10iqxiu4
+</pre></div>
+
+
+<blockquote>
+<blockquote>
+<ul>
+<li>如果要看后台执行的程序，可以执行“ps -aux”的命令;</li>
+</ul>
+</blockquote>
+</blockquote>
+<div class="codehilite"><pre>            [root@MiWiFi-R3-srv software]# ps -aux
+            USER        PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+            root          1  0.0  0.1 193744  6888 ?        Ss   May26   0:16 /usr/lib/systemd/systemd --switched-root --system --deserialize 21
+            root          2  0.0  0.0      0     0 ?        S    May26   0:00 [kthreadd]
+            root          3  0.0  0.0      0     0 ?        S    May26   0:00 [ksoftirqd/0]
+            root          5  0.0  0.0      0     0 ?        S&lt;   May26   0:00 [kworker/0:0H]
+            root          7  0.0  0.0      0     0 ?        S    May26   0:00 [migration/0]
+            root          8  0.0  0.0      0     0 ?        S    May26   0:00 [rcu_bh]
+            root          9  0.0  0.0      0     0 ?        R    May26   0:07 [rcu_sched]
+            root         10  0.0  0.0      0     0 ?        S    May26   0:00 [watchdog/0]
+            root         11  0.0  0.0      0     0 ?        S    May26   0:00 [watchdog/1]
+            root         12  0.0  0.0      0     0 ?        S    May26   0:00 [migration/1]
+            root         13  0.0  0.0      0     0 ?        S    May26   0:00 [ksoftirqd/1]
+</pre></div>
+
+
+<blockquote>
+<ul>
+<li>通知在线用户关机的时刻 对于Linux系统来讲，重启和关机：reboot，halt和poweroff是非常重要的操作，一般需要root用户才能执行</li>
+</ul>
+</blockquote>
+<h4 id="2-sync">2) 数据同步写入磁盘：sync<a class="headerlink" href="#2-sync" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>一般来讲，数据都要经过内存才能被CPU执行，而且数据又经常需要通过内存读入或者写进硬盘。但是硬盘的传输和读写效率很低，为了提高效率，某部分数据进入内存后先不写入硬盘，继续保留在内存中，方便后续的修改。如果这时候突然死机后者关掉电源，由于内存是挥发性存储器，数据会丢失。所以在关机之前需要做好数据从内存写入硬盘的操作。用命令sync完成。</li>
+<li>事实上一般账户也能使用sync命令，只是只能保留自己的数据罢了。</li>
+</ul>
+</blockquote>
+<h4 id="3-shutdown">3) 常用的关机命令：shutdown<a class="headerlink" href="#3-shutdown" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>shutdown执行它的工作是送信号〔signal〕给init程序﹐要求它改变runlevel。Runlevel&gt; - 0被用来停机〔halt〕﹐runlevel 6是用来重新激活〔reboot〕系统﹐而runlevel&gt; - 1则是被用来让系统进入管理工作可以进行的状态﹔这是预设的﹐假定没有-h也没有-r参数给shutdown。要想了解在停机〔halt〕或者重新开机〔reboot〕过程中做了哪些动作﹐你可以在这个文件/etc/inittab里看到这些runlevels相关的资料。</li>
+</ul>
+<blockquote>
+<blockquote>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th><strong>参数</strong></th>
+<th><strong>参数说明</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[-t]</td>
+<td>在改变到其它runlevel之前﹐告诉init多久以后关机。</td>
+</tr>
+<tr>
+<td>[-r]</td>
+<td>重启计算器。</td>
+</tr>
+<tr>
+<td>[-k]</td>
+<td>并不真正关机﹐只是送警告信号给每位登录者〔login〕。</td>
+</tr>
+<tr>
+<td>[-h]</td>
+<td>关机后关闭电源〔halt〕。</td>
+</tr>
+<tr>
+<td>[-n]</td>
+<td>不用init﹐而是自己来关机。不鼓励使用这个选项﹐而且该选项所产生的后果往往不总是你所预期得到的。</td>
+</tr>
+<tr>
+<td>[-c]</td>
+<td>cancel current&gt; - process取消目前正在执行的关机程序。所以这个选项当然没有时间参数﹐但是可以输入一个用来解释的讯息﹐而这信息将会送到每位使用者。</td>
+</tr>
+<tr>
+<td>[-f]</td>
+<td>在重启计算器〔reboot〕时忽略fsck。</td>
+</tr>
+<tr>
+<td>[-F]</td>
+<td>在重启计算器〔reboot〕时强迫fsck。</td>
+</tr>
+<tr>
+<td>[-time]</td>
+<td>设定关机〔shutdown〕前的时间。</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</blockquote>
+</blockquote>
+<ul>
+<li>例如：</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>            /sbin/shutdown －h now－－－－－立即关机；
+            /sbin/shutdown －h 20：49－－－－20：49分关机
+            /sbin/shutdown －h ＋10－－－－－10分钟后关机
+            /sbin/shutdown －r now －－－－－立即重启
+            /sbin/shutdown －r ＋10 ‘The system will&gt; - reboot&#39;－－－－10分钟后系统重启并给每个登录用户发通知
+            /sbin/shutdown －k now ‘The system will&gt; - reboot&#39;－－－－仅给每个登录用户发通知并不真关机
+</pre></div>
+
+
+<h4 id="4-halt">4) halt 最简单的关机命令<a class="headerlink" href="#4-halt" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>其实halt就是调用shutdown&gt; - -h。halt执行时﹐杀死应用进程﹐执行sync系统调用﹐文件系统写操作完成后就会停止内核。<blockquote>
+<blockquote>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th><strong>参数</strong></th>
+<th><strong>参数说明</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[-n]</td>
+<td>防止sync系统调用﹐它用在用fsck修补根分区之后﹐以阻止内核用老版本的超级块〔superblock〕覆盖修补过的超级块。</td>
+</tr>
+<tr>
+<td>[-w]</td>
+<td>并不是真正的重启或关机﹐只是写wtmp〔/var/log/wtmp〕纪录。</td>
+</tr>
+<tr>
+<td>[-d]</td>
+<td>不写wtmp纪录〔已包含在选项[-n]中〕。</td>
+</tr>
+<tr>
+<td>[-f]</td>
+<td>没有调用shutdown而强制关机或重启。</td>
+</tr>
+<tr>
+<td>[-i]</td>
+<td>关机〔或重启〕前﹐关掉所有的网络接口。</td>
+</tr>
+<tr>
+<td>[-p]</td>
+<td>该选项为缺省选项。就是关机时调用poweroff。</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h4 id="5-reboot">5) reboot<a class="headerlink" href="#5-reboot" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>reboot的工作过程差不多跟halt一样﹐不过它是引发主机重启﹐而halt是关机。它的参数与halt相差不多。</li>
+</ul>
+</blockquote>
+<h4 id="6-init">6) 切换执行等级：init<a class="headerlink" href="#6-init" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>init是所有进程的祖先﹐它的进程号始终为1﹐所以发送TERM信号给init会终止所有的用户进程﹑守护进程等。shutdown就是使用这种机制。init定义了8个运行级别(runlevel)，init 0为关机﹐init1为重启。关于init可以长篇大论﹐这里就不再叙述。另外还有telinit命令可以改变init的运行级别﹐比如﹐telinit -iS可使系统进入单用户模式﹐并且得不到使用shutdown时的信息和等待时间。</li>
+</ul>
+</blockquote>
+<h4 id="7-poweroff">7) Poweroff<a class="headerlink" href="#7-poweroff" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>关机，在多用户方式下(Runlevel 3)不建议使用。Poweroff基本和halt一致，不过使用poweroff会关机后并且切断电源。poweroff在关闭计算机操作系统之后，最后还会发送ACPI指令，通知电源，最后切断电源供应，当然路由器等嵌入系统不支持ACPI的，所以这个无效。</li>
+</ul>
+</blockquote>
+<hr />
+<h2 id='4'>四、 文件权限和目录配置</h2>
+
+<h3 id='4.1'>4.1 文件权限的概念</h3>
+
+<blockquote>
+<ul>
+<li>“ls”命令表示list，“-al”表示all，文件名前面的“.”表示包含隐藏文件，下面是一般格式：</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>            -rw-rw-r--.  1      lvhongbin   lvhongbin   17      Dec 31 17:20    hello.txt
+            文件权限    连接数 所有者     用户组 文件大小 最后修改的日期    文件名
+</pre></div>
+
+
+<blockquote>
+<ul>
+<li>第一列代表这个文件的类型和权限（permission）；<blockquote>
+<ul>
+<li>第一个文件权限共10个字符，共分4组，第一个字符自己一组，后面每三个字符一组，分别记为group1~group4。r的权利最容易获得，其次是x，最难是w。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<blockquote>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th><strong>参数</strong></th>
+<th><strong>参数说明</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>group1:目录，文件或者链接文件</td>
+<td></td>
+</tr>
+<tr>
+<td>[d]</td>
+<td>表示目录</td>
+</tr>
+<tr>
+<td>[-]</td>
+<td>表示文件</td>
+</tr>
+<tr>
+<td>[|]</td>
+<td>表示连接文件linkfile</td>
+</tr>
+<tr>
+<td>[b]</td>
+<td>表示设备文件里面的可供存储的接口设备</td>
+</tr>
+<tr>
+<td>[c]</td>
+<td>表示设备文件里面的串行端口设备，如鼠标和键盘</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>group2</td>
+<td>文件所有者的权限</td>
+</tr>
+<tr>
+<td>[r]</td>
+<td>表示可读</td>
+</tr>
+<tr>
+<td>[w]</td>
+<td>表示可写</td>
+</tr>
+<tr>
+<td>[x]</td>
+<td>表示可执行</td>
+</tr>
+<tr>
+<td>[-]</td>
+<td>表示啥权利都没有&gt;《&lt;</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>group3</td>
+<td>同用户组的权限</td>
+</tr>
+<tr>
+<td>[r]</td>
+<td>表示可读</td>
+</tr>
+<tr>
+<td>[w]</td>
+<td>表示可写</td>
+</tr>
+<tr>
+<td>[x]</td>
+<td>表示可执行</td>
+</tr>
+<tr>
+<td>[-]</td>
+<td>表示啥权利都没有&gt;《&lt;</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>group4</td>
+<td>其他非本用户组的权限</td>
+</tr>
+<tr>
+<td>[r]</td>
+<td>表示可读</td>
+</tr>
+<tr>
+<td>[w]</td>
+<td>表示可写</td>
+</tr>
+<tr>
+<td>[x]</td>
+<td>表示可执行</td>
+</tr>
+<tr>
+<td>[-]</td>
+<td>表示啥权利都没有&gt;《&lt;</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</blockquote>
+</blockquote>
+<ul>
+<li>第二列表示有多少文件名连接到此节点；</li>
+<li>第三列表示这个文件（或目录）的“所有者账号”；</li>
+<li>第四列表示所属的用户组 你的账号会依附于一个或者多个用户组。</li>
+<li>第五列为文件大小 文件大小的单位默认为Byte。</li>
+<li>第六列为最近修改的日期；</li>
+<li>第七列为文件名；</li>
+</ul>
+</blockquote>
+<h3 id='4.2'>4.2 改变文件的属性和权限</h3>
+
+<h4 id="1-chgrp">1) chgrp改变文件所属用户组<a class="headerlink" href="#1-chgrp" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>格式：chgrp [-r] 用户组 文件名/文件目录</li>
+<li>[-r]表示递归，即连同子目录下的所有文件和目录；</li>
+</ul>
+</blockquote>
+<h4 id="2-chown">2) chown改变文件所有者<a class="headerlink" href="#2-chown" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>格式：chown [-r] 所有者 文件名/文件目录</li>
+<li>chown也能改变用户组名称，在所有者后面加上“.”和所要修改的用户组名称，当然了，也能单纯的修改用户组名称，所有者换成“.”和所要修改的用户组名称；</li>
+</ul>
+</blockquote>
+<h4 id="3-chmod">3) chmod改变文件的权限<a class="headerlink" href="#3-chmod" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>法一：数字类型改变 rwx分别代表4、2、1，然后xyz分别代表owner、group和others三种身份的权限累加；</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>            格式：chmod [-r] xyz 文件名/文件目录
+</pre></div>
+
+
+<blockquote>
+<ul>
+<li>法二：符号类型改变</li>
+</ul>
+<blockquote>
+<blockquote>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th>chmod</th>
+<th>u g o a</th>
+<th>+(加入) -(除去) =(设置)</th>
+<th>r w x</th>
+<th>文件或者目录</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<div class="codehilite"><pre>            // 注意，以上u=rwx,go=rx的逗号旁边是没有空格隔开的
+            [root@MiWiFi-R3-srv software]# chmod u=rwx,go=rx hello.txt
+</pre></div>
+
+
+<h4 id="4-cp">4) cp复制<a class="headerlink" href="#4-cp" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>格式：cp 源文件 目标文件</li>
+</ul>
+</blockquote>
+<h3 id='4.3'>4.3 目录与文件的权限意义</h3>
+
+<h4 id="1_3">1) 权限对文件的重要性<a class="headerlink" href="#1_3" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>三种权限均主要针对文件的内容而言的，与文件的存在与否没有关系</li>
+<li>r：可读取此文件的实际内容；</li>
+<li>w：可以编辑，新增或者修改该文件的内容；</li>
+<li>x：该文件具有被系统执行的权限；</li>
+</ul>
+</blockquote>
+<h4 id="2_3">2) 权限对目录的重要性；<a class="headerlink" href="#2_3" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>r：可读取此目录结构列表的权限，既可以查询该文件目录下的文件名数据；</li>
+<li>w：可以更改该目录结构列表的权限，即新建新的文件与目录，删除已经存在的文件或者目录，将已存在的文件或者目录进行重命名，转移改目录内的文件、目录位置；</li>
+<li>x：该文件具有被系统执行的权限，即代表用户能否进入该目录称为工作目录的用途，所谓工作目录（work directory）就是你目前所在的目录，拥有x权限可以查阅文件的内容，所以在开放目录给别人浏览的时候，应该至少给予r及x的权限，但是w的权限不能随便给；</li>
+</ul>
+</blockquote>
+<h4 id="3_1">3) 重要的命令：<a class="headerlink" href="#3_1" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>cd：切换目录</li>
+<li>mkdir：新建目录</li>
+<li>touch：新建空的文件</li>
+<li>su：切换用户</li>
+<li>cd ..：返回上一级目录</li>
+<li>cd /：返回根目录</li>
+<li>rm：删除文件</li>
+<li>rm -r ：删除文件目录                                   </li>
+</ul>
+</blockquote>
+<h3 id='4.4'>4.4 Linux的目录配置</h3>
+
+<h4 id="1-filesystem-hierarchy-standard-fhs">1) Filesystem hierarchy standard, FHS目录配置标准<a class="headerlink" href="#1-filesystem-hierarchy-standard-fhs" title="Permanent link"></a></h4>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>可分享的shareable</th>
+<th>不可分享的unshareable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>不变的static</td>
+<td>/usr软件放置处</td>
+<td>/etc配置文件</td>
+</tr>
+<tr>
+<td></td>
+<td>/opt第三方软件</td>
+<td>/boot开机与内核文件</td>
+</tr>
+<tr>
+<td>可变动的variable</td>
+<td>/var/mail用户邮件信箱</td>
+<td>/var/run程序相关</td>
+</tr>
+<tr>
+<td></td>
+<td>/var/spool/news新闻组</td>
+<td>/var/lock程序相关</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</blockquote>
+</blockquote>
+<ul>
+<li>可分享的shareable：可以分享给网络上其他主机挂载用的目录；</li>
+<li>不可分享的unshareable：不可以分享给网络上其他主机挂载用的目录；</li>
+<li>不变的：这些数据不经常变动，例如一些函数库和文件说明文件等；</li>
+<li>root：与开机系统有关；</li>
+<li>usr：UNIX software resource：与软件的安装/执行有关；</li>
+<li>var：variable，与系统运作有关；</li>
+<li>prop：跟内存数据相关的文件夹，由于数据都在内存中，所以不占据硬盘空间；</li>
+</ul>
+<blockquote>
+<blockquote>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th>目录</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/bin</td>
+<td>系统执行文件</td>
+</tr>
+<tr>
+<td>/boot</td>
+<td>开机会使用到的文件</td>
+</tr>
+<tr>
+<td>/dev</td>
+<td>任何设备和接口设备的文件</td>
+</tr>
+<tr>
+<td>/etc</td>
+<td>系统的主要配置文件，如人员的账号密码</td>
+</tr>
+<tr>
+<td>/home</td>
+<td>系统默认用户的主文件夹</td>
+</tr>
+<tr>
+<td>/lib</td>
+<td>系统的函数库</td>
+</tr>
+<tr>
+<td>/media</td>
+<td>可删除的设备，包括DVD，软盘等</td>
+</tr>
+<tr>
+<td>/mnt</td>
+<td>暂时挂载某些设备</td>
+</tr>
+<tr>
+<td>/opt</td>
+<td>第三方软件放置的目录，如KDE这个桌面管理系统</td>
+</tr>
+<tr>
+<td>/root</td>
+<td>系统管理员的主文件夹</td>
+</tr>
+<tr>
+<td>/sbin</td>
+<td>包括开机，修复，还原系统所需要的重要系统执行命令</td>
+</tr>
+<tr>
+<td>/srv</td>
+<td>跟网络服务有关</td>
+</tr>
+<tr>
+<td>/tmp</td>
+<td>程序运行时数据暂时放置的地方</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<h4 id="2-vs">2) 绝对路径VS相对路径<a class="headerlink" href="#2-vs" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>绝对路径：由根目录（/）开始写起的文件名或者目录名称；</li>
+<li>相对目录：不是由根目录（/）开始写起的文件名或者目录名称；</li>
+<li>uname：查看系统信息命令</li>
+</ul>
+</blockquote>
+<hr />
+<h2 id='5'>五、 Linux文件与目录管理</h2>
+
+<h3 id='5.1'>5.1 目录的相关操作</h3>
+
+<blockquote>
+<ul>
+<li>.：代表当前目录，也可以用./来表示；</li>
+<li>..：代表上一层目录，也可以用../来表示</li>
+<li>-：代表前一个工作目录</li>
+<li>~：代表当前用户身份所在的主文件夹</li>
+<li>~account：代表account这个用户的主文件夹，account是一个账号名称，即/home/account</li>
+<li>pwd：print working directory显示当前目录；</li>
+<li>mkdir：可以创建目录，但是一次只能生成一层，不过可以使用-p的参数进行多层创建；</li>
+<li>rmdir：删除空的目录，也可以使用-p的参数</li>
+<li>mv：文件移动，即剪切然后到别的目录粘贴 mv [-option] 原文件路径+名字
+    新文件路径+名字</li>
+<li>cp：复制 cp [-option] 原文件路径+名字 新文件路径+名字</li>
+<li>-i：该参数表示在执行操作的时候会询问用户要不要进行覆盖等信息</li>
+<li>-a：全部</li>
+<li>echo：显示出，打印的意思</li>
+<li>basename：取得文件的名字</li>
+<li>dirname：取得文件的目录</li>
+</ul>
+</blockquote>
+<h3 id='5.2'>5.2 目关于执行文件路径的变量：$PATH</h3>
+
+<blockquote>
+<ul>
+<li>命令ls的完整路径是/bin/ls(绝对路径)</li>
+<li>那为什么只用输入ls就可以了呢？在于$PATH；</li>
+<li>可以尝试用echo $PATH 看看都有哪些变量，每个变量都用冒号：隔开<blockquote>
+<ul>
+<li>/usr/local/bin:</li>
+<li>/usr/local/sbin:</li>
+<li>/usr/bin:</li>
+<li>/usr/sbin:</li>
+<li>/bin:</li>
+<li>/sbin:</li>
+<li>/home/lvhongbin/.local/bin:</li>
+<li>/home/lvhongbin/bin</li>
+</ul>
+</blockquote>
+</li>
+<li>在PATH中加入新的目录可执行如下命令：</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>            PATH=”$PATH”:/root
+</pre></div>
+
+
+<h3 id='5.3'>5.3 文件内容查阅</h3>
+
+<p>&gt; - cat：concatenate由第一行开始显示文件内容；</p>
+<blockquote>
+<ul>
+<li>tac：从最后一行开始显示，可以看出tac是cat的倒写形式;</li>
+<li>nl：显示的时候顺便输出行号；</li>
+<li>more：一页一页地显示文件内容；</li>
+<li>head：只看前面几行；</li>
+<li>tail：只看后面几行；</li>
+<li>od：以二进制的形式读取文件内容；</li>
+</ul>
+</blockquote>
+<h3 id='5.4'>5.4 修改文件时间或创建新文件：touch</h3>
+
+<blockquote>
+<ul>
+<li>modification time (mtime)：这个是文件更新的时间；</li>
+<li>status time(ctime)：状态或者权限被改变的时候的时间；</li>
+<li>access time(atime)：文件被使用的时候的时间，如被打开或者复制；</li>
+<li>那怎么查看呢？</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>            ls -l --time=atime 文件全路径
+</pre></div>
+
+
+<blockquote>
+<ul>
+<li>若想查看所有的时间：</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>            // “ll”两个小写的l表示“ls
+            // -l”的命令，命令与命令之间用分号；隔开。默认查询修改时间mtime，此时间不需要添加--time命令，否则会出错；
+            ll test.txt; ll --time=ctime test.txt; ll --time=atime test.txt
+</pre></div>
+
+
+<blockquote>
+<ul>
+<li>修改时间命令 使用该命令修改的时间只会修改mtime和atime，而ctime会更改为目前的时间；</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>            touch -d &quot;2 days ago&quot; test.txt
+</pre></div>
+
+
+<h3 id='5.5'>5.5 文件的默认权限与隐藏属性与特殊权限</h3>
+
+<h4 id="1_4">1) 文件默认权限<a class="headerlink" href="#1_4" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>文件的默认权限为-rw- rw- rw-，简称666；</li>
+<li>目录的默认权限是drwxrwxrwx，简称777；</li>
+<li>使用umask时后面跟随3位数字，用默认的减去umask后面跟随的数字便可得新得到的默认权限；</li>
+<li>如：umask 002</li>
+</ul>
+</blockquote>
+<h4 id="2_4">2) 文件的隐藏属性：<a class="headerlink" href="#2_4" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>chattr修改文件隐藏属性</li>
+<li>chattr [+-=][ASacdistu] 文件或者目录名称</li>
+<li>如：chattr +i 文件全路径</li>
+<li>表示添加文件不被删除，改名，设置连接，也无法添加或者写入数据的属性</li>
+<li>chattr -i 文件全路径</li>
+<li>表示删除该属性</li>
+<li>另外还有其他属性</li>
+<li>lsattr显示文件的隐藏属性</li>
+</ul>
+</blockquote>
+<h4 id="3_2">3) 文件特殊权限<a class="headerlink" href="#3_2" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>SUID(SetUserID)</li>
+<li>符号：s，数字：4</li>
+<li>功能：可以暂时获得root的权限，执行者暂时具备程序所有者owner的权限；</li>
+<li>前提：二进制程序（binary program），执行者对于改程序具有x的可执行权限；</li>
+<li>例子：chmod u=rwxs,go=x text.txt 或者chmod 4755 test.txt</li>
+<li>SGID(SetGroupID)</li>
+<li>符号：s，数字：2</li>
+<li>功能：执行者暂时具备程序用户组Group的权限；</li>
+<li>前提：二进制程序（binary program），执行者对于改程序具有x的可执行权限；</li>
+<li>例子：chmod, g+s text.txt</li>
+<li>SBIT</li>
+<li>符号：t，数字：1</li>
+<li>功能：当用户拥有SBIT权限时。仅有自己和root才有权限对自己创建的文件和目录进行删除，重命名和移动等操作，而无法删除别人的文件；</li>
+<li>前提：目录，执行者对于改程序具有x的可执行权限；；</li>
+<li>例子：chmod, o+t text.txt</li>
+</ul>
+</blockquote>
+<h3 id='5.6'>5.6 命令和文件的查询</h3>
+
+<h4 id="1-which">1) 脚本文件名的查询which<a class="headerlink" href="#1-which" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>Which [-a] command</li>
+<li>在$PATH中查询命令的路径，加上-a表示，查找出所有的路径；</li>
+</ul>
+</blockquote>
+<h4 id="2_5">2) 文件名的查找<a class="headerlink" href="#2_5" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>whereis 查找特定文件</li>
+<li>whereis [-bmus] 文件或者目录名</li>
+<li>locate  查找含有特定前缀的文件或者目录，和whereis一样特点是查找已创建的数据库，对于不同发行版的Linux，每次更新数据库的时间都不相同，比如CentOS5.x是每天一更新。更新后才能找最新的文件，手动更新的命令为“updatedb”</li>
+<li>find 直接在硬盘中查找，比较花时间</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>            find [PATH] [option] [action]
+</pre></div>
+
+
+<blockquote>
+<ul>
+<li>跟时间有关的参数：mtime,ctime,atime<blockquote>
+<ul>
+<li>-mtime n：n为数字，意义是n天之前的“一天之内”被更改的文件，即n\&lt;mtime\&lt;n+1；</li>
+<li>-mtime +n：列出n天之前（不包含n天本身）被更改的文件，即≥n+1天的文件；</li>
+<li>-mtime -n：列出n天之内（含n天本身）被更改的文件，即≤n；</li>
+<li>-newer file：file为一个存在的文件，列出比file还要更新的文件名；</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>            find /etc -newer /etc/passwd
+</pre></div>
+
+
+<blockquote>
+<ul>
+<li>即在/etc目录下寻找比/etc/passwd还要新的文件；</li>
+<li>与用户名有关的参数<blockquote>
+<ul>
+<li>-user name：name为用户名</li>
+<li>-group name：name为用户组名</li>
+<li>-nouser：寻找的用户名不存在</li>
+<li>-nogroup：寻找的用户组不存在</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>            find /home -user lvhongbin 把某用户的所有文件都找出来
+</pre></div>
+
+
+<blockquote>
+<ul>
+<li>与文件权限及名称相关的参数<blockquote>
+<ul>
+<li>-name filename：查找文件名为filename的文件</li>
+<li>-size [+-]SIZE：查找比SIZE大（+）或者小（-）的文件，单位c代表Byte，k代表KB</li>
+<li>-perm mode：mode是数字属性，属性刚好等于mode的文件，如4755.</li>
+<li>-perm -mode：mode是数字属性，属性要包含mode的文件</li>
+<li>-perm +mode：mode是数字属性，属性有任一mode的文件
+当然了，find还有许多其他的功能；</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<hr />
+<h2 id='6'>六、 Linux磁盘与文件系统的管理</h2>
+
+<h3 id='6.1'>6.1 EXT2文件系统</h3>
+
+<h4 id="1-ext2">1) 认识EXT2文件系统<a class="headerlink" href="#1-ext2" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>Linux最传统的磁盘文件系统：EXT2（Linux second extended file system，Ext2fs）</li>
+<li>扇区sector为最小的物理存储单位，每个扇区为512Bytes；</li>
+<li>将扇区围成一个圆，就成为一个柱面，柱面是最小的分区（partition）单位</li>
+<li>文件系统分为三个部分；<blockquote>
+<ul>
+<li>Super block：记录此文件系统的整体信息，每个；</li>
+<li>Inode：记录文件的权限和属性，一个文件占用一个inode，同时记录此文件的数据所在的block号码；</li>
+<li>Block：实际记录文件的内容，若文件太大时，会占用多个block。</li>
+</ul>
+</blockquote>
+</li>
+<li>这种通过Inode查找Block的访问方法称为“索引式文件系统”（indexed allocation）</li>
+<li>另外还有另外一种方式，如U盘，他没有Inode，只有Block，每一个Block除了记录信息和数据以外，还记录了下一个Block的编号；        </li>
+</ul>
+</blockquote>
+<h4 id="2-ext2">2) EXT2文件系统<a class="headerlink" href="#2-ext2" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>由启动扇区和多个blockgroup组成，每个blockgroup由superblock，文件系统描述，块对应表，inode对应表，inode table，data block。</li>
+<li>EXT2文件系统中block大小只有1KB，2KB和4KB三种而已，而且格式化的时候block的大小就已经固定了，每个block都有编号，以便indode的记录。</li>
+</ul>
+</blockquote>
+<h4 id="3_3">3) 注意：<a class="headerlink" href="#3_3" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>Super block <blockquote>
+<ul>
+<li>每个super block都可以用dumpe2fs这个命令来查询；</li>
+</ul>
+</blockquote>
+</li>
+<li>Block <blockquote>
+<ul>
+<li>Block的大小和数量在格式化完了就不能在改变了（除非重新格式化）；</li>
+<li>每个block只能放置一个文件的数据；</li>
+<li>如果一个文件大于一个block的大小，则会占用多个block；</li>
+<li>若文件小于block，则该block的剩余空间就不能再被利用了（磁盘空间就会被浪费）</li>
+</ul>
+</blockquote>
+</li>
+<li>Inodetable<blockquote>
+<ul>
+<li>分为12个直接记录+1个间接记录+1个双间接+1个三间接，间接事宜block拓展作为号码记录；</li>
+</ul>
+</blockquote>
+</li>
+<li>Filesystem Description<blockquote>
+<ul>
+<li>这个区段描述的是每个blockgroup的开始和结束的block号码；</li>
+</ul>
+</blockquote>
+</li>
+<li>Block bitmap<blockquote>
+<ul>
+<li>用来记录哪些block是空的；</li>
+</ul>
+</blockquote>
+</li>
+<li>Inode bitmap<blockquote>
+<ul>
+<li>用来记录哪些inode是空的；</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h3 id='6.2'>6.2 相关命令</h3>
+
+<blockquote>
+<ul>
+<li>dumpe2fs：查询super block的信息；</li>
+<li>dumpe2fs [-hb]，如dumpe2fs /dev/hdc2</li>
+<li>df：调出目前挂载的设备；</li>
+<li>ls -i：列出文件的inode值</li>
+</ul>
+</blockquote>
+<h3 id='6.3'>6.3 目录树与其他文件系统</h3>
+
+<h4 id="1_5">1) 文件的读取流程：<a class="headerlink" href="#1_5" title="Permanent link"></a></h4>
+<div class="codehilite"><pre>            16777283 drwxr-xr-x. 2 lvhongbin lvhongbin 1024 Jan 1 17:42 text.text
+</pre></div>
+
+
+<blockquote>
+<ul>
+<li>其实目录就是一个挂载点的信息，通过目录一层一层地揭开inode的信息，最终找到文件数据的block位置。从而找到文件。</li>
+</ul>
+</blockquote>
+<h4 id="2_6">2) 文件的写入流程：<a class="headerlink" href="#2_6" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>先确定用户对于添加文件的目录是否具有w和x的权限，若有才添加；</li>
+<li>跟据Inode bitmap找到没有使用的inode号码，并将新文件的权限/属性写入；</li>
+<li>跟据Block bitmap找到没有使用的block号码，并将实际的数据写入block，且更新inode的block的指向数据；</li>
+<li>将刚写入的inode与block数据同步更新Inode bitmap和Block bitmap，并更新superblock的内容；</li>
+</ul>
+</blockquote>
+<h4 id="3-inode-tabledata-block">3) 数据存放区域：inode table，data block；<a class="headerlink" href="#3-inode-tabledata-block" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>中间数据metadata：superblock，block bitmap，inode&gt; - bitmap，数据经常变动，每次添加，删除，编辑的时候都可能会影响这三部分的数据；</li>
+</ul>
+</blockquote>
+<h4 id="4-inconsistent">4) 数据不一致的状态（Inconsistent）<a class="headerlink" href="#4-inconsistent" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>若在写入数据的时候发生断电，最后一步的同步中间数据的步骤没有完成，就会出现数据不一致的情况，早些时候的系统在重新启动后都会通过superblock当中记录valid&gt; - bit(是否有挂载)与文件系统state（clean与否）等状态来判断是否进行强制数据一致性检查。若需要检查时则以e2fack这支程序来进行，不过检查这的很费时间，后来就衍生了日志文件系统；</li>
+</ul>
+</blockquote>
+<h4 id="5">5) 日志文件系统<a class="headerlink" href="#5" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>为了克服上面的困难，我们的前辈想出了一个好的办法，在文件系统中规划出一个块，专门用来记录写入和修订文件的一些操作步骤，依次简化一致性检查的步骤。<blockquote>
+<ul>
+<li>预备：当系统要写入一个文件的时候，先在日志记录中记录某个文件要写入的信息；</li>
+<li>实际写入：检查用户的权限，检查inode bitmap和block bitmap，开始写入文件的权限和属性和数据，然后更新inode bitmap和block bitmap和superblock的内容。</li>
+<li>结束：完成数据和meta data的更新，再在记录块中完成该文件的记录。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h4 id="6-linux">6) Linux文件系统的操作<a class="headerlink" href="#6-linux" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>异步处理asynchronous</li>
+<li>当一个文件被加载到内存后，如果他没有被改动过，他就被打上clean的标签，如果他被改动了，就会被打上dirty的标签。系统会不定时使用sync的命令。把dirty的文件数据写入硬盘，以保证内存和硬盘数据的一致性。若正常关机的时候，关机命令会主动调用sync来将内存的数据回写入磁盘内。</li>
+</ul>
+</blockquote>
+<h4 id="7-mount-point">7) 挂载点（mount point）的意义与其他文件系统<a class="headerlink" href="#7-mount-point" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>每个block&gt; - group都有自己的独立的inode，block和superblock，这个文件树要连接到目录树中才能被我们使用。将文件系统和目录树相结合的操作我们称为挂载。重点是，挂载点一定是目录，该目录为进入该文件的入口。由于每个inode只容纳一个文件，所以可以判断相同的inode号码的文件是同一个文件。</li>
+<li>命令：</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>            // 查看本linux系统支持的文件系统有哪些
+            # ls -l /lib/modules/$(uname -r)/kernel/fs
+
+            //查看加载到内存中的文件系统有哪些
+            cat /proc/filesystems
+</pre></div>
+
+
+<h4 id="8-linux-vfs">8) Linux VFS<a class="headerlink" href="#8-linux-vfs" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>VFS Virtual Filesystem Switch, 虚拟文件系统，他是linux&gt; - kernel内核的一个部分，负责调用不同的模块去读写硬件中的文件系统</li>
+</ul>
+</blockquote>
+<h3 id='6.4'>6.4 文件系统的简单操作</h3>
+
+<h4 id="1-df-ahikhtm">1) 列出文件系统的整体磁盘使用量：df [-ahikHTm] [目录或者文件名]<a class="headerlink" href="#1-df-ahikhtm" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>-a 显示所有</li>
+<li>-k 以KB为单位</li>
+<li>-m 以MB为单位</li>
+<li>-h 以KB，MB，GB等单位自行显示；</li>
+<li>-i 不用硬盘容量，而以inode的数量来显示；</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>            // 1K-blocks下面数字的单位是1KB；
+            // Mounted on表示磁盘挂载的目录所在（挂载点）df读取的是superblock里面的信息，所以显示结果的速度非常快速。
+            [root@localhost /]# df -a
+            Filesystem              1K-blocks    Used Available Use% Mounted on
+            rootfs                          -       -         -    - /
+            sysfs                           0       0         0    - /sys
+            proc                            0       0         0    - /proc
+            devtmpfs                  1916980       0   1916980   0% /dev
+</pre></div>
+
+
+<h4 id="2-du-ahskm">2) 评估文件系统的磁盘使用量：du [-ahskm] 文件或者目录名称<a class="headerlink" href="#2-du-ahskm" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>会把目录里面所有的子目录和文件都列出来</li>
+</ul>
+</blockquote>
+<h4 id="3-ln">3) 连接文件ln<a class="headerlink" href="#3-ln" title="Permanent link"></a></h4>
+<div class="codehilite"><pre>            Ln [-sf] 源文件 目标文件
+</pre></div>
+
+
+<blockquote>
+<ul>
+<li>如果不加任何参数，那就是硬连接，如果加了-s那就是符号连接，而-f则是如果目标文件中已存在相同名字的文件，则会将之删除再重新建立</li>
+<li>硬连接hard link<blockquote>
+<ul>
+<li>通过文件系统的inode链接产生新的文件名，而不是产生新的文件，称为“硬连接”（hard&gt; - link）。而硬连接则是在某个目录block下新建一条【文件名连接到某inode号码】的关联记录而已，既不会增加inode也不会耗用block的数量。后面不管你用哪个文件进行修改，最终都会写入相同的inode和block中。而且连接数会加1。但是他也是有限制的，如不能跨文件系统，也不能连接到目录（不能连接到目录的意思是一旦建立硬链接，目录底下的所有的文件都一次性建立了连接，如果后面你需要增加文件时，需要重新建立硬连接，所以不是那种单纯的仅仅是目录的连接）</li>
+</ul>
+</blockquote>
+</li>
+<li>符号连接，也叫快捷方式symbolic link<blockquote>
+<ul>
+<li>其实就是新建一个文件，该文件可以让数据的读取指向他连接的那个文件的文件名，当原文件删除后，快捷方式就打不开了，使用ls&gt; - -l命令的时候看到文件名后面带→的就表示是符号连接。但是连接数不会加1。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h3 id='6.5'>6.5 磁盘的分区，格式化，检验和挂载</h3>
+
+<h4 id="1_6">1) 新买的硬盘如何使用：<a class="headerlink" href="#1_6" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>建立分区</li>
+<li>格式化format，已建立系统可用的文件系统；</li>
+<li>对新建好的文件系统进行检验；</li>
+<li>在Linux系统中需要建立挂载点（也就是目录），并将它挂载起来；</li>
+</ul>
+</blockquote>
+<h4 id="2_7">2) 磁盘分区<a class="headerlink" href="#2_7" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>fdisk 磁盘分区操作</li>
+<li>fdisk -l 查看系统所有磁盘信息</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>            [root@localhost Desktop]# fdisk -l
+
+            Disk /dev/sda: 85.9 GB, 85899345920 bytes, 167772160 sectors
+            Units = sectors of 1 * 512 = 512 bytes
+            Sector size (logical/physical): 512 bytes / 512 bytes
+            I/O size (minimum/optimal): 512 bytes / 512 bytes
+            Disk label type: dos
+            Disk identifier: 0x000cee2e
+
+               Device Boot      Start         End      Blocks   Id  System
+            /dev/sda1   *        2048     2099199     1048576   83  Linux
+            /dev/sda2         2099200   167772159    82836480   8e  Linux LVM
+
+            Disk /dev/mapper/centos-root: 53.7 GB, 53687091200 bytes, 104857600 sectors
+            Units = sectors of 1 * 512 = 512 bytes
+            Sector size (logical/physical): 512 bytes / 512 bytes
+            I/O size (minimum/optimal): 512 bytes / 512 bytes
+
+
+            Disk /dev/mapper/centos-swap: 4160 MB, 4160749568 bytes, 8126464 sectors
+            Units = sectors of 1 * 512 = 512 bytes
+            Sector size (logical/physical): 512 bytes / 512 bytes
+            I/O size (minimum/optimal): 512 bytes / 512 bytes
+
+
+            Disk /dev/mapper/centos-home: 27.0 GB, 26969374720 bytes, 52674560 sectors
+            Units = sectors of 1 * 512 = 512 bytes
+            Sector size (logical/physical): 512 bytes / 512 bytes
+            I/O size (minimum/optimal): 512 bytes / 512 bytes
+</pre></div>
+
+
+<h4 id="3-mkfsmake-file-system">3) 磁盘格式化mkfs(make file system)<a class="headerlink" href="#3-mkfsmake-file-system" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>mkfs [-t 文件系统格式] 系统有支持才会生效</li>
+<li>文件系统参数有ext3, ext2, vfat等</li>
+<li>事实上，当我们去使用命令mkfs -t ext3时，调用的是mkfs.ext3的命令</li>
+<li>mkfs[Tab] [Tab]可以查看mkfs支持的文件系统格式</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>            [root@localhost Desktop]# mkfs
+            mkfs         mkfs.btrfs   mkfs.cramfs  mkfs.ext2    mkfs.ext3    mkfs.ext4    mkfs.fat     mkfs.minix   mkfs.msdos   mkfs.vfat    mkfs.xfs
+</pre></div>
+
+
+<h4 id="4-fsckfile-system-checkbadblocks">4) 磁盘检验：fsck(file system check)，badblocks（坏道检查）<a class="headerlink" href="#4-fsckfile-system-checkbadblocks" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>fsck命令不要随便用，通常只有你身为root且你的文件系统有问题，而且已经卸载（不在挂载状态）的时候采用，因为该命令可能会对你的系统造成损伤</li>
+</ul>
+</blockquote>
+<h4 id="5_1">5) 磁盘挂载与卸载<a class="headerlink" href="#5_1" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>挂载前需要注意：</li>
+<li>单一文件系统和单一挂载点（目录）应该是一一对应的关系；</li>
+<li>作为挂载点的目录理论上应该是空目录才对，否则，原来的文件会被暂时隐藏，当该文件系统被卸载时才会被显现出来；</li>
+<li>mount和umount</li>
+</ul>
+</blockquote>
+<h4 id="6-swap">6) 内存交换空间swap的构建<a class="headerlink" href="#6-swap" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>功能：应付物理内存不足的时候所造成的内存扩展记录</li>
+<li>由于swap是用硬盘来暂时放置内存信息的，所以用到swap的时候，主机硬盘的灯会响个不停；</li>
+<li>过程：<blockquote>
+<ul>
+<li>分区</li>
+<li>格式化 mkswap [设备文件名]</li>
+<li>使用 swapon [设备文件名]</li>
+<li>查看 通过free命令查看内存的使用情况</li>
+</ul>
+</blockquote>
+</li>
+<li>Swap对于桌面计算机而言意义不太大，因为一般内存都超过512M，但是对于常年在线的服务器而言，还是有设置一下的必要。</li>
+</ul>
+</blockquote>
+<hr />
+<h2 id='7'>七、 文件与文件系统的压缩与打包</h2>
+
+<h3 id='7.1'>7.1 常见的压缩命令</h3>
+
+<p>公共类是代码重用的一种形式，它将各个公用功能模块经常调用的方法提取到公用的Java类中，例如数据库的Dao类容纳了所有访问数据库的方法，并同时管理这数据库的连接和关闭，这样不但实现了代码的重用，还提高了程序的性能和代码的可读性。</p>
+<blockquote>
+<ul>
+<li>*.Z compress程序压缩的文件</li>
+<li>*.gz gzip程序压缩的文件</li>
+<li>*.bz2 bzip2程序压缩的文件</li>
+<li>*.tar tar程序打包的程序，并没有压缩过；</li>
+<li>*.tar.gz tar程序打包的数据，其中经过gzip的压缩</li>
+<li>*. tar.bz2 tar程序打包的数据，其中经过bzip2的压缩</li>
+</ul>
+</blockquote>
+<h4 id="1-compress">1) compress<a class="headerlink" href="#1-compress" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>非常老旧的一款压缩程序，CentOS默认没有安装，需要安装ncompress软件</li>
+<li>compress [-rcv] 文件或者目录</li>
+<li>uncompress 文件.Z</li>
+</ul>
+</blockquote>
+<h4 id="2-gzip">2) gzip<a class="headerlink" href="#2-gzip" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>gzip [-cdtv#] 文件名 压缩&gt; - -#是数字，-1最快，-9最慢，压缩比默认是-6最好，-v会显示详细属性</li>
+<li>gzip -d 文件名 解压</li>
+<li>zcat 文件名 查看压缩文件的数据</li>
+</ul>
+</blockquote>
+<h4 id="3-bzip2">3) bzip2<a class="headerlink" href="#3-bzip2" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>bzip2 [-cdkzv#] 文件名 压缩&gt; - -#是数字，-1最快，-9最慢，压缩比默认是-6最好，-v会显示详细属性</li>
+<li>bzip2 -d 文件名 解压</li>
+<li>bzcat 文件名 查看压缩文件的数据</li>
+</ul>
+</blockquote>
+<h4 id="4-tar">4) tar<a class="headerlink" href="#4-tar" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>压缩：tar -jcv -f filename.txt.tar.bz2 要被压缩的文件或者目录名称</li>
+<li>查询：tar -jtv -f filename.txt.tar.bz2</li>
+<li>解压缩：tar -jxv -f filename.txt.tar.bz2 -C 与解压的目录</li>
+<li>-j：表示利用bzip2程序的支持；</li>
+<li>-z：表示利用gzip程序的支持；</li>
+<li>-c：表示压缩；</li>
+<li>-t：表示查看；</li>
+<li>-x：表示解压缩；</li>
+</ul>
+</blockquote>
+<h3 id='7.2'>7.2 完整的备份工具dump和恢复工具restore</h3>
+
+<blockquote>
+<p>-能够备份实时的文件系统，设立9等级，0等级表示完整的实时备份，level
+1表示实时文件系统与level 0 比较后差异部分的备份，level 2~9以此类推。
+如果找不到dump命令，需要安装，命令为</p>
+</blockquote>
+<div class="codehilite"><pre>            yum -y install dump
+            Dump [-Suvj] [-level] [-f 备份文件] 待备份数据
+</pre></div>
+
+
+<blockquote>
+<blockquote>
+<ul>
+<li>-S：仅列出后面带备份数据需要多少磁盘空间才能够备份文件</li>
+<li>-u；将此次dump的时间记录到/etc/dumpdates文件中</li>
+<li>-v：将备份的过程显示出来</li>
+<li>-j：加入bzip2的压缩程序支持</li>
+</ul>
+</blockquote>
+</blockquote>
+<h4 id="1_7">1) 当备份的是单一文件系统时；<a class="headerlink" href="#1_7" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>可以使用完整的dump功能，包括利用0-9的数个level来备份</li>
+</ul>
+</blockquote>
+<h4 id="2_8">2) 当备份的只是目录，而非单一文件系统时；<a class="headerlink" href="#2_8" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>所有的备份必须放在该目录下，而且只能使用level0，仅支持完整备份，不支持-u参数（无法创建/etc/dumpdates这个level备份的时间记录文件）</li>
+<li>注意，在备份之前先用df -h的命令看看那个属于文件系统 </li>
+</ul>
+</blockquote>
+<hr />
+<h2 id='8'>八、 vim程序编辑工具</h2>
+
+<h3 id='8.1'>8.1 vi与vim</h3>
+
+<blockquote>
+<ul>
+<li>每一个linux
+distribution都会有一套文本编辑器vi，vim是vi的高级版，vim有程序编辑的功能，可以主动以字体颜色辨别语法的正确性</li>
+</ul>
+</blockquote>
+<h4 id="1-vi">1) vi的使用<a class="headerlink" href="#1-vi" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>一般模式<blockquote>
+<ul>
+<li>“vi&gt; - 文件名”，在此模式下，你可以左右移动光标，也可以删除字符或者删除正行，也可以复制粘贴文字数据。</li>
+</ul>
+</blockquote>
+</li>
+<li>编辑模式<blockquote>
+<ul>
+<li>除了拥有一般模式的功能，还可以进行编辑，不过你要先按下“i,l,o,O,a,A,r,R”等其中任意一个字符。</li>
+</ul>
+</blockquote>
+</li>
+<li>命令行模式<blockquote>
+<ul>
+<li>在一般模式当中，输入“：”或者“？”或者“/”三个字符的其中一个的时候，便可进入该模式，可以进行数据的查找，读取，保存，离开vi，保存，大量替换字符等操作。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h4 id="2_9">2) 注意<a class="headerlink" href="#2_9" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>一般模式和编辑模式和命令行模式可以相互切换，按一下Esc便可还原为一般模式，但是编辑模式和命令行模式不可相互切换；一般模式下输入“：wq”便可保存离开。</li>
+<li>当我们在编辑的时候，vim会在被编辑文件的目录下再建一个.filename.swp的暂存文件，你做的所有操作都会被保存在改文件中。</li>
+<li>Alias命令：可以发现alias vi=&rsquo;vim&rsquo;，说明我们使用的vi命令，其实指的就是vim，</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>            [lvhongbin@MiWiFi-R3G-srv test]$ alias
+            alias egrep=&#39;egrep --color=auto&#39;
+            alias fgrep=&#39;fgrep --color=auto&#39;
+            alias grep=&#39;grep --color=auto&#39;
+            alias l.=&#39;ls -d .* --color=auto&#39;
+            alias ll=&#39;ls -l --color=auto&#39;
+            alias ls=&#39;ls --color=auto&#39;
+            alias perlll=&#39;eval `perl -Mlocal::lib`&#39;
+            alias vi=&#39;vim&#39;
+            alias which=&#39;alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde&#39;
+</pre></div>
+
+
+<h3 id='8.2'>8.2 一些常用的命令</h3>
+
+<blockquote>
+<ul>
+<li>[Ctrl]+f：向下移动一页；</li>
+<li>[Ctrl]+b：向上移动一页；</li>
+<li>[Ctrl]+d：向下移动半页；</li>
+<li>[Ctrl]+u：向上移动半页；</li>
+<li>n+\&lt;space>：在同一行中向右移动20个字符距离；</li>
+<li>0或功能键[Home]：光标移动到行首；</li>
+<li>$或功能键[End]：光标移动到行末；</li>
+<li>G：移动到文件的最后一行；</li>
+<li>nG：n是数字，表示光标移动到文件的第n行；</li>
+<li>gg：表示光标移动到文件的第1行；</li>
+<li>N+[Enter]：n是数字，光标向下移动N行；</li>
+<li>/字符串：向下寻找字符串；</li>
+<li>？字符串：向上寻找字符串；</li>
+<li>n：重复上一次寻找，方向向下；</li>
+<li>N：重复上一次寻找，方向向上；</li>
+<li>:n1,n2s/string1/string2/g：从第n1行到第n2行寻找string1，并将其替换成string2；</li>
+<li>:1,$s/string1/string2/g：从第1行到最后1行寻找string1，并将其替换成string2；</li>
+<li>:1,$s/string1/string2/gc：从第n1行到第n2行寻找string1，并在将其替换成string2时向用户确认；</li>
+<li>x：相当于向后删除一个字符；</li>
+<li>X：相当于向前删除一个字符；</li>
+<li>Nx：相当于向后删除N行；</li>
+<li>dd：删除整行；</li>
+<li>Ndd：向下删除N行；</li>
+<li>d1G：删除光标所在到第1行的数据；</li>
+<li>dG：删除光标所在到最后1行的数据；</li>
+<li>d0：删除同一行中光标所在到第一个字符的数据；</li>
+<li>d$：删除同一行中光标所在到最后一个字符的数据；</li>
+<li>Nyy：向下复制N行；</li>
+<li>y1G：复制光标所在到第1行的数据；</li>
+<li>yG：复制光标所在到最后1行的数据；</li>
+<li>y0：复制同一行中光标所在到第一个字符的数据；</li>
+<li>y$：复制同一行中光标所在到最后一个字符的数据；</li>
+<li>p：向后粘贴；</li>
+<li>P：向前粘贴；</li>
+<li>u：撤销上一步操作；</li>
+<li>[ctrl]+r：还原上一步操作；</li>
+<li>:set nu：显示行号；</li>
+<li>:set nonu：取消行号；</li>
+<li>.：重复前一个操作；</li>
+</ul>
+</blockquote>
+<h3 id='8.3'>8.3 Vim的文件保存，恢复与打开时的警告信息</h3>
+
+<blockquote>
+<ul>
+<li>[Ctrl]+z：将vim丢到后台，此时在同一目录下会产生一个同名+.swp的暂存文件；</li>
+<li>Kill -9 %1：模拟断线停止vim的工作，算是不正常关掉vim吧；</li>
+<li>用vim再次打开之前的文件的时候，会出现提示：</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>            E325: ATTENTION
+            Found a swap file by the name &quot;../tem/.test1.txt.swp&quot;
+                      owned by: lvhongbin   dated: Wed Jan  3 13:45:40 2018
+                     file name: ~lvhongbin/Desktop/tem/test1.txt
+                      modified: YES
+                     user name: lvhongbin   host name: MiWiFi-R3G-srv
+                    process ID: 76718
+            While opening file &quot;../tem/test1.txt&quot;
+                         dated: Wed Jan  3 11:54:59 2018
+
+            (1) Another program may be editing the same file.  If this is the case,
+                be careful not to end up with two different instances of the same
+                file when making changes.  Quit, or continue with caution.
+            (2) An edit session for this file crashed.
+                If this is the case, use &quot;:recover&quot; or &quot;vim -r ../tem/test1.txt&quot;
+                to recover the changes (see &quot;:help recovery&quot;).
+                If you did this already, delete the swap file &quot;../tem/.test1.txt.swp&quot;
+                to avoid this message.
+
+            Swap file &quot;../tem/.test1.txt.swp&quot; already exists!
+            [O]pen Read-Only, (E)dit anyway, (R)ecover, (D)elete it, (Q)uit, (A)bort:
+</pre></div>
+
+
+<blockquote>
+<ul>
+<li>当你恢复后需要使用(D)elete
+    it把同名+.swp暂存文件删掉，要不然每次打开都会有警告提示：</li>
+</ul>
+</blockquote>
+<h3 id='8.4'>8.4 其他操作与语系转换</h3>
+
+<h4 id="1-visual-block">1) 块选择（Visual Block）<a class="headerlink" href="#1-visual-block" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>在一般模式下按下[Ctrl]+
+v，然后移动光标，就可以进行矩形选择，然后按下y或者d可以进行复制或者删除。<blockquote>
+<ul>
+<li>[Ctrl]+ v：块选择；</li>
+<li>V：行选择；</li>
+<li>v：字符选择</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h4 id="2_10">2) 多文件操作<a class="headerlink" href="#2_10" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>用vi命令同时打开多个文件，文件与文件之间用空格打开即可，显示的时单窗口界面，打开的是第一个文件；<blockquote>
+<ul>
+<li>:n ：选择下一个文件；</li>
+<li>:N ：选择上一个文件；</li>
+<li>:files ：列出所有文件</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h4 id="3_4">3) 多窗口功能<a class="headerlink" href="#3_4" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>主要针对同一个文件或者已有文件跟空白文件之间的编辑<blockquote>
+<ul>
+<li>:sp&gt; - [filename]：若不加文件名，就是分割同一个文件，你对比同一个文件不同位置的文字内容；若加了名字，则是打开一个新文件</li>
+<li>: [Ctrl]+ w+↑：选择上一个窗口；</li>
+<li>: [Ctrl]+ w+↓：选择下一个窗口；</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h4 id="4_2">4) 语系转换<a class="headerlink" href="#4_2" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>iconv &ndash;list：列出所有的编码语法；</li>
+<li>iconv -f 原本编码 -t 新编码 filename [-o newfile]：</li>
+<li>-o newfile：如果要保留原来的文件，可以使用新文件名另存为新的文件；</li>
+</ul>
+</blockquote>
+<hr />
+<h2 id='9'>九、 bash</h2>
+
+<h3 id='9.1'>9.1  硬件，内核，shell和bash的关系</h3>
+
+<blockquote>
+<ul>
+<li>管理整个计算机硬件的是操作系统的内核kernel，kernel需要被保护起来，用户只能通过shell与kernel进行通讯。只要能操作应用程序的接口都叫做shell，狭义的shell指的是命令行方面的软件，广义的shell包括图形界面的软件。其中bash就是shell中的一种。</li>
+</ul>
+</blockquote>
+<h4 id="1-shell">1) Shell的特点：<a class="headerlink" href="#1-shell" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>几乎所有的distribution发行版的shell命令相同；</li>
+<li>命令行界面比较快；</li>
+<li>Linux下默认的shell是bash（Bourne Again Shell, Bourne
+    Shell的增强版本）基于GUN架构开发出来的。</li>
+</ul>
+</blockquote>
+<h4 id="2-bash">2) bash的特点：<a class="headerlink" href="#2-bash" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>命令记忆功能，按住↑或者↓可以查询最近使用的命令；</li>
+<li>命令与文件补全功能，[Tab]键的好处；</li>
+<li>命令别名设置功能，如alias lm = ‘ls -al’</li>
+<li>作业控制，前台和后台控制（job control, foreground, background）</li>
+<li>程序脚本（shell script）</li>
+<li>通配符（Wildcard）</li>
+</ul>
+</blockquote>
+<h4 id="3-bashtype">3) Bash的内部命令：type<a class="headerlink" href="#3-bashtype" title="Permanent link"></a></h4>
+<div class="codehilite"><pre>            // 查询命令是来自内部命令builtin还是alias抑或是外部命令file，类似于which的功能；
+            Type [-tpa]&gt; - name：
+</pre></div>
+
+
+<h4 id="4-92enterenter">4) 如果一行太长写不完，可以用\[Enter]将[Enter]转义使之不具备执行命令的功能；<a class="headerlink" href="#4-92enterenter" title="Permanent link"></a></h4>
+<h3 id='9.2'>9.2  shell的变量功能</h3>
+
+<blockquote>
+<ul>
+<li>为了区别自定义变量，环境变量通常以大写字母来表示；</li>
+</ul>
+</blockquote>
+<h4 id="1_8">1) 变量的显示和设置：<a class="headerlink" href="#1_8" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>echo $变量名：显示变量的内容；</li>
+<li>变量名=变量的内容：设置变量；</li>
+<li>unset 变量名：取消变量的设置</li>
+</ul>
+</blockquote>
+<h4 id="2_11">2) 设置规则：<a class="headerlink" href="#2_11" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>等号两边的变量名和变量的内容不允许出现空格；</li>
+<li>变量名必须时英文字母或者数字，且首位不能是数字；</li>
+<li>变量内容中用双引号包含特殊字符，该特殊字符可以保持他原来的特性，如“$name”中name变成变量，显示的是变量name的内容，或者双引号里面有空格也可以；</li>
+<li>单引号内的特殊字符则仅为一般字符（纯文本）；</li>
+<li>若该变量为了增加变量的内容，则可以使用“$变量名”累加内容；</li>
+<li>export使变量成为环境变量；</li>
+</ul>
+</blockquote>
+<h4 id="3-96">3) 返单引号（`）的作用<a class="headerlink" href="#3-96" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>程序先执行单引号里面的内容，再把执行的结果返回给单引号外面的命令，其实这个功能可以使用&gt; - 后执行的命令 $(先执行的命令)来替代。</li>
+</ul>
+</blockquote>
+<h4 id="4_3">4) 环境变量的功能<a class="headerlink" href="#4_3" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>但你登陆Linux并取得哪一个bash后，这个bash其实就是一个单独进程，称为PID。接下来所有的命令都是由这个bash进程衍生出来的，被执行的命令称为子进程。比如在一个bash中执行另外一个bash，那么第二个bash就是子进程。<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p><img alt="图9-1 bash进程" src="" /></p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li>子进程只会继承父进程的环境变量，而不会继承自定义变量</li>
+<li>环境变量=全局变量</li>
+<li>自定义变量=局部变量;</li>
+<li>那怎么吧自定义变量变成环境变量呢？那就需要export</li>
+<li>env：environment查看环境变量；</li>
+<li>export：功能跟env类似；</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>            // export
+            [root@MiWiFi-R3-srv software]# export
+            declare -x COLORTERM=&quot;truecolor&quot;
+            declare -x DBUS_SESSION_BUS_ADDRESS=&quot;unix:abstract=/tmp/dbus-RaRlOvxfBB,guid=e24a18f0dc1699856cb3e2f45b08dc56&quot;
+            declare -x DESKTOP_SESSION=&quot;gnome-classic&quot;
+            declare -x DISPLAY=&quot;:0&quot;
+            declare -x GDMSESSION=&quot;gnome-classic&quot;
+            declare -x GDM_LANG=&quot;en_US.UTF-8&quot;
+            declare -x GNOME_DESKTOP_SESSION_ID=&quot;this-is-deprecated&quot;
+
+            // env
+            [root@MiWiFi-R3-srv software]# env | sort
+            COLORTERM=truecolor
+            DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-RaRlOvxfBB,guid=e24a18f0dc1699856cb3e2f45b08dc56
+            DESKTOP_SESSION=gnome-classic
+            DISPLAY=:0
+            GDM_LANG=en_US.UTF-8
+            GDMSESSION=gnome-classic
+            GNOME_DESKTOP_SESSION_ID=this-is-deprecated
+</pre></div>
+
+
+<blockquote>
+<ul>
+<li>set：查看所有变量；</li>
+<li>RANDOM：随机数环境变量，显示0~32767的随机变量；</li>
+</ul>
+</blockquote>
+<h4 id="5_2">5) $的功能<a class="headerlink" href="#5_2" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>表示这个Shell的线程代号，即所谓的PID，Process ID控制</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>            [lvhongbin@MiWiFi-R3G-srv tem]$ $$
+            bash: 25672: command not found...擦头
+</pre></div>
+
+
+<blockquote>
+<ul>
+<li>出现的数字就是线程号</li>
+</ul>
+</blockquote>
+<h4 id="6">6) ？的功能<a class="headerlink" href="#6" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>上一个命令的回传码，一般来讲，如果上一条命令运行成功，则会回传0，否则回传一个非零的错误码；</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>            // 返回0表示没有错误，其他错误码的含义有不同的distribution版本决定
+            [root@MiWiFi-R3-srv software]# ?
+            bash: ?: command not found...
+            [root@MiWiFi-R3-srv software]# $?
+            bash: 127: command not found...
+
+            [root@MiWiFi-R3-srv software]# echo ${name}
+            lvhongbin
+            [root@MiWiFi-R3-srv software]# $?
+            bash: 0: command not found...
+</pre></div>
+
+
+<h4 id="7-ostypehostypemachtype">7) OSTYPE，HOSTYPE，MACHTYPE<a class="headerlink" href="#7-ostypehostypemachtype" title="Permanent link"></a></h4>
+<div class="codehilite"><pre>            [lvhongbin@MiWiFi-R3G-srv tem]$ echo $OSTYPE
+            linux-gnu
+            [lvhongbin@MiWiFi-R3G-srv tem]$ echo $HOSTTYPE
+            x86_64
+            [lvhongbin@MiWiFi-R3G-srv tem]$ echo $MACHTYPE
+            x86_64-redhat-linux-gnu
+</pre></div>
+
+
+<h4 id="8">8) 变量键盘的读取，数组和声明<a class="headerlink" href="#8" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>read [-pt] variable</li>
+<li>-p：双引号里面添加提示的内容；</li>
+<li>-t：后面接等待的秒数</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>            [root@MiWiFi-R3-srv software]# read -p &quot;please input your name: &quot; -t 30 name
+            please input your name: lvhongbin
+            [root@MiWiFi-R3-srv software]# echo ${name}
+            lvhongbin
+</pre></div>
+
+
+<h4 id="9-declaretypeset">9) declare/typeset<a class="headerlink" href="#9-declaretypeset" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>用于声明变量的类型</li>
+<li>-a：声明为数组类型array</li>
+<li>-i：声明为integer，可惜并不支持浮点数</li>
+<li>-x：声明为环境变量</li>
+<li>-r：声明为readonly类型，相当于final的功能</li>
+<li>默认是字符串的类型</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>            [root@MiWiFi-R3-srv software]# sum=10+20+30
+            [root@MiWiFi-R3-srv software]# echo ${sum}
+            10+20+30
+            [root@MiWiFi-R3-srv software]# declare -i sum=10+20+30
+            [root@MiWiFi-R3-srv software]# echo ${sum}
+            60
+
+            [root@MiWiFi-R3-srv software]# export | grep sum
+            declare -ix sum=&quot;60&quot;
+
+            // 数组
+            [root@MiWiFi-R3-srv software]# value[0]=&quot;h&quot;
+            [root@MiWiFi-R3-srv software]# value[1]=&quot;i&quot;
+            [root@MiWiFi-R3-srv software]# echo ${value}
+            h
+            [root@MiWiFi-R3-srv software]# echo ${value[0]}
+            h
+            [root@MiWiFi-R3-srv software]# echo ${value[1]}
+            i
+</pre></div>
+
+
+<h4 id="10-ulimit">10) 与文件系统的及程序的限制关系：ulimit;<a class="headerlink" href="#10-ulimit" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>包括限制用户的打开文件的数量，可以使用CPU的时间，可以使用的内存总量等</li>
+</ul>
+</blockquote>
+<h4 id="11_1">11) 变量内容的删除<a class="headerlink" href="#11_1" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>必须从第一个字母开始或者从最后一个字母开始匹配，而且第一个字母或者最后一个字母不能使用通配符</li>
+<li>${变量名#要删除的内容}，可以使用通配符，</li>
+<li>#表示从最左边往右开始删除，删除最短的那个</li>
+<li>##表示从最左边往右开始删除，删除最长的那个；</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>            [root@MiWiFi-R3-srv software]# id=116020910160
+            [root@MiWiFi-R3-srv software]# echo ${id#1*6}
+            020910160
+            [root@MiWiFi-R3-srv software]# echo ${id}
+            116020910160
+            [root@MiWiFi-R3-srv software]# echo ${id##1*6}
+            0
+            [root@MiWiFi-R3-srv software]# echo ${id}
+            116020910160
+            [root@MiWiFi-R3-srv software]# echo ${id$0*6}
+            bash: ${id$0*6}: bad substitution
+</pre></div>
+
+
+<blockquote>
+<ul>
+<li>%表示从最右边往左开始删除，删除最短的那个，%%表示从最左边往右开始删除，删除最长的那个；</li>
+<li>如： 截取路径名中的文件名 ${path名字##/*/}</li>
+<li>截取路径名中的目录 ${path名字%/*}</li>
+</ul>
+</blockquote>
+<h4 id="12">12) 变量内容的替换<a class="headerlink" href="#12" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>${变量名/旧内容/新内容}，可以使用通配符，</li>
+<li>第一个/表示从最左边往右开始替换，只替换第一个，//表示从最左边往右开始替换，替换全部；</li>
+</ul>
+</blockquote>
+<h4 id="13">13) 变量内容的存在性检测<a class="headerlink" href="#13" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>newVar=${oldVar-content} 检测oldVar有值的话，让newVar等于$&gt; - oldVar，若没有值则让newVar=content；</li>
+<li>newVar=${oldVar+content}&gt; - 检测oldVar有值的话，让newVar等于content，若没有值则让newVar=$ oldVar；</li>
+<li>“”表示空字符串，有值；</li>
+</ul>
+</blockquote>
+<h4 id="14">14) 命名别名和去除别名<a class="headerlink" href="#14" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>alias和unalias</li>
+</ul>
+</blockquote>
+<h4 id="15-history">15) 历史命令：history<a class="headerlink" href="#15-history" title="Permanent link"></a></h4>
+<h3 id='9.3'>9.3  Bash shell的操作环境</h3>
+
+<h4 id="1_9">1) 命令运行的顺序：<a class="headerlink" href="#1_9" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>以相对或绝对路径执行命令，如“/bin/ls”;</li>
+<li>由alias找到该命令；</li>
+<li>由bash内置的bulitin命令来执行；</li>
+<li>通过$PATH这个变量来执行；</li>
+</ul>
+</blockquote>
+<h4 id="2-bash_1">2) bash的登陆和欢迎信息<a class="headerlink" href="#2-bash_1" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>切换终端机接口时的欢迎界面，修改/etc/issue文件；</li>
+<li>登陆时显示欢迎界面，修改/etc/motd文件</li>
+</ul>
+</blockquote>
+<h3 id='9.4'>9.4  Bash shell的环境配置文件（太复杂了，不看）</h3>
+
+<h4 id="1logic-shell-vs-non-logic-shell">1)logic shell VS non-logic shell<a class="headerlink" href="#1logic-shell-vs-non-logic-shell" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>logic shell，取得bash时需要完整的登陆流程，包括输入用户名和密码；</li>
+<li>non-logic shell，不需要输入用户名和密码即可使用bash；</li>
+</ul>
+</blockquote>
+<h3 id='9.5'>9.5  数据的重定向</h3>
+
+<h4 id="1_10">1) 输出&gt;和&gt;&gt;<a class="headerlink" href="#1_10" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>我们在执行一个命令时，流程一般是先读取一个文件standard&gt; - input，然后执行相应的操作，最后输出，那输出也分为标准输出standard&gt; - output和标准错误输出standard error output</li>
+<li>数据的重定向是指利用符号“&gt;”将本应显示在命令行窗口的信息输出到文件中，文件中已有数据则会覆写里面的数据；若使用“&gt;&gt;”则不会覆写，而是加在文末。</li>
+<li>当输出符号前面有1时则将正确的数据输出，2则将错误的数据输出。</li>
+<li>同时将正确和错误的信息输出，有两种方法：<blockquote>
+<ul>
+<li>文件名 2&gt;&amp;1</li>
+<li>&amp;&gt; 文件名</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h4 id="2_12">2) 输入&lt;和&lt;&lt;<a class="headerlink" href="#2_12" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>一般用在cat之上的文件创建和文字的输入</li>
+<li>cat &gt; 文件名 表示创建一个新的文件和使用键盘输入</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>            [lvhongbin@MiWiFi-R3G-srv Desktop]$ cat &gt; test2.txt
+            Hello   
+            I&#39;m writing!
+            [Ctrl]+d 表示结束输入
+</pre></div>
+
+
+<blockquote>
+<ul>
+<li>cat &gt; 新的文件 &lt; 源文件 从源文件中把文字流传入新的文件</li>
+<li>cat &gt; 文件名 &lt;&lt; “结束字符串”</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>            [lvhongbin@MiWiFi-R3G-srv Desktop]$ cat &gt; test2.txt &lt;&lt; &quot;eof&quot;
+            &gt; Input
+            &gt; success!
+            &gt; eof
+</pre></div>
+
+
+<h4 id="3_5">3) 什么场合会用到数据的重定向<a class="headerlink" href="#3_5" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>屏幕的输出很重要；</li>
+<li>后台执行的程序，不希望干扰到屏幕正常的输出信息的时候；</li>
+<li>想丢掉一些不想看到的信息；</li>
+<li>将正确和错误的信息分别输出；</li>
+<li>command &gt; file 2&gt;file  与command &gt; file 2&gt;&amp;1 有什么不同的地方?<blockquote>
+<ul>
+<li></li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h4 id="4-devnull-21">4) &gt;/dev/null 2&gt;&amp;1 详解<a href="https://blog.csdn.net/long2746004900/article/details/53367353">一串脚印的博客</a><a class="headerlink" href="#4-devnull-21" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>分解这个组合：“&gt;/dev/null 2&gt;&amp;1” 为五部分。 <blockquote>
+<ul>
+<li>1：&gt; 代表重定向到哪里，例如：echo &ldquo;123&rdquo; &gt; /home/123.txt</li>
+<li>2：/dev/null 代表空设备文件</li>
+<li>3：2&gt; 表示stderr标准错误</li>
+<li>4：&amp; 表示等同于的意思，2&gt;&amp;1，表示2的输出重定向等同于1</li>
+<li>5：1 表示stdout标准输出，系统默认值是1，所以&rdquo;&gt;/dev/null&rdquo;等同于 &ldquo;1&gt;/dev/null&rdquo;</li>
+</ul>
+</blockquote>
+</li>
+<li>因此，&gt;/dev/null 2&gt;&amp;1也可以写成“1&gt; /dev/null 2&gt; &amp;1”</li>
+<li>那么本文标题的语句执行过程为：
+1&gt;/dev/null ：首先表示标准输出重定向到空设备文件，也就是不输出任何信息到终端，说白了就是不显示任何信息。
+2&gt;&amp;1 ：接着，标准错误输出重定向 到标准输出，因为之前标准输出已经重定向到了空设备文件，所以标准错误输出也重定向到空设备文件。 </li>
+</ul>
+</blockquote>
+<h3 id='9.6'>9.6  命令与管道命令</h3>
+
+<h4 id="1_11">1) 命令的合并<a class="headerlink" href="#1_11" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>cmd1 ; cmd2<blockquote>
+<ul>
+<li>不考虑命令的相关性，从左到右按顺序执行；</li>
+</ul>
+</blockquote>
+</li>
+<li>cmd1 &amp;&amp; cmd2<blockquote>
+<ul>
+<li>考虑命令的正确性，若cmd1错误，则cmd2不执行；</li>
+<li>&amp;&amp;命令会传递前一个命令的$?值，如果$?==0，则执行第二个命令，若$?\&lt;>0则跳过第二命令，并把$?\&lt;>0传递到第三个命令；</li>
+</ul>
+</blockquote>
+</li>
+<li>cmd1 || cmd2<blockquote>
+<ul>
+<li>考虑命令的正确性，若cmd1正确，则cmd2不执行；</li>
+<li>如创建文件目录，如果不存在则创建，如果存在就不创建</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>            ls -l 文件名 || touch 文件名
+</pre></div>
+
+
+<blockquote>
+<blockquote>
+<ul>
+<li>&amp;&amp;命令会传递前一个命令的$?值，如果$?\&lt;>0，则执行第二个命令，若$?==0则跳过第二命令，并把$?==0传递到第三个命令</li>
+<li>管道命令pipe cmd1 | cmd2</li>
+<li>管道命令仅会处理standard output，对于standard error output会予以忽略；</li>
+<li>管道命令必须能接收第一个命令的数据成为standard input继续处理才行；</li>
+<li>常用的管道命令如less(将大量的输出做成可翻页的形式)，more，head，tail</li>
+</ul>
+</blockquote>
+</blockquote>
+<h4 id="2-cut-grep">2) 选取命令：cut, grep<a class="headerlink" href="#2-cut-grep" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>cut [-dfc] 截取信息</li>
+<li>-d：后面接分割字符，与-f一起使用，如-d ‘:’ -f 5,&gt; - 表示以冒号为分割，取第5段；</li>
+<li>-c n-：取每行从第n个起后面的字符，包括第n个的字符；</li>
+<li>-c -n：取每行从第n个起前面的字符，包括第n个的字符；</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>            [lvhongbin@MiWiFi-R3G-srv Desktop]$ ls -al .. | cut -c 16- | cut -c -9
+</pre></div>
+
+
+<blockquote>
+<ul>
+<li>grep 选取我们需要的信息所在的那一行</li>
+<li>grep [-acinv] [&ndash;color=auto] ‘查找字符串’ filename</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>            [lvhongbin@MiWiFi-R3G-srv Desktop]$ ls -al .. | cut -c 16- | cut -c -9 |grep --color=auto &quot;lvhongbin&quot;
+</pre></div>
+
+
+<h4 id="3-sortwc-uniq">3) 排序命令：sort，wc, uniq<a class="headerlink" href="#3-sortwc-uniq" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>sort [-fbMnrtuk] [file or stdin]<blockquote>
+<ul>
+<li>-f：忽略大小字母的差异；</li>
+<li>-b：忽略最前面空格的影响；</li>
+<li>-M：以月份的名字来排序；</li>
+<li>-n：以纯数字进行排序；</li>
+<li>-r：反向排序；</li>
+<li>-u：uniq，相同的数据，仅出现一行；</li>
+<li>-t：分隔符，默认是[Tab]键来分割；</li>
+<li>-k：以分割的区间的第n个来排序</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>            -t和-k一般一起使用：
+            [lvhongbin@MiWiFi-R3G-srv Desktop]$ ls -al .. | sort -t &#39; &#39; -k 2
+</pre></div>
+
+
+<blockquote>
+<ul>
+<li>uniq [-ic]<blockquote>
+<ul>
+<li>-i：忽略大小字母的差异；</li>
+<li>-c：进行计数；</li>
+</ul>
+</blockquote>
+</li>
+<li>wc [-lwm]<blockquote>
+<ul>
+<li>-l：仅列出行数；</li>
+<li>-w：仅列出字数（英文单字）；</li>
+<li>-m：多少字符；</li>
+</ul>
+</blockquote>
+</li>
+<li>last 列出多少的登陆的情况</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>            [lvhongbin@MiWiFi-R3G-srv Desktop]$ last  
+            lvhongbi pts/0        :0               Wed Jan  3 03:01 - 03:02  (00:00)    
+            lvhongbi :0           :0               Wed Jan  3 03:00 - 03:11  (00:10)    
+            reboot   system boot  3.10.0-693.el7.x Wed Jan  3 02:58 - 20:01  (-6:-56)
+
+            wtmp begins Wed Jan  3 02:58:11 2018
+</pre></div>
+
+
+<blockquote>
+<ul>
+<li>但是由于最后两行分别时空白行和含有“wtmp”字符串，所以如果需要计数到底有多少次登陆的话，需要去掉最后两行，然后在进行计数。所以可以使用命令：</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>            last \| grep [a-zA-Z] \| grep -r “wtmp” \| wc -l
+</pre></div>
+
+
+<h4 id="4-tee">4) 双向重定向：tee<a class="headerlink" href="#4-tee" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>tee [-a] file</li>
+<li>-a表示累加到文件中，tee将输出流保存一份到文件中，同时输出屏幕</li>
+</ul>
+</blockquote>
+<h4 id="5-trcoljoinpasteexpand">5) 字符转换命令：tr，col，join，paste，expand<a class="headerlink" href="#5-trcoljoinpasteexpand" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>tr -d 要删除的字符串 ‘旧字符串’ ‘新字符串’</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>            如tr ‘[a-z]’ ‘[A-z]’
+</pre></div>
+
+
+<blockquote>
+<ul>
+<li>可以利用tr命令将断行符号\^M去除，\^M可以用‘\r’替代出现在tr中被删除；</li>
+<li>col：[tab]换成空格</li>
+<li>join：将两个文件的同一行的相同部分只显示一次，然后两行合并，每一行都做这样的操作；</li>
+<li>paste：直接把两个文件的同一行放在一起，然后中间用[tab]键隔开；</li>
+<li>expand：[tab]换成任意固定个数的空格；</li>
+</ul>
+</blockquote>
+<h4 id="6-split">6) 切割命令：split<a class="headerlink" href="#6-split" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>文件太大用于分割成任意大小的子文件</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>            [lvhongbin@MiWiFi-R3G-srv Desktop]$ split -b 1k 要分割的文件 前导文件名
+</pre></div>
+
+
+<blockquote>
+<ul>
+<li>最后文件名将按照前导文件名aa，前导文件名ab，前导文件名ac等命名；</li>
+</ul>
+</blockquote>
+<h4 id="7-">7) 关于减号：-<a class="headerlink" href="#7-" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>将前一个命令的stdout作为后一个命令的stdin</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>            tar -cvf - /home \| tar -xvf –
+</pre></div>
+
+
+<hr />
+<h2 id='10'>十、 正则表达式</h2>
+
+<h3 id='10.1'>10.1 基础正则表达式</h3>
+
+<blockquote>
+<ul>
+<li>正则表达式依照严谨度的不同又分为基础正则表达式和拓展正则表达式</li>
+<li>语系正则表达式的影响；<blockquote>
+<ul>
+<li>比如LANG=C时：01234…ABC…Zabc…z；</li>
+<li>比如LANG=zh_CN时：01234…AaBbCc…Zz；</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h4 id="1-grep">1) Grep的高级用法<a class="headerlink" href="#1-grep" title="Permanent link"></a></h4>
+<div class="codehilite"><pre>            Grep [-A] [-B]
+</pre></div>
+
+
+<blockquote>
+<ul>
+<li>-A后面可加数字N，为after的意思，除了搜索的行被显示外，其前面N行也会被显示；</li>
+<li>-B后面可加数字N，为after的意思，除了搜索的行被显示外，其后面N行也会被显示；</li>
+<li>行尾用$表示；</li>
+</ul>
+</blockquote>
+<h4 id="2_13">2) 基础正则表达式字符，用在‘’内部<a class="headerlink" href="#2_13" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>\^word：待查的字符串word在行首；</li>
+<li>word$：待查的字符串word在行尾；</li>
+<li>.：代表一定有一个任意字符</li>
+<li>*：重复零个到无穷多个的前一字符；</li>
+<li>\{n,m\}：连续n到m个前一个字符；</li>
+<li>[list]：从字符集中选取；</li>
+<li>[\^list]：从字符集中反选；</li>
+</ul>
+</blockquote>
+<h3 id='10.2'>10.2 拓展正则表达式字符</h3>
+
+<h4 id="1_12">1) 拓展正则表达式字符，用在‘’内部<a class="headerlink" href="#1_12" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>| ：或；</li>
+<li>+ ：重复一个至多个前一个字符；</li>
+<li>？：0个或者1个前一个字符；</li>
+<li>（）：作为一个字符串组</li>
+<li>（）+：重复多个组</li>
+</ul>
+</blockquote>
+<h3 id='10.3'>10.3 sed工具</h3>
+
+<div class="codehilite"><pre>            sed [-nefr] ‘动作’
+</pre></div>
+
+
+<blockquote>
+<ul>
+<li>[动作] = n1, n2, function</li>
+<li>Function可选：<blockquote>
+<ul>
+<li>a（新增）</li>
+<li>c（替换）</li>
+<li>d（删除）</li>
+<li>i（插入）</li>
+<li>p（打印）</li>
+</ul>
+</blockquote>
+</li>
+<li>‘2，5d’ 删除第二行到第五行</li>
+<li>‘2a thefirstline\ thesecondline’ 不同的行用“\”隔开 </li>
+<li>‘2,5c thenewline’ 替换2~5行中间的行、</li>
+</ul>
+</blockquote>
+<h3 id='10.4'>10.4 格式化打印：printf</h3>
+
+<div class="codehilite"><pre>            ‘打印格式’ 实际内容
+</pre></div>
+
+
+<blockquote>
+<ul>
+<li>特殊样式：<blockquote>
+<ul>
+<li>\f ：清除屏幕；</li>
+<li>\n ：输出新的一行；</li>
+<li>\r ：亦即[Enter]按键；</li>
+<li>\t ：水平[Tab]按键；</li>
+<li>\v ：垂直[Tab]按键；</li>
+<li>\a ：警告声音输出；</li>
+<li>\b ：退格键；</li>
+</ul>
+</blockquote>
+</li>
+<li>在C语言中，%ns：那个n是数字，s代表string，即多少个字符；</li>
+<li>%ni：那个n是数字，i代表integer，即多少个整数数字；</li>
+<li>%N.nf：那个n和N是数字，N代表包括小数点在内的所有位数之和，n表示小数点后有多少位数；</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>            printf  &#39;%15s\t %5.2f\t %5.2f\t %5.2f\t %5.2f\t \n&#39; $(cat text1.txt)
+                  lvhongbin  123.00  44.10   22.00    2.00   
+                 lvhongchao   3.40    2.33   31.11    3.20
+</pre></div>
+
+
+<h3 id='10.5'>10.5 awk：好用的数据处理工具</h3>
+
+<h4 id="1_13">1) 介绍<a class="headerlink" href="#1_13" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>相比于sed处理一整行的数据，awk倾向于将一行分成好几个“字段”进行处理；</li>
+<li>变量：<blockquote>
+<ul>
+<li>NF每一行（$0）拥有的字段总数</li>
+<li>NR目前awk所处理的是“第几行”的数据</li>
+<li>FS 目前的分隔符，默认是空格键</li>
+<li>$1，$2等变量名称，表示每一行的每个字段，字段与字段之间通常用空格隔开，$0表示一整行数据的意思；</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h4 id="2-awk">2) 整个awk的处理流程：<a class="headerlink" href="#2-awk" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>读入第一行，并将第一行的数据填入$0，$1，$2等变量中；</li>
+<li>依据条件类型的限制，判断是否需要执行后面的动作；</li>
+<li>做完所有的条件类型和动作；</li>
+<li>若有后续“行”的数据，则重复以上操作；</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>            文件stdin | awk ‘条件{printf “正则表达式”, $1, $2,```$n, “自己的内容”}’
+            cat text1.txt | awk &#39;NR&lt;3{printf &quot;%10s %5.2f  %5.2f  %5.2f  %5.2f %10s %10s\n&quot;,$1, $2, $3, $4, $5, &quot; total:&quot; NF, &quot; line:&quot; NR}&#39;
+</pre></div>
+
+
+<h3 id='10.6'>10.6 文件比较工具</h3>
+
+<blockquote>
+<ul>
+<li>Diff：比较两个文件的不同，通过比较行的差异，然后输出所有的差异；</li>
+<li>Cmp：比较两个文件的不同，通过比较每个字符的差异，然后输出第一个的差异；</li>
+</ul>
+</blockquote>
+<hr />
+<h2 id='11'>十一、 Shell Script</h2>
+
+<h3 id='11.1'>11.1 基础知识</h3>
+
+<h4 id="1-shell-script">1) 简单的shell script练习<a class="headerlink" href="#1-shell-script" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>输出自己的全名</li>
+<li>在shell script的父进程无法得到子进程的变量</li>
+<li>可以使用sh运行或者使用路径运行</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>        // sh01.sh
+        #！/bin/bash
+        # Program:
+        #   User input his/her first name and last name. Then print the full name
+        # History:
+        # 2018-05-27 Lvhongbin      First Relsase
+
+        read -p &quot;Plasea input you first name: &quot; firstName
+        read -p &quot;Plasea input you last  name: &quot; lastName
+
+        # echo -e 意思是允许后面的内容进行反斜杠转义
+        echo -e &quot;\nYour full name is: ${firstName} ${lastName}&quot;
+
+        // 运行结果：直接运行
+        [root@MiWiFi-R3-srv Desktop]# chmod 4777 sh01.sh
+        // 此处必须要./
+        [root@MiWiFi-R3-srv Desktop]# ./sh01.sh
+        Plasea input you first name: lv
+        Plasea input you last  name: hongbin
+
+        Your full name is: lv hongbin 
+        //在shell script的父进程无法得到子进程的变量
+        [lvhongbin@MiWiFi-R3-srv Desktop]$ echo ${firstName}
+        //在shell script的父进程无法得到子进程的变量
+        [lvhongbin@MiWiFi-R3-srv Desktop]$ echo ${lastName}
+
+        // 运行结果：使用sh命令
+        [lvhongbin@MiWiFi-R3-srv Desktop]$ sh sh01.sh
+        Plasea input you first name: lv
+        Plasea input you last  name: hongbin
+
+        Your full name is: lv hongbin
+        //在shell script的父进程无法得到子进程的变量
+        [lvhongbin@MiWiFi-R3-srv Desktop]$ echo ${firstName}
+        //在shell script的父进程无法得到子进程的变量
+        [lvhongbin@MiWiFi-R3-srv Desktop]$ echo ${lastName}
+</pre></div>
+
+
+<h4 id="2_14">2) 执行方式的区别<a class="headerlink" href="#2_14" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>使用source运行脚本</li>
+<li>相当于在父进程中直接运行命令，此时所有的变量都会保存下来</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>        [lvhongbin@MiWiFi-R3-srv Desktop]$ source sh01.sh
+        Plasea input you first name: lv       
+        Plasea input you last  name: hongbin
+
+        Your full name is: lv hongbin
+        [lvhongbin@MiWiFi-R3-srv Desktop]$ echo ${firstName}
+        lv
+        [lvhongbin@MiWiFi-R3-srv Desktop]$ echo ${lastName}
+        hongbin
+</pre></div>
+
+
+<h4 id="3_6">3) 善用判别式<a class="headerlink" href="#3_6" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>判断文件是否存在</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>        [lvhongbin@MiWiFi-R3-srv Desktop]$ test -e sh01.sh &amp;&amp; echo &quot;exist&quot; || echo &quot;not exist&quot;
+        exist
+</pre></div>
+
+
+<blockquote>
+<ul>
+<li>判断表达式 -eq -ne -gt -lt -ge -le</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>        [lvhongbin@MiWiFi-R3-srv Desktop]$ test 1 -ge 2 &amp;&amp; echo &quot;1&gt;=2&quot; || echo &quot;1&lt;2&quot;
+        1&lt;2
+</pre></div>
+
+
+<blockquote>
+<ul>
+<li>文件权限 -r可读 -w可写 -x可执行 -u可具有“SUID” -g可具有“SGID” -s非空白文件 </li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>        [lvhongbin@MiWiFi-R3-srv Desktop]$ test -r sh01.sh &amp;&amp; echo &quot;readable&quot; || echo &quot;unreadable&quot;
+        readable
+</pre></div>
+
+
+<blockquote>
+<ul>
+<li>文件之间的比较 -nt比新 -ot比旧 -ef是否为同一个文件，可以判断是否是硬链接，主要判断是否指向同一个inode</li>
+<li>中括号判断式<blockquote>
+<ul>
+<li>中间所有的符号 [ 和 ] 和等号前后都需要有空格，否则会报错</li>
+<li>其实就是相当于if&hellip;else&hellip;</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>        [lvhongbin@MiWiFi-R3-srv Desktop]$ [ ${lastName} == &quot;hongbin&quot; ] &amp;&amp; echo &quot;equal&quot; || echo &quot;unequal&quot;
+        equal
+        [lvhongbin@MiWiFi-R3-srv Desktop]$ [ ${lastName} == &quot;lv&quot; ] &amp;&amp; echo &quot;equal&quot; || echo &quot;unequal&quot;
+        unequal
+
+        // sh02.sh
+        #！/bin/bash
+        # Program:
+        #   This proggress shows the user&#39;s choise
+        # History:
+        # 2018-05-27 Lvhongbin      First Relsase
+
+        read -p &quot;Please choose your choise (Y/N): &quot; yn
+        [ ${yn} == &quot;Y&quot; -o  ${yn} == &quot;y&quot; ] &amp;&amp; echo &quot;OK, continue&quot; &amp;&amp; exit 0
+        [ ${yn} == &quot;N&quot; -o  ${yn} == &quot;n&quot; ] &amp;&amp; echo &quot;Oh, interrupt!&quot; &amp;&amp; exit 0
+            echo &quot;I don&#39;t know what your chiose is&quot; &amp;&amp; exit 0
+
+        [lvhongbin@MiWiFi-R3-srv Desktop]$ sh sh02.sh
+        Please choose your choise (Y/N): Y
+        OK, continue
+        [lvhongbin@MiWiFi-R3-srv Desktop]$ sh sh02.sh
+        Please choose your choise (Y/N): n
+        Oh, interrupt!
+        [lvhongbin@MiWiFi-R3-srv Desktop]$ sh sh02.sh
+        Please choose your choise (Y/N): q
+        I don&#39;t know what your chiose is
+        [lvhongbin@MiWiFi-R3-srv Desktop]$
+</pre></div>
+
+
+<h4 id="4_4">4) 默认变量<a class="headerlink" href="#4_4" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>$数字 表示第几个参数，$0默认是文件名</li>
+<li>$@ 表示所有参数，中间用空格连起来（不包括文件名）</li>
+<li>$# 表示所有的参数（不包括文件名）</li>
+<li>shift: 造成参数变量号码偏移 每偏移一次就拿掉前面多少个参数 </li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>        # sh03.sh
+        #！/bin/bash
+        # Program:
+        #   This proggress shows default parameters
+        # History:
+        # 2018-05-27 Lvhongbin      First Relsase
+
+        echo &quot;The script&#39;s name is ==&gt; $0&quot;
+        echo &quot;The argument[0] is ==&gt; $1&quot;
+        echo &quot;The argument[1] is ==&gt; $2&quot;
+        # 这里需要用引号吧$@括起来，其实括不括起来都无所谓
+        echo &quot;The arguments is ==&gt; &#39;$@&#39;&quot;
+        echo &quot;The arguments.length is ==&gt; &#39;$#&#39;&quot;
+        shift &amp;&amp; echo -e &quot;shift \n&quot; 
+        echo &quot;The script&#39;s name is ==&gt; $0&quot;
+        echo &quot;The argument[0] is ==&gt; $1&quot;
+        echo &quot;The argument[1] is ==&gt; $2&quot;
+        # 这里需要用引号吧$@括起来，其实括不括起来都无所谓
+        echo &quot;The arguments is ==&gt; &#39;$@&#39;&quot;
+        echo &quot;The arguments.length is ==&gt; &#39;$#&#39;&quot;
+        shift 2 &amp;&amp; echo -e &quot;shift 2 \n&quot;
+        echo &quot;The script&#39;s name is ==&gt; $0&quot;
+        echo &quot;The argument[0] is ==&gt; $1&quot;
+        echo &quot;The argument[1] is ==&gt; $2&quot;
+        # 这里需要用引号吧$@括起来，其实括不括起来都无所谓
+        echo &quot;The arguments is ==&gt; &#39;$@&#39;&quot;
+        echo &quot;The arguments.length is ==&gt; &#39;$#&#39;&quot;
+
+        //结果
+        [lvhongbin@MiWiFi-R3-srv Desktop]$ sh sh03.sh one two three four five six
+        The script&#39;s name is ==&gt; sh03.sh
+        The argument[0] is ==&gt; one
+        The argument[1] is ==&gt; two
+        The arguments is ==&gt; &#39;one two three four five six&#39;
+        The arguments.length is ==&gt; &#39;6&#39;
+        shift
+
+        The script&#39;s name is ==&gt; sh03.sh
+        The argument[0] is ==&gt; two
+        The argument[1] is ==&gt; three
+        The arguments is ==&gt; &#39;two three four five six&#39;
+        The arguments.length is ==&gt; &#39;5&#39;
+        shift 2
+
+        The script&#39;s name is ==&gt; sh03.sh
+        The argument[0] is ==&gt; four
+        The argument[1] is ==&gt; five
+        The arguments is ==&gt; &#39;four five six&#39;
+        The arguments.length is ==&gt; &#39;3&#39;
+</pre></div>
+
+
+<h4 id="5_3">5) 获取命令返回值<a class="headerlink" href="#5_3" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>$(命令)</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>        testing=$(netstat -tuln | grep &quot;:80&quot;) #检测80端口，并赋给testing变量
+
+        [lvhongbin@MiWiFi-R3-srv Desktop]$ testing=$(netstat -tuln | grep &quot;:22&quot;)
+        [lvhongbin@MiWiFi-R3-srv Desktop]$ echo ${testing}
+        tcp 0 0 0.0.0.0:22 0.0.0.0:* LISTEN tcp6 0 0 :::22 :::* LISTEN
+</pre></div>
+
+
+<h3 id='11.2'>11.2 条件判断式</h3>
+
+<h4 id="1-if-then">1) if.. then..<a class="headerlink" href="#1-if-then" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>范式</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>        if [ condition ] ; then 
+            # do something
+        fi
+</pre></div>
+
+
+<blockquote>
+<ul>
+<li>条件式可复合 </li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>        [ condition1 ] || [ condition2 ]
+        [ condition1 ] &amp;&amp; [ condition2 ]
+</pre></div>
+
+
+<h4 id="2_15">2) 多重复杂判断式<a class="headerlink" href="#2_15" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>范式</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>        if [ condition ] ; then 
+            # do something
+        elif [ condition ] ; then
+            # do something
+        else
+            # do something
+        fi
+</pre></div>
+
+
+<h4 id="3-caseesac">3) 利用case..esac<a class="headerlink" href="#3-caseesac" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>范式</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>        case $1 in 
+            &quot;内容1&quot;)
+                # do something
+            ;;
+            &quot;内容2&quot;)
+                # do something
+            ;;
+            *)
+                # do something
+            ;;
+        esac
+</pre></div>
+
+
+<h3 id='11.3'>11.3 循环</h3>
+
+<h4 id="1-while-do-done">1) while do done<a class="headerlink" href="#1-while-do-done" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>范式</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>        while [ condition ]
+        do
+            #something
+        done
+</pre></div>
+
+
+<h4 id="2-until-do-done">2) until do done<a class="headerlink" href="#2-until-do-done" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>范式</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>        until [ condition ]
+        do
+            # do something
+        done
+</pre></div>
+
+
+<h4 id="3-for-do-done">3) for do done<a class="headerlink" href="#3-for-do-done" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>范式</li>
+<li>&amp;&gt; 等如 2&gt;&amp;1 , &gt; 等如 1&gt; ,那是缩写, 1 是 STDOUT, 2 是 STDERR, 2&gt;&amp;1 就是 STDOUT 和 STDERR</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>        for var in con1 con2 con3...
+        do
+            # do something
+        done
+
+
+        # pingip.sh
+        #!/bin/bash
+        # Program
+        #       Use ping command to check the network&#39;s PC state.
+        # History
+        # 2015/07/17    VBird   first release
+        PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
+        export PATH
+        network=&quot;192.168.1&quot;              # 先定義一個網域的前面部分！
+        for sitenu in $(seq 1 100)       # seq 為 sequence(連續) 的縮寫之意
+        do
+            # 底下的程式在取得 ping 的回傳值是正確的還是失敗的！
+                ping -c 1 -w 1 ${network}.${sitenu} &amp;&gt; /dev/null &amp;&amp; result=0 || result=1
+            # 開始顯示結果是正確的啟動 (UP) 還是錯誤的沒有連通 (DOWN)
+                if [ &quot;${result}&quot; == 0 ]; then
+                        echo &quot;Server ${network}.${sitenu} is UP.&quot;
+                else
+                        echo &quot;Server ${network}.${sitenu} is DOWN.&quot;
+                fi
+        done
+</pre></div>
+
+
+<blockquote>
+<h2 id="-">-<a class="headerlink" href="#-" title="Permanent link"></a></h2>
+</blockquote>
+<hr />
+<div class="codehilite"><pre>&lt;h2 id=&#39;12&#39;&gt;十二、 软件安装&lt;/h2&gt;
+&lt;h3 id=&#39;12.1&#39;&gt;12.1 基础正则表达式&lt;/h3&gt;
+</pre></div>
+
+
+<h4 id="1_14">(1<a class="headerlink" href="#1_14" title="Permanent link"></a></h4></article></body></html>
