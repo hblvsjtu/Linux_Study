@@ -80,12 +80,15 @@
 ### [11.3 循环](#11.3)
 ### [11.4 函数function](#11.4)
 ### [11.5 调试](#11.5)
-
+            
 ## [十二、 软件安装](#12)
 ### [12.1 make和configure](#12.1)
 ### [12.2 软件管理器RPM、RPMS和YUM](#12.2)
         
-
+## [十三、 进程与程序管理](#13)
+### [13.1 进程与程序](#13.1)
+### [13.2 工作管理](#13.2)
+### [13.3 系统资源的查看](#13.3)
 ------      
         
         
@@ -1138,7 +1141,7 @@ v，然后移动光标，就可以进行矩形选择，然后按下y或者d可�
 > - 程序先执行单引号里面的内容，再把执行的结果返回给单引号外面的命令，其实这个功能可以使用> - 后执行的命令 $(先执行的命令)来替代。
 #### 4) 环境变量的功能
 > - 但你登陆Linux并取得哪一个bash后，这个bash其实就是一个单独进程，称为PID。接下来所有的命令都是由这个bash进程衍生出来的，被执行的命令称为子进程。比如在一个bash中执行另外一个bash，那么第二个bash就是子进程。
->>>>>> ![图9-1 bash进程](https://github.com/hblvsjtu/Linux_Study/blob/master/picture/%E5%9B%BE9-1%20bash%E8%BF%9B%E7%A8%8B.jpg?raw=true)
+>>>>>> ![图9-1 bash进程](https://github.com/hblvsjtu/Linux_Study/blob/master/picture/%E5%9B%BE9-1%20bash%E8%BF%9B%E7%A8%8B.png?raw=true)
 > - 子进程只会继承父进程的环境变量，而不会继承自定义变量
 > - 环境变量=全局变量
 > - 自定义变量=局部变量;
@@ -1859,13 +1862,15 @@ v，然后移动光标，就可以进行矩形选择，然后按下y或者d可�
 >> - -v: 在执行script之前先将script的内容输出到屏幕
 >> - -x: 将使用到的script内容显示到屏幕上    
         
-                bash -n batchChangeFileName.sh               
+                bash -n batchChangeFileName.sh    
+
+
 ------      
         
         
 <h2 id='12'>十二、 软件安装</h2>
 <h3 id='12.1'>12.1 make和configure</h3> 
-
+        
 #### 1) make和configure的关系
 > - make会在当前的目录下搜索Makefile文本文件
 > - Makefile里面则记录了源码如何编译的详细信息
@@ -1879,7 +1884,7 @@ v，然后移动光标，就可以进行矩形选择，然后按下y或者d可�
 >> - 操作系统平台是否适合本软件，包括Linux的内核版本
 >> - 内核的头定义文件(header include)是否存在 
 > - 所以安装的顺序是先运行configure检测编译所需的函数库编译器以及其他资料，生成Makefile文件，然后再通过make编译
->>>>>> ![图12-1 make_configure.jpg]()
+>>>>>> ![图12-1 make_configure.jpg](https://github.com/hblvsjtu/Linux_Study/blob/master/picture/%E5%9B%BE12-1%20make_configure.jpg?raw=true)
         
 #### 2) Tarball
 > - 源码经过压缩技术压缩后的压缩包
@@ -2036,3 +2041,298 @@ v，然后移动光标，就可以进行矩形选择，然后按下y或者d可�
 > - 服务器中安装软件所需要的依赖列表
 > - 自动检查系统中缺少的依赖进行自动安装
 > - 方便快捷
+           
+------      
+        
+        
+<h2 id='13'>十三、 进程与程序管理</h2>
+<h3 id='13.1'>13.1 进程与程序</h3> 
+        
+#### 1) 定义
+> - 程序program：通常为二进制程序防止在存储媒介中，以物理文件的形式存在
+> - 进程process：程序出发后，执行者的权限与属性，程序的程序代码与所需数据等都会被夹在到内存中，操作系统并给与这个内存内的单元一个标识符PID，可以说，进程就是一个正在运行中的程序
+#### 2) 父进程与子进程
+> - 系统首先用fork复制一个跟父进程一模一样的进程，并暂存一个PPID的参数，然后这个冒牌父进程以exec的方式加载实际要执行的程序，并拥有自己的PID
+>>>>> ![图13-1 父进程与子进程]()
+        
+<h3 id='13.2'>13.2 工作管理</h3> 
+        
+#### 1) 定义
+> - 前台：你可以控制和执行命令的环境
+> - 后台：可以自由运行的环境，你无法使用\[ctrl\]+c进行干预
+#### 2) job control管理
+> -  直接把命令丢到后台执行的 & 返回PID 
+        
+                [lvhongbin@MiWiFi-R3-srv Desktop]$ touch log.txt
+                [lvhongbin@MiWiFi-R3-srv Desktop]$ tar -jcv ./practise -f ./practise.tar.bz2 > log.txt 2>&1 &
+                [1] 74069
+
+                [lvhongbin@MiWiFi-R3-srv Desktop]$ cat log.txt
+                ./practise/
+                ./practise/batchChangeFileName.sh
+                ./practise/hello/
+                ./practise/hello/src/
+                ./practise/hello/build/
+                ./practise/hello/build/config.gypi
+                ./practise/hello/build/Makefile
+                ./practise/hello/build/hello.target.mk
+                ./practise/hello/build/binding.Makefile
+                ./practise/hello/build/Release/
+                ./practise/hello/build/Release/obj.target/
+                ./practise/hello/build/Release/obj.target/hello/
+                ./practise/hello/build/Release/obj.target/hello/src/
+                ./practise/hello/build/Release/.deps/
+                ./practise/hello/build/Release/.deps/Release/
+                ./practise/hello/build/Release/.deps/Release/obj.target/
+                ./practise/hello/build/Release/.deps/Release/obj.target/hello/
+                ./practise/hello/build/Release/.deps/Release/obj.target/hello/src/
+                ./practise/hello_world/build/Release/.deps/Release/hello.node.d
+                ./practise/hello_world/build/Release/hello.node
+                ./practise/hello_world/hello.js
+                ./practise/hello_world/hi.js
+                ./practise/hello_world/test.js
+                ./practise/pingip.sh
+                ./practise/sh01.sh
+                ./practise/sh02.sh
+                ./practise/sh03.sh
+                ./practise/text.txt
+                ./practise/findGF/
+                ./practise/findGF/fight.c
+                ./practise/findGF/findGF.c
+                ./practise/findGF/Makefile
+                ./practise/findGF/findGF.o
+                ./practise/findGF/fight.o
+                ./practise/findGF/main
+                ./practise/findGF.tar.bz2
+                [1]+  Done                    tar -jcv ./practise -f ./practise.tar.bz2 > log.txt 2>&1
+> - 将工作丢到后台中暂停：\[ctrl\]-z 返回job number
+> - 查看目前后台的工作状态：jobs
+>> - -l: 列出job number与命令串之外，同时累列出PID号码
+>> - -r: 仅列出正在后台run的工作
+>> - -s: 仅列出正在后台当中暂停的工作 
+> - 将后台工作拿到前台来处理：fg
+> - 将后台的下的状态变成运行中：bg
+> - 管理后台当中的工作：kill -l -1 -2 -9 -15 %jobnumber
+>> - -l 列出所有可执行的参数
+>> - -1：重新读取一次配置文件reload
+>> - -2：跟\[ctrl\]-c同样的作用
+>> - -9：立即强制删除一个工作
+>> - -15：以正常的程序终止一项工作
+> - 管理后台当中的工作：kill -l -1 -2 -9 -15 PID
+> - kill不能删除PID=1 PID=1是init初始进程，一旦把他删掉就会使得系统崩溃   
+        
+                [lvhongbin@MiWiFi-R3-srv Desktop]$ vim log.txt
+
+                [1]+  Stopped                 vim log.txt
+                [lvhongbin@MiWiFi-R3-srv Desktop]$ jobs -l
+                [1]+ 74296 Stopped                 vim log.txt
+                [lvhongbin@MiWiFi-R3-srv Desktop]$ vim ./practise/test.txt
+
+                [2]+  Stopped                 vim ./practise/test.txt
+                [lvhongbin@MiWiFi-R3-srv Desktop]$ fg %1
+                vim log.txt
+
+                [lvhongbin@MiWiFi-R3-srv Desktop]$ kill -l
+                 1) SIGHUP   2) SIGINT   3) SIGQUIT  4) SIGILL   5) SIGTRAP
+                 6) SIGABRT  7) SIGBUS   8) SIGFPE   9) SIGKILL 10) SIGUSR1
+                11) SIGSEGV 12) SIGUSR2 13) SIGPIPE 14) SIGALRM 15) SIGTERM
+                16) SIGSTKFLT   17) SIGCHLD 18) SIGCONT 19) SIGSTOP 20) SIGTSTP
+                21) SIGTTIN 22) SIGTTOU 23) SIGURG  24) SIGXCPU 25) SIGXFSZ
+                26) SIGVTALRM   27) SIGPROF 28) SIGWINCH    29) SIGIO   30) SIGPWR
+                31) SIGSYS  34) SIGRTMIN    35) SIGRTMIN+1  36) SIGRTMIN+2  37) SIGRTMIN+3
+                38) SIGRTMIN+4  39) SIGRTMIN+5  40) SIGRTMIN+6  41) SIGRTMIN+7  42) SIGRTMIN+8
+                43) SIGRTMIN+9  44) SIGRTMIN+10 45) SIGRTMIN+11 46) SIGRTMIN+12 47) SIGRTMIN+13
+                48) SIGRTMIN+14 49) SIGRTMIN+15 50) SIGRTMAX-14 51) SIGRTMAX-13 52) SIGRTMAX-12
+                53) SIGRTMAX-11 54) SIGRTMAX-10 55) SIGRTMAX-9  56) SIGRTMAX-8  57) SIGRTMAX-7
+                58) SIGRTMAX-6  59) SIGRTMAX-5  60) SIGRTMAX-4  61) SIGRTMAX-3  62) SIGRTMAX-2
+                63) SIGRTMAX-1  64) SIGRTMAX    
+#### 3) 进程的查看
+> - ps: 将某个时间点的进程运行情况选取下来
+>> - -A：列出所有进程
+>> - -a: 不与terminal相关的所有进程
+>> - -u: 有效用户相关的进程
+>> - x: 通常跟a这个参数一起使用，可列出完整的信息，输出格式规划 
+>> - l: 较长，将详细的将该PID的信息列出自己相关的bash进程  
+        
+                lvhongbin@MiWiFi-R3-srv Desktop]$ ps aux
+                USER        PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+                root          1  0.0  0.1  46164  6520 ?        Ss   May26   1:07 /usr/lib/systemd/systemd --system --deserialize 15
+                root          2  0.0  0.0      0     0 ?        S    May26   0:00 [kthreadd]
+                root          3  0.0  0.0      0     0 ?        S    May26   0:02 [ksoftirqd/0]
+                root          5  0.0  0.0      0     0 ?        S<   May26   0:00 [kworker/0:0H]
+                root          7  0.0  0.0      0     0 ?        S    May26   0:01 [migration/0]
+                root          8  0.0  0.0      0     0 ?        S    May26   0:00 [rcu_bh]
+
+                [lvhongbin@MiWiFi-R3-srv Desktop]$ ps -l
+                F S   UID    PID   PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+                0 S  1000  67929  67919  0  80   0 - 29152 do_wai pts/0    00:00:00 bash
+                4 S  1000  73055  73054  0  80   0 - 29153 do_wai pts/0    00:00:00 bash
+                0 R  1000  74688  73055  0  80   0 - 37245 -      pts/0    00:00:00 ps
+> - top 动态查看进程的状态 -d 后接更新的秒数  
+        
+                [lvhongbin@MiWiFi-R3-srv Desktop]$ top -d 5
+
+                top - 17:12:23 up 2 days,  5:11,  2 users,  load average: 0.15, 0.13, 0.10
+                Tasks: 202 total,   3 running, 199 sleeping,   0 stopped,   0 zombie
+                %Cpu(s):  8.9 us,  2.9 sy,  0.0 ni, 88.2 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+                KiB Mem :  3865308 total,   152436 free,  1484608 used,  2228264 buff/cache
+                KiB Swap:  2097148 total,  2095156 free,     1992 used.  1895640 avail Mem 
+
+                   PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND                                                                                                                                       
+                 12792 lvhongb+  20   0 2414388 338476  50036 S  19.7  8.8  55:09.93 gnome-shell                                                                                                                                   
+                  2776 root      20   0  400548 116436  32948 S   3.6  3.0  16:10.81 X                                                                                                                                             
+                 14443 lvhongb+  20   0 2140496 378416 157404 S   1.4  9.8 329:12.89 Web Content                                                                                                                                   
+                 67919 lvhongb+  20   0  729856  23584  14676 S   0.8  0.6   0:08.63 gnome-terminal-                                                                                                                               
+                 13019 lvhongb+  20   0  386616  20492  15044 R   0.4  0.5   3:02.13 vmtoolsd                                                                                                                                      
+                 14385 lvhongb+  20   0 2619264 305316 118500 S   0.4  7.9  66:06.39 firefox                                                                                                                                       
+                     9 root      20   0       0      0      0 R   0.2  0.0   0:41.44 rcu_sched                                                                                                                                     
+                   410 root      20   0       0      0      0 S   0.2  0.0   0:35.63 xfsaild/dm-0                                                                                                                                  
+                 12819 lvhongb+  20   0  451664   6796   3284 S   0.2  0.2   0:56.11 ibus-daemon                                                                                                                                   
+                 13005 lvhongb+  20   0  529540  15724  10304 S   0.2  0.4   0:00.49 abrt-applet                                                                                                                                   
+                 74676 root      20   0       0      0      0 S   0.2  0.0   0:00.32 kworker/1:0                                                                                                                                   
+                 74790 lvhongb+  20   0  157784   2368   1580 R   0.2  0.1   0:00.65 top 
+> - pstree 进程的相关性  
+                
+                [lvhongbin@MiWiFi-R3-srv Desktop]$ pstree
+                systemd─┬─ModemManager───2*[{ModemManager}]
+                        ├─NetworkManager─┬─dhclient
+                        │                └─2*[{NetworkManager}]
+                        ├─VGAuthService
+                        ├─2*[abrt-watch-log]
+                        ├─abrtd
+                        ├─accounts-daemon───2*[{accounts-daemon}]
+                        ├─agetty
+                        ├─alsactl
+                        ├─at-spi-bus-laun─┬─dbus-daemon───{dbus-daemon}
+                        │                 └─3*[{at-spi-bus-laun}]
+                        ├─at-spi2-registr───2*[{at-spi2-registr}]
+                        ├─atd
+                        ├─auditd─┬─audispd─┬─sedispatch
+                        │        │         └─{audispd}
+                        │        └─{auditd}
+                        ├─avahi-daemon───avahi-daemon
+                        ├─bluetoothd
+                        ├─chronyd
+                        ├─colord───2*[{colord}]
+                        ├─crond
+                        ├─cupsd
+                        ├─2*[dbus-daemon───{dbus-daemon}]
+                        ├─dbus-launch
+                        ├─dconf-service───2*[{dconf-service}]
+                        ├─dnsmasq───dnsmasq
+                        ├─evolution-addre─┬─evolution-addre───5*[{evolution-addre}]
+                        │                 └─5*[{evolution-addre}]
+                        ├─evolution-calen─┬─evolution-calen───7*[{evolution-calen}]
+                        │                 ├─evolution-calen───5*[{evolution-calen}]
+                        │                 └─5*[{evolution-calen}]
+                        ├─evolution-sourc───4*[{evolution-sourc}]
+                        ├─firefox─┬─Web Content───22*[{Web Content}]
+                        │         └─45*[{firefox}]
+                        ├─firewalld───{firewalld}
+                        ├─gconfd-2
+                        ├─gdm─┬─X───3*[{X}]
+                        │     ├─gdm-session-wor─┬─gnome-session-b─┬─abrt-applet───2*[{abrt-applet}]
+                        │     │                 │                 ├─gnome-settings-───4*[{gnome-settings-}]
+                        │     │                 │                 ├─gnome-shell─┬─ibus-daemon─┬─ibus-dconf───3*[{ibus-dconf}]
+                        │     │                 │                 │             │             ├─ibus-engine-lib───2*[{ibus-engine-lib}]
+                        │     │                 │                 │             │             ├─ibus-engine-sim───2*[{ibus-engine-sim}]
+                        │     │                 │                 │             │             └─2*[{ibus-daemon}]
+                        │     │                 │                 │             └─10*[{gnome-shell}]
+                        │     │                 │                 ├─gnome-software───3*[{gnome-software}]
+                        │     │                 │                 ├─nautilus-deskto───3*[{nautilus-deskto}]
+                        │     │                 │                 ├─seapplet
+                        │     │                 │                 ├─ssh-agent
+                        │     │                 │                 ├─tracker-extract───14*[{tracker-extract}]
+                        │     │                 │                 ├─tracker-miner-a───3*[{tracker-miner-a}]
+                        │     │                 │                 ├─tracker-miner-f───3*[{tracker-miner-f}]
+                        │     │                 │                 ├─tracker-miner-u───3*[{tracker-miner-u}]
+                        │     │                 │                 └─3*[{gnome-session-b}]
+                        │     │                 └─2*[{gdm-session-wor}]
+                        │     └─3*[{gdm}]
+                        ├─glib-pacrunner───2*[{glib-pacrunner}]
+                        ├─gnome-keyring-d───3*[{gnome-keyring-d}]
+                        ├─gnome-shell-cal───6*[{gnome-shell-cal}]
+                        ├─gnome-terminal-─┬─bash───su───bash───su───bash───pstree
+                        │                 ├─gnome-pty-helpe
+                        │                 └─3*[{gnome-terminal-}]
+                        ├─goa-daemon───4*[{goa-daemon}]
+                        ├─goa-identity-se───3*[{goa-identity-se}]
+                        ├─gsd-printer───2*[{gsd-printer}]
+                        ├─gssproxy───5*[{gssproxy}]
+                        ├─gvfs-afc-volume───3*[{gvfs-afc-volume}]
+                        ├─gvfs-goa-volume───2*[{gvfs-goa-volume}]
+                        ├─gvfs-gphoto2-vo───2*[{gvfs-gphoto2-vo}]
+                        ├─gvfs-mtp-volume───2*[{gvfs-mtp-volume}]
+                        ├─gvfs-udisks2-vo───2*[{gvfs-udisks2-vo}]
+                        ├─gvfsd───2*[{gvfsd}]
+                        ├─gvfsd-dnssd───2*[{gvfsd-dnssd}]
+                        ├─gvfsd-fuse───5*[{gvfsd-fuse}]
+                        ├─gvfsd-metadata───2*[{gvfsd-metadata}]
+                        ├─gvfsd-network───3*[{gvfsd-network}]
+                        ├─gvfsd-recent───2*[{gvfsd-recent}]
+                        ├─gvfsd-trash───2*[{gvfsd-trash}]
+                        ├─ibus-daemon─┬─ibus-dconf───3*[{ibus-dconf}]
+                        │             └─2*[{ibus-daemon}]
+                        ├─2*[ibus-x11───2*[{ibus-x11}]]
+                        ├─irqbalance
+                        ├─ksmtuned───sleep
+                        ├─libvirtd───15*[{libvirtd}]
+                        ├─lsmd
+                        ├─lvmetad
+                        ├─master─┬─pickup
+                        │        └─qmgr
+                        ├─mission-control───3*[{mission-control}]
+                        ├─nautilus───3*[{nautilus}]
+                        ├─packagekitd───2*[{packagekitd}]
+                        ├─polkitd───5*[{polkitd}]
+                        ├─pulseaudio───2*[{pulseaudio}]
+                        ├─rngd
+                        ├─rsyslogd───2*[{rsyslogd}]
+                        ├─rtkit-daemon───2*[{rtkit-daemon}]
+                        ├─smartd
+                        ├─sshd
+                        ├─systemd-journal
+                        ├─systemd-logind
+                        ├─systemd-udevd
+                        ├─tracker-store───7*[{tracker-store}]
+                        ├─tuned───4*[{tuned}]
+                        ├─udisksd───4*[{udisksd}]
+                        ├─upowerd───2*[{upowerd}]
+                        ├─vmtoolsd───{vmtoolsd}
+                        ├─vmtoolsd
+                        ├─wpa_supplicant
+                        └─xdg-permission-───2*[{xdg-permission-}]
+#### 4) 进程的优先级
+> - PRI值越小代表优先级越高
+> - 通过改变nice动态改变PRI，但是这种改动是有限的，最终的PRI值由系统决定
+> - renice: 已存在进程的PRI调整 
+        
+                [lvhongbin@MiWiFi-R3-srv Desktop]$ ps -l
+                F S   UID    PID   PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+                0 S  1000  67929  67919  0  80   0 - 29152 do_wai pts/0    00:00:00 bash
+                4 S  1000  73055  73054  0  80   0 - 29153 do_wai pts/0    00:00:00 bash
+                0 R  1000  75105  73055  0  80   0 - 37245 -      pts/0    00:00:00 ps
+                [lvhongbin@MiWiFi-R3-srv Desktop]$ renice 10 67929
+                67929 (process ID) old priority 0, new priority 10
+                [lvhongbin@MiWiFi-R3-srv Desktop]$ ps -l
+                F S   UID    PID   PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+                0 S  1000  67929  67919  0  90  10 - 29152 do_wai pts/0    00:00:00 bash
+                4 S  1000  73055  73054  0  80   0 - 29153 do_wai pts/0    00:00:00 bash
+                0 R  1000  75119  73055  0  80   0 - 37245 -      pts/0    00:00:00 ps
+       
+<h3 id='13.3'>13.3 系统资源的查看</h3> 
+        
+#### 1) 相关命令
+> - free: 查看内存的使用情况 -b: 单位是byte -m: 单位是MB -g: 单位是GB
+        
+                [lvhongbin@MiWiFi-R3-srv Desktop]$ free
+                              total        used        free      shared  buff/cache   available
+                Mem:        3865308     1439404      192716      131888     2233188     1938440
+                Swap:       2097148        1980     2095168
+> - uname: 查看跟系统内核相关的信息 -a: 列出全部
+        
+                [lvhongbin@MiWiFi-R3-srv Desktop]$ uname
+                Linux
+                [lvhongbin@MiWiFi-R3-srv Desktop]$ uname -a
+                Linux MiWiFi-R3-srv 3.10.0-693.el7.x86_64 #1 SMP Tue Aug 22 21:09:27 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux
+> - -netstat: 跟踪网络
