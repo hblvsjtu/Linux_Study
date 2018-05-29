@@ -2350,14 +2350,14 @@ v，然后移动光标，就可以进行矩形选择，然后按下y或者d可�
 <h3 id='14.1'>14.1 网络基本概念</h3> 
         
 #### 1) Netmask,子网和CIDR(Classless Interdomain Routing)
->>>>>>> ![图14-1 子网划分.jpg]()
+>>>>>>> ![图14-1 子网划分.jpg](https://github.com/hblvsjtu/Linux_Study/blob/master/picture/%E5%9B%BE14-1%20%E5%AD%90%E7%BD%91%E5%88%92%E5%88%86.jpg?raw=true)
         
 > - Nestwork: Host_ID全部为0
 > - Broadcast：Host_ID全部为1
 > - Netmask: Nestwork和Broadcast的按位与运算得出的结果
 > - Host_ID可以拿来当Net_ID，比如本来只有24bit的Net_ID，可以从Host_ID拿出最高为充当Net_ID，此时Net_ID就有25bit了。这样做的好处是可以用来子网分组用
 #### 2) 路由的概念
->>>>>>> ![图14-2 路由.jpg]()
+>>>>>>> ![图14-2 路由.jpg](https://github.com/hblvsjtu/Linux_Study/blob/master/picture/%E5%9B%BE14-2%20%E8%B7%AF%E7%94%B1.jpg?raw=true)
         
 > - Gateway/Router: 网关/路由器的功能就是负责不同网络之间数据包传递
 > - 从PC01发送到PC11的过程
@@ -2415,25 +2415,72 @@ v，然后移动光标，就可以进行矩形选择，然后按下y或者d可�
                 6 packets transmitted, 6 received, 0% packet loss, time 5005ms
                 rtt min/avg/max/mdev = 64.093/90.643/132.730/23.947 ms
 
->>>>>>> ![图14-3 常见的ICMP类别.jpg]()
+>>>>>>> ![图14-3 常见的ICMP类别.jpg](https://github.com/hblvsjtu/Linux_Study/blob/master/picture/%E5%9B%BE14-3%20%E5%B8%B8%E8%A7%81%E7%9A%84ICMP%E7%B1%BB%E5%88%AB.jpg?raw=true)
         
 #### 5) TCP/IP协议       
 > - 网络层的IP数据包只负责将数据传送到正确的目的主机中去，但是这个数据到底有没有被正确接收，那不是IP的任务，因为那是运输层的任务
->>>>>>> ![图14-5 各数据包之间的相关性]()
+>>>>>>> ![图14-5 各数据包之间的相关性](https://github.com/hblvsjtu/Linux_Study/blob/master/picture/%E5%9B%BE14-5%20%E5%90%84%E6%95%B0%E6%8D%AE%E5%8C%85%E4%B9%8B%E9%97%B4%E7%9A%84%E7%9B%B8%E5%85%B3%E6%80%A7.jpg?raw=true)
         
->>>>>>> ![图14-4 TCP数据包的包头信息]()
+>>>>>>> ![图14-4 TCP数据包的包头信息](https://github.com/hblvsjtu/Linux_Study/blob/master/picture/%E5%9B%BE14-4%20TCP%E6%95%B0%E6%8D%AE%E5%8C%85%E7%9A%84%E5%8C%85%E5%A4%B4%E4%BF%A1%E6%81%AF.jpg?raw=true)
         
-> - Source port和Destination port 源端口和目的端口 16位，最大时65535
->>>>>>> ![图14-3 常见的ICMP类别]()
+> - Source port和Destination port 源端口和目的端口 16位，最大时65535。大于1024的需要root才行，所以才叫特权端口。所以当client主动向server要数据的时候，Client就会随机取一个大于1024且没有被使用的端口
+>>>>>>> ![图14-7 常见的特权端口.jpg](https://github.com/hblvsjtu/Linux_Study/blob/master/picture/%E5%9B%BE14-7%20%E5%B8%B8%E8%A7%81%E7%9A%84%E7%89%B9%E6%9D%83%E7%AB%AF%E5%8F%A3.jpg?raw=true)
         
+> - sequence number 数据包序号 当TCP数据太大的时候就需要分段，sequence number就是用来记录每个数据包的序号，好让server接收的时候可以组装起来
 > - code (control Flag,控制标志位)
->>>>>>> ![图14-3 常见的ICMP类别]()
- 
-> -        
-> -                      
-                      
+>>>>>>> ![图14-6 常见的控制标志位](https://github.com/hblvsjtu/Linux_Study/blob/master/picture/%E5%9B%BE14-6%20%E5%B8%B8%E8%A7%81%E7%9A%84%E6%8E%A7%E5%88%B6%E6%A0%87%E5%BF%97%E4%BD%8D.jpg?raw=true)        
+> - socket pair IP+端口       
+> - TCP三次握手
+>>>>>> ![图14-8 TCP三次握手.jpg]()
+        
+> - UDP User Datagram Protocol 用户数据报协议 由于不需要经过三次握手等可靠性服务，所报头内容比较少，这意味着可以填充更多的Data数据。同时UDP比较适合一些影像实时传输等。连接比较快速。有些软件采用的是先UDP，如果在一定时间内无法取得连接就换用TCP连接。           
+#### 6) 网络防火墙       
+> - 采用一些过滤规则，如针对某些特定的IP，端口或者特定的数据包信息（SYN/ACK等），然后把这些有问题的数据包丢弃，这就是最基本的防火墙原理
+        
 <h3 id='14.2'>14.2 设置网络参数的命令</h3> 
         
+#### 2) Linux网络相关的配置文件
+>>>>>>> ![图14-9 网路配置文件.jpg]()
+        
+> - /etc/services 记录类似TCP/UDP等各种协议，如果你定义的一个新的协议与port相对应，就需要改这个文件
+> - /etc/protocols 定义IP数据包协议的相关数据
+> - /etc/init.d/network restart 这个命令代表重新启动整个网络的参数，主动读取所有的网络配置文件，快速恢复系统默认的参数值
+> - 配置相关参数后如何快速查看
+        
+>>>> **修改的参数** | **配置文件** | **快速启动脚本** | **查看结果的指令**
+>>>> - | - | - | -
+>>>> IP相关的参数 | /etc/sysconfig/network-scripts/ifcfg-ens33 |  /etc/init.d/network restart | ifconfig (ip/Netmask)  route -n
+>>>> DNS | /etc/resolv.conf | /etc/resolv.conf  | dig www.baidu.com
+>>>> 主机名 | /etc/sysconfig/network |  /etc/hosts | hostname 
+        
+                [lvhongbin@localhost ~]$ dig www.baidu.com
+
+                ; <<>> DiG 9.9.4-RedHat-9.9.4-50.el7 <<>> www.baidu.com
+                ;; global options: +cmd
+                ;; Got answer:
+                ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 34751
+                ;; flags: qr rd ra; QUERY: 1, ANSWER: 3, AUTHORITY: 0, ADDITIONAL: 1
+
+                ;; OPT PSEUDOSECTION:
+                ; EDNS: version: 0, flags:; udp: 512
+                ;; QUESTION SECTION:
+                ;www.baidu.com.         IN  A
+
+                ;; ANSWER SECTION:
+                www.baidu.com.      290 IN  CNAME   www.a.shifen.com.
+                www.a.shifen.com.   148 IN  A   119.75.216.20
+                www.a.shifen.com.   148 IN  A   119.75.213.61
+
+                ;; Query time: 82 msec
+                ;; SERVER: 8.8.8.8#53(8.8.8.8)
+                ;; WHEN: Tue May 29 21:07:21 CST 2018
+                ;; MSG SIZE  rcvd: 101
+
+                [lvhongbin@localhost ~]$ cat /etc/sysconfig/network
+                # Created by anaconda
+                [lvhongbin@localhost ~]$ hostname
+                localhost.localdomain
+                
 #### 1) ifconfig，ifup，ifdown
 > - 查询，即可临时设置设置网卡与IP网络等相关参数,比如IP参数以及MTU。这种查询方式不管网络接口有没有被启动，都会显示其参数，并且这些操作都是暂时性地。因此可以利用/etc/init.d/network restart或者service network restart来重新启动网络
         
@@ -2507,6 +2554,33 @@ v，然后移动光标，就可以进行矩形选择，然后按下y或者d可�
 
         # restart network
         ifup ${ens} && chkconfig NetworkManager on && service network restart && ifconfig
+> - ifcfg-ens33配置文件
+        
+        [lvhongbin@localhost /]$ dir=/etc/sysconfig/network-scripts
+        [lvhongbin@localhost /]$ cd $dir
+        [lvhongbin@localhost network-scripts]$ ls
+        ifcfg-ens33  ifdown-bnep  ifdown-ippp  ifdown-post    ifdown-sit       ifdown-tunnel  ifup-bnep  ifup-ippp  ifup-plip   ifup-ppp     ifup-Team      ifup-wireless      network-functions-ipv6
+        ifcfg-lo     ifdown-eth   ifdown-ipv6  ifdown-ppp     ifdown-Team      ifup           ifup-eth   ifup-ipv6  ifup-plusb  ifup-routes  ifup-TeamPort  init.ipv6-global
+        ifdown       ifdown-ib    ifdown-isdn  ifdown-routes  ifdown-TeamPort  ifup-aliases   ifup-ib    ifup-isdn  ifup-post   ifup-sit     ifup-tunnel    network-functions
+        [lvhongbin@localhost network-scripts]$ cat ifcfg-ens33
+        TYPE=Ethernet
+        PROXY_METHOD=none
+        BROWSER_ONLY=no
+        BOOTPROTO=static
+        DEFROUTE=yes
+        IPV4_FAILURE_FATAL=no
+        IPV6INIT=yes
+        IPV6_AUTOCONF=yes
+        IPV6_DEFROUTE=yes
+        IPV6_FAILURE_FATAL=no
+        IPV6_ADDR_GEN_MODE=stable-privacy
+        NAME=ens33
+        UUID=f8c3a572-e06a-4423-a1ae-6593509e2002
+        DEVICE=ens33
+        ONBOOT=yes
+        IPADDR=192.168.31.15
+        GATEWAY=192.168.31.1
+        NETMASK=255.255.255.0
 
 > - ifup {interface} 和ifdown {interface} 其实就是相当于启动/etc/sysconfig/network-scripts/ifcfg-ens\[0-9\]+中的网络接口。实质上这两个是一个script命令，加载相应的接口文件
 > - > - chkconfig network off 和 chkconfig network on 设定网络服务开机启动或者开机不启动
