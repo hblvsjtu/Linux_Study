@@ -91,9 +91,9 @@
 ### [13.3 系统资源的查看](#13.3)
         
 ## [十四、 Linux中常见的网络命令](#14)
-### [13.1 设置网络参数的命令](#14.1)
-### [13.2 工作管理](#14.2)
-### [13.3 系统资源的查看](#14.3)
+### [14.1 网络基本概念](#14.1)
+### [14.2 设置网络参数的命令](#14.2)
+### [14.3 系统资源的查看](#14.3)
 ------      
         
         
@@ -607,7 +607,7 @@ table）记录整块硬盘分区的状态，有64Bytes。分区的最小单位�
         
 <h2 id='5'>五、 Linux文件与目录管理</h2>
 <h3 id='5.1'>5.1 目录的相关操作</h3> 
-        
+
 > - .：代表当前目录，也可以用./来表示；
 > - ..：代表上一层目录，也可以用../来表示
 > - \-：代表前一个工作目录
@@ -2331,23 +2331,186 @@ v，然后移动光标，就可以进行矩形选择，然后按下y或者d可�
 #### 1) 相关命令
 > - free: 查看内存的使用情况 -b: 单位是byte -m: 单位是MB -g: 单位是GB
         
-                [lvhongbin@MiWiFi-R3-srv Desktop]$ free
-                              total        used        free      shared  buff/cache   available
-                Mem:        3865308     1439404      192716      131888     2233188     1938440
-                Swap:       2097148        1980     2095168
+            [lvhongbin@MiWiFi-R3-srv Desktop]$ free
+                          total        used        free      shared  buff/cache   available
+            Mem:        3865308     1439404      192716      131888     2233188     1938440
+            Swap:       2097148        1980     2095168
 > - uname: 查看跟系统内核相关的信息 -a: 列出全部
         
-                [lvhongbin@MiWiFi-R3-srv Desktop]$ uname
-                Linux
-                [lvhongbin@MiWiFi-R3-srv Desktop]$ uname -a
-                Linux MiWiFi-R3-srv 3.10.0-693.el7.x86_64 #1 SMP Tue Aug 22 21:09:27 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux
+            [lvhongbin@MiWiFi-R3-srv Desktop]$ uname
+            Linux
+            [lvhongbin@MiWiFi-R3-srv Desktop]$ uname -a
+            Linux MiWiFi-R3-srv 3.10.0-693.el7.x86_64 #1 SMP Tue Aug 22 21:09:27 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux
 > - -netstat: 跟踪网络
            
 ------      
         
         
-<h2 id='14'>十四、 进程与程序管理</h2>
-<h3 id='14.1'>14.1 进程与程序</h3> 
+<h2 id='14'>十四、 Linux中常见的网络命令</h2>
+<h3 id='14.1'>14.1 网络基本概念</h3> 
         
-#### 1) 定义
-> - 
+#### 1) Netmask,子网和CIDR(Classless Interdomain Routing)
+>>>>>>> ![图14-1 子网划分.jpg]()
+        
+> - Nestwork: Host_ID全部为0
+> - Broadcast：Host_ID全部为1
+> - Netmask: Nestwork和Broadcast的按位与运算得出的结果
+> - Host_ID可以拿来当Net_ID，比如本来只有24bit的Net_ID，可以从Host_ID拿出最高为充当Net_ID，此时Net_ID就有25bit了。这样做的好处是可以用来子网分组用
+#### 2) 路由的概念
+>>>>>>> ![图14-2 路由.jpg]()
+        
+> - Gateway/Router: 网关/路由器的功能就是负责不同网络之间数据包传递
+> - 从PC01发送到PC11的过程
+>> - 查询IP数据包的目标IP地址
+>> - 查询是否位于本机所在网络路由表中　IP地址是否跟主机处于同一网络中（处于相同的子网），如果是，则通过局域网功能直接传送那个给目的地主机
+>> - 查询默认路由Default　Gateway　上一步如果目标IP地址是否跟主机不处于同一网络中，则把数据包发送给默认路由器
+>> - 送出数据包至Default　Gateway后，就不理会数据包的流向，因为这是默认路由器的责任了
+> - 相关命令：
+>> - route -n：将主机名以IP的方式显示 
+>> - Destination其实就是Network的意思  Destination为0.0.0.0代表不在该路由规则中，这时候数据就会发到默认网关那里Default Gateway 从而转发出去
+>> - Genmask就是Netmask子网掩码的意思
+>> - Flags标志的含义，U代表该路由可用，G表示该网络需要经由Gateway来帮忙传递，H表示该行路由为一个主机，而非一整个网络
+>> - Use Iface就是网络接口，这一列的含义是要到达第一列的目的地网络（Network）需要用到哪个网络接口
+>> - Gateway为0.0.0.0说明不需要经过路由转发，可以直接通过后面的Use Iface来传送数据包
+        
+                [lvhongbin@localhost ~]$ route -n
+                Kernel IP routing table
+                Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+                0.0.0.0         192.168.31.1    0.0.0.0         UG    100    0        0 ens33
+                192.168.31.0    0.0.0.0         255.255.255.0   U     100    0        0 ens33
+                192.168.122.0   0.0.0.0         255.255.255.0   U     0      0        0 virbr0  
+#### 3) IP与MAC：网络接口层的ARP和RARP
+> - ARP Address Resolution Protocal,网络地址解析    
+> - RARP Revers Address Resolution Protocal,反向网络地址解析      
+> - 当我们想了解IP地址对应在哪个网卡时，主机会对整个局域网发送ARP包，对方接收到ARP数据后就会返回那个网卡MAC地址给我们。该对应关系会保存在主机的ARP table中20分钟       
+> - 相关命令: arp 
+>> - -n:将主机名一以IP的形式显示 
+>> - -d: 将hostname的hardware_address由ARP table当中删去
+>> - -s: 将某个IP或者hostname的hardware_addressst添加到ARP table当中，这个设置是静态设置，不会因为过了20分钟后消失
+        
+                [lvhongbin@localhost ~]$ arp
+                Address                  HWtype  HWaddress           Flags Mask            Iface
+                gateway                  ether   64:09:80:69:fc:89   C                     ens33
+                192.168.31.57            ether   f2:b4:29:03:b9:bb   C                     ens33
+                [lvhongbin@localhost ~]$ arp -n
+                Address                  HWtype  HWaddress           Flags Mask            Iface
+                192.168.31.1             ether   64:09:80:69:fc:89   C                     ens33
+                192.168.31.57            ether   f2:b4:29:03:b9:bb   C                     ens33
+        
+#### 4) ICMP协议       
+> - ICMP Internet Control Message Protocal 因特网信息控制协议 
+> - 是一个错误检测与报告的机制，
+> - ICMP包也是网络层重要的数据包之一，用来检测网络的状态，常用的命令是ping和traceroute
+        
+                [lvhongbin@localhost ~]$ ping www.baidu.com
+                PING www.a.shifen.com (14.215.177.38) 56(84) bytes of data.
+                64 bytes from 14.215.177.38 (14.215.177.38): icmp_seq=1 ttl=45 time=132 ms
+                64 bytes from 14.215.177.38 (14.215.177.38): icmp_seq=2 ttl=45 time=81.8 ms
+                64 bytes from 14.215.177.38 (14.215.177.38): icmp_seq=3 ttl=45 time=89.3 ms
+                64 bytes from 14.215.177.38 (14.215.177.38): icmp_seq=4 ttl=45 time=67.0 ms
+                64 bytes from 14.215.177.38 (14.215.177.38): icmp_seq=5 ttl=45 time=64.0 ms
+                64 bytes from 14.215.177.38 (14.215.177.38): icmp_seq=6 ttl=45 time=108 ms
+                ^C
+                --- www.a.shifen.com ping statistics ---
+                6 packets transmitted, 6 received, 0% packet loss, time 5005ms
+                rtt min/avg/max/mdev = 64.093/90.643/132.730/23.947 ms
+
+>>>>>>> ![图14-3 常见的ICMP类别.jpg]()
+        
+#### 5) TCP/IP协议       
+> - 网络层的IP数据包只负责将数据传送到正确的目的主机中去，但是这个数据到底有没有被正确接收，那不是IP的任务，因为那是运输层的任务
+>>>>>>> ![图14-5 各数据包之间的相关性]()
+        
+>>>>>>> ![图14-4 TCP数据包的包头信息]()
+        
+> - Source port和Destination port 源端口和目的端口 16位，最大时65535
+>>>>>>> ![图14-3 常见的ICMP类别]()
+        
+> - code (control Flag,控制标志位)
+>>>>>>> ![图14-3 常见的ICMP类别]()
+ 
+> -        
+> -                      
+                      
+<h3 id='14.2'>14.2 设置网络参数的命令</h3> 
+        
+#### 1) ifconfig，ifup，ifdown
+> - 查询，即可临时设置设置网卡与IP网络等相关参数,比如IP参数以及MTU。这种查询方式不管网络接口有没有被启动，都会显示其参数，并且这些操作都是暂时性地。因此可以利用/etc/init.d/network restart或者service network restart来重新启动网络
+        
+                ifconfig {interface} {up/down} <==查看与启动接口，但不让其具备IP参数
+                ifconfig interface {options} <==设置与修改接口
+
+> - interface 网络接口，一般形式是eth0, eth1, eth2
+> - netmask 子网掩码
+> - broadcast 广播地址
+> - [MTU](https://jingyan.baidu.com/article/ad310e80ff9bf81849f49ea9.htmlping -l 1472 -f www.baidu.com) Maximum Transmission Unit 的缩写，即最大传输单元。MTU 值就是用来设定可传输数据包的最大尺寸的，MTU 值设置得过大或过小，都会在一定程度上影响我们上网的速度。
+>> - 1）当本地 MTU 值 > 网络 MTU值，网络会进行拆包，这样一来数据包数量增多，二来也增加了拆包组包的时间
+>> - 2）当本地 MTU 值 < 网络 MTU 值，虽然可以直接传输，但是却没有完全利用网络的性能，没有发挥出最大传输能力。因此，设置最合适的本地 MTU 值，就是要让本地 MTU 值 = 网络 MTU 值。
+> - RX 网络从启动到目前为止数据包的接收情况
+> - TX 网络从启动到目前为止数据包的发送情况
+> - txqueuelen 传输数据的缓冲区存储长度
+        
+            [root@MiWiFi-R3-srv Desktop]# ifconfig
+            ens33: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+                    ether 00:0c:29:26:57:2e  txqueuelen 1000  (Ethernet)
+                    RX packets 904188  bytes 136473622 (130.1 MiB)
+                    RX errors 0  dropped 0  overruns 0  frame 0
+                    TX packets 41790  bytes 4266606 (4.0 MiB)
+                    TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+            lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+                    inet 127.0.0.1  netmask 255.0.0.0
+                    inet6 ::1  prefixlen 128  scopeid 0x10<host>
+                    loop  txqueuelen 1  (Local Loopback)
+                    RX packets 2251  bytes 189792 (185.3 KiB)
+                RX errors 0  dropped 0  overruns 0  frame 0
+                TX packets 2251  bytes 189792 (185.3 KiB)
+                TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+        virbr0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+                inet 192.168.122.1  netmask 255.255.255.0  broadcast 192.168.122.255
+                ether 52:54:00:37:dc:34  txqueuelen 1000  (Ethernet)
+                RX packets 0  bytes 0 (0.0 B)
+                RX errors 0  dropped 0  overruns 0  frame 0
+                TX packets 0  bytes 0 (0.0 B)
+                TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+        [root@MiWiFi-R3-srv Desktop]# ifconfig ens33 192.168.31.15  netmask 255.255.255.0 mtu 1500
+        # 网络设置初始化
+        [root@MiWiFi-R3-srv Desktop]# /etc/init.d/network restart
+        Restarting network (via systemctl):                      [  OK ]
+> - recoverTheNet.sh
+                
+        ipaddr=192.168.31.15
+        gateway=192.168.31.1
+        netmask=255.255.255.0
+        broadcast=192.168.122.255
+        IPADDR=IPADDR\=${ipaddr}
+        GATEWAY=GATEWAY\=${gateway}
+        NETMASK=NETMASK\=${netmask}
+        nameserver1=8.8.8.8
+        nameserver2=8.8.4.4
+
+        #modify the dns
+        resolve=/etc/resolv.conf
+        echo -e "# Generated by NetworkManager\nnameserver ${nameserver1}\nnameserve ${nameserver2}" > ${resolve}
+
+        # modify the network-scripts
+        dir=/etc/sysconfig/network-scripts
+        ifcfgens=$(ls ${dir} | grep "^ifcfg-ens[0-9]\+$")
+        alldir=${dir}/${ifcfgens}
+        ens=${ifcfgens#ifcfg-}
+        content1=$(cat ${alldir})
+        content2=$(echo ${content1%IPADDR*} ${IPADDR} ${GATEWAY} ${NETMASK} | sed 's/BOOTPROTO=[a-zA-Z0-9]\+/BOOTPROTO=static/g')
+        content3=$(echo ${content2} | sed 's/ONBOOT=[a-zA-Z0-9]\+/ONBOOT=yes/g')
+        echo ${content3} | tr "[:blank:]\+" "\n" > /etc/sysconfig/network-scripts/${ifcfgens}
+
+        # restart network
+        ifup ${ens} && chkconfig NetworkManager on && service network restart && ifconfig
+
+> - ifup {interface} 和ifdown {interface} 其实就是相当于启动/etc/sysconfig/network-scripts/ifcfg-ens\[0-9\]+中的网络接口。实质上这两个是一个script命令，加载相应的接口文件
+> - > - chkconfig network off 和 chkconfig network on 设定网络服务开机启动或者开机不启动
+> - service NetworkManager stop 和 service NetworkManager start 开启和关闭网络服务
+> - 如果还是无法开机自启动网络服务，设定开机启动一个名为NetworkManager-wait-online服务，命令为：
+                
+                systemctl enable NetworkManager-wait-online.service

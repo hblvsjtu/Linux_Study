@@ -1060,7 +1060,7 @@ body .markdown-body
 <h4 id="_1">作者：冰红茶<a class="headerlink" href="#_1" title="Permanent link"></a></h4>
 <h4 id="linux">参考书籍：《鸟哥的Linux私房菜》 第三版 鸟哥<a class="headerlink" href="#linux" title="Permanent link"></a></h4>
 <hr />
-<p>想想自己以后多半在Linux环境中摸爬滚打了，学习Linux的基本操作必不可少。半年前我学了一半，但是由于一些原因中断了学习。后来学C和Node.js等后端语言的时候，明显感受到shell命令行和Linux环境对于开发的重要性。所以后面打算再补三章的内容：script和软件安装和Linux中常见的网络命令^_ ^</p>
+<p>想想自己以后多半在Linux环境中摸爬滚打了，学习Linux的基本操作必不可少。半年前我学了一半，但是由于一些原因中断了学习。后来学C和Node.js等后端语言的时候，明显感受到shell命令行和Linux环境对于开发的重要性。所以后面打算再补四章的内容：script和软件安装，进程与程序管理和Linux中常见的网络命令^_ ^</p>
 <h2 id="_2">目录<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
 <h2 id="linux_1"><a href="#1">一、计算机系统与Linux</a><a class="headerlink" href="#linux_1" title="Permanent link"></a></h2>
 <h3 id="11"><a href="#1.1">1.1 计算机系统</a><a class="headerlink" href="#11" title="Permanent link"></a></h3>
@@ -1116,9 +1116,22 @@ body .markdown-body
 <h3 id="105-awk"><a href="#10.5">10.5 awk：好用的数据处理工具</a><a class="headerlink" href="#105-awk" title="Permanent link"></a></h3>
 <h3 id="106"><a href="#10.6">10.6 文件比较工具</a><a class="headerlink" href="#106" title="Permanent link"></a></h3>
 <h2 id="shell-script"><a href="#11">十一、 Shell Script</a><a class="headerlink" href="#shell-script" title="Permanent link"></a></h2>
-<h3 id="111"><a href="#11.1">11.1 基础正则表达式</a><a class="headerlink" href="#111" title="Permanent link"></a></h3>
+<h3 id="111"><a href="#11.1">11.1 基础知识</a><a class="headerlink" href="#111" title="Permanent link"></a></h3>
+<h3 id="112"><a href="#11.2">11.2 条件判断式</a><a class="headerlink" href="#112" title="Permanent link"></a></h3>
+<h3 id="113"><a href="#11.3">11.3 循环</a><a class="headerlink" href="#113" title="Permanent link"></a></h3>
+<h3 id="114-function"><a href="#11.4">11.4 函数function</a><a class="headerlink" href="#114-function" title="Permanent link"></a></h3>
+<h3 id="115"><a href="#11.5">11.5 调试</a><a class="headerlink" href="#115" title="Permanent link"></a></h3>
 <h2 id="_7"><a href="#12">十二、 软件安装</a><a class="headerlink" href="#_7" title="Permanent link"></a></h2>
-<h3 id="121"><a href="#12.1">12.1 基础正则表达式</a><a class="headerlink" href="#121" title="Permanent link"></a></h3>
+<h3 id="121-makeconfigure"><a href="#12.1">12.1 make和configure</a><a class="headerlink" href="#121-makeconfigure" title="Permanent link"></a></h3>
+<h3 id="122-rpmrpmsyum"><a href="#12.2">12.2 软件管理器RPM、RPMS和YUM</a><a class="headerlink" href="#122-rpmrpmsyum" title="Permanent link"></a></h3>
+<h2 id="_8"><a href="#13">十三、 进程与程序管理</a><a class="headerlink" href="#_8" title="Permanent link"></a></h2>
+<h3 id="131"><a href="#13.1">13.1 进程与程序</a><a class="headerlink" href="#131" title="Permanent link"></a></h3>
+<h3 id="132"><a href="#13.2">13.2 工作管理</a><a class="headerlink" href="#132" title="Permanent link"></a></h3>
+<h3 id="133"><a href="#13.3">13.3 系统资源的查看</a><a class="headerlink" href="#133" title="Permanent link"></a></h3>
+<h2 id="linux_4"><a href="#14">十四、 Linux中常见的网络命令</a><a class="headerlink" href="#linux_4" title="Permanent link"></a></h2>
+<h3 id="141"><a href="#14.1">14.1 设置网络参数的命令</a><a class="headerlink" href="#141" title="Permanent link"></a></h3>
+<h3 id="142"><a href="#14.2">14.2 工作管理</a><a class="headerlink" href="#142" title="Permanent link"></a></h3>
+<h3 id="143"><a href="#14.3">14.3 系统资源的查看</a><a class="headerlink" href="#143" title="Permanent link"></a></h3>
 <hr />
 <h2 id='1'> 一、计算机系统与Linux</h2>
 
@@ -3046,6 +3059,11 @@ distribution都会有一套文本编辑器vi，vim是vi的高级版，vim有程�
 <li>:set nu：显示行号；</li>
 <li>:set nonu：取消行号；</li>
 <li>.：重复前一个操作；</li>
+<li>w 文件名：另存为</li>
+<li>ZZ：文件经过改动则保存离开，如果没有经过改动则不保存离开</li>
+<li>r 文件名： 在正在读写的文件中读入另外一个文件，并把数据接在正在读的文件的后面</li>
+<li>n1 n2 w 文件名：把n1-n2的内容保存成filename文件</li>
+<li></li>
 </ul>
 </blockquote>
 <h3 id='8.3'>8.3 Vim的文件保存，恢复与打开时的警告信息</h3>
@@ -3214,7 +3232,7 @@ v，然后移动光标，就可以进行矩形选择，然后按下y或者d可�
 <blockquote>
 <blockquote>
 <blockquote>
-<p><img alt="图9-1 bash进程" src="" /></p>
+<p><img alt="图9-1 bash进程" src="https://github.com/hblvsjtu/Linux_Study/blob/master/picture/%E5%9B%BE9-1%20bash%E8%BF%9B%E7%A8%8B.png?raw=true" /></p>
 </blockquote>
 </blockquote>
 </blockquote>
@@ -3508,9 +3526,23 @@ v，然后移动光标，就可以进行矩形选择，然后按下y或者d可�
 </blockquote>
 </li>
 <li>因此，&gt;/dev/null 2&gt;&amp;1也可以写成“1&gt; /dev/null 2&gt; &amp;1”</li>
-<li>那么本文标题的语句执行过程为：
-1&gt;/dev/null ：首先表示标准输出重定向到空设备文件，也就是不输出任何信息到终端，说白了就是不显示任何信息。
-2&gt;&amp;1 ：接着，标准错误输出重定向 到标准输出，因为之前标准输出已经重定向到了空设备文件，所以标准错误输出也重定向到空设备文件。 </li>
+<li>那么本文标题的语句执行过程为：</li>
+<li>1&gt;/dev/null ：首先表示标准输出重定向到空设备文件，也就是不输出任何信息到终端，说白了就是不显示任何信息。</li>
+<li>2&gt;&amp;1 ：接着，标准错误输出重定向 到标准输出，因为之前标准输出已经重定向到了空设备文件，所以标准错误输出也重定向到空设备文件。 </li>
+</ul>
+</blockquote>
+<h4 id="5-devnull">5)&gt; /dev/null 详解 <a href="https://blog.csdn.net/long2746004900/article/details/53367353">一串脚印的博客</a><a class="headerlink" href="#5-devnull" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>output 或者output 太多太大了，有可能把硬碟给挤爆了的时候，程序的设计就会考虑把 output 送到 /dev/null 了。</li>
+</ul>
+</blockquote>
+<h4 id="6-command-file-2file-command-file-21">6)&gt;  command &gt; file 2&gt;file  与command &gt; file 2&gt;&amp;1的区别 <a href="https://blog.csdn.net/long2746004900/article/details/53367353">一串脚印的博客</a><a class="headerlink" href="#6-command-file-2file-command-file-21" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>首先 command &gt; file 2&gt;file 的意思是将命令所产生的标准输出信息,和错误的输出信息送到file中 command  &gt; file 2&gt;file 这样的写法,stdout和stderr都直接送到file中, file会被打开两次,这样stdout和stderr会互相覆盖,这样写相当使用了FD1和FD2两个同时去抢占file 的管道.</li>
+<li>而command &gt;file 2&gt;&amp;1 这条命令就将stdout直接送向file, stderr 继承了FD1管道后,再被送往file,此时,file 只被打开了一次,也只使用了一个管道FD1,它包括了stdout和stderr的内容.</li>
+<li>从IO效率上,前一条命令的效率要比后面一条的命令效率要低,所以在编写shell脚本的时候,较多的时候我们会用command &gt; file 2&gt;&amp;1 这样的写法.</li>
 </ul>
 </blockquote>
 <h3 id='9.6'>9.6  命令与管道命令</h3>
@@ -3575,6 +3607,15 @@ v，然后移动光标，就可以进行矩形选择，然后按下y或者d可�
 </ul>
 </blockquote>
 <div class="codehilite"><pre>            [lvhongbin@MiWiFi-R3G-srv Desktop]$ ls -al .. | cut -c 16- | cut -c -9 |grep --color=auto &quot;lvhongbin&quot;
+
+            统计当前目录下文件的个数（不包括目录）
+            $ ls -l | grep &quot;^-&quot; | wc -l
+            1
+            统计当前目录下文件的个数（包括子目录）
+            $ ls -lR| grep &quot;^-&quot; | wc -l
+            1
+            查看某目录下文件夹(目录)的个数（包括子目录）
+            $ ls -lR | grep &quot;^d&quot; | wc -l
 </pre></div>
 
 
@@ -3911,11 +3952,29 @@ v，然后移动光标，就可以进行矩形选择，然后按下y或者d可�
 <h4 id="3_6">3) 善用判别式<a class="headerlink" href="#3_6" title="Permanent link"></a></h4>
 <blockquote>
 <ul>
-<li>判断文件是否存在</li>
+<li>判断文件是否存在<blockquote>
+<ul>
+<li>-e filename 如果 filename存在，则为真 </li>
+<li>-d filename 如果 filename为目录，则为真 </li>
+<li>-f filename 如果 filename为常规文件，则为真 </li>
+<li>-L filename 如果 filename为符号链接，则为真 </li>
+<li>-r filename 如果 filename可读，则为真 </li>
+<li>-w filename 如果 filename可写，则为真 </li>
+<li>-x filename 如果 filename可执行，则为真 </li>
+<li>-s filename 如果文件长度不为0，则为真 </li>
+<li>-h filename 如果文件是软链接，则为真</li>
+</ul>
+</blockquote>
+</li>
 </ul>
 </blockquote>
 <div class="codehilite"><pre>        [lvhongbin@MiWiFi-R3-srv Desktop]$ test -e sh01.sh &amp;&amp; echo &quot;exist&quot; || echo &quot;not exist&quot;
         exist
+
+        # 如果没有文件夹，则创建
+        if [ ! -d $result_name ];then
+              mkdir -p $result_name
+        fi
 </pre></div>
 
 
@@ -3944,7 +4003,10 @@ v，然后移动光标，就可以进行矩形选择，然后按下y或者d可�
 <li>文件之间的比较 -nt比新 -ot比旧 -ef是否为同一个文件，可以判断是否是硬链接，主要判断是否指向同一个inode</li>
 <li>中括号判断式<blockquote>
 <ul>
-<li>中间所有的符号 [ 和 ] 和等号前后都需要有空格，否则会报错</li>
+<li>中间每一个组件前后都需要有空格，否则会报错</li>
+<li>中括号里面的参数 -o表示||的意思 -a表示&amp;&amp; -z表示null</li>
+<li>变量的引用应使用双引号括起来 &ldquo;$变量&rdquo;</li>
+<li>常量的引用使用双引号或者单引号，这里推荐用单引号，可以辨别变量还是常量</li>
 <li>其实就是相当于if&hellip;else&hellip;</li>
 </ul>
 </blockquote>
@@ -4046,6 +4108,7 @@ v，然后移动光标，就可以进行矩形选择，然后按下y或者d可�
 <blockquote>
 <ul>
 <li>$(命令)</li>
+<li>所有的变量前面必须用$</li>
 </ul>
 </blockquote>
 <div class="codehilite"><pre>        testing=$(netstat -tuln | grep &quot;:80&quot;) #检测80端口，并赋给testing变量
@@ -4168,7 +4231,7 @@ v，然后移动光标，就可以进行矩形选择，然后按下y或者d可�
         network=&quot;192.168.1&quot;              # 先定義一個網域的前面部分！
         for sitenu in $(seq 1 100)       # seq 為 sequence(連續) 的縮寫之意
         do
-            # 底下的程式在取得 ping 的回傳值是正確的還是失敗的！
+            # 底下的程式在取得 ping 的回傳值是正確的還是失敗的！然后把取得的信息扔在/dev/null中不显示在屏幕
                 ping -c 1 -w 1 ${network}.${sitenu} &amp;&gt; /dev/null &amp;&amp; result=0 || result=1
             # 開始顯示結果是正確的啟動 (UP) 還是錯誤的沒有連通 (DOWN)
                 if [ &quot;${result}&quot; == 0 ]; then
@@ -4181,12 +4244,766 @@ v，然后移动光标，就可以进行矩形选择，然后按下y或者d可�
 
 
 <blockquote>
-<h2 id="-">-<a class="headerlink" href="#-" title="Permanent link"></a></h2>
+<ul>
+<li>双括号((表达式1,表达式2…))  <blockquote>
+<ul>
+<li>在双括号结构中，所有表达式可以像c语言一样，如：a++,b&ndash;等</li>
+<li>在双括号结构中，所有变量可以不加入：“$”符号前缀。</li>
+<li>可以使用三目表达式 ？ ：</li>
+</ul>
 </blockquote>
-<hr />
-<div class="codehilite"><pre>&lt;h2 id=&#39;12&#39;&gt;十二、 软件安装&lt;/h2&gt;
-&lt;h3 id=&#39;12.1&#39;&gt;12.1 基础正则表达式&lt;/h3&gt;
+</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>        for((i=0, i&lt;10, i++)) 
+        do
+            s=$( ($s+$i) )
+        done
 </pre></div>
 
 
-<h4 id="1_14">(1<a class="headerlink" href="#1_14" title="Permanent link"></a></h4></article></body></html>
+<p><h3 id='11.4'>11.4 函数function</h3> </p>
+<h4 id="1_14">1) 范式<a class="headerlink" href="#1_14" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>for和圆括号之间不能有空格</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>        # batchChangeFileName.sh
+        #!/bin/bash
+        # Program
+        #       Create a dir where store files and change files name with parallel batch.
+        # History
+        # 2018/05/27    Lvhongbin   first release
+
+        read -p &quot;Please input your dir: &quot; dir
+        read -p &quot;Please input your file name: &quot; file
+        while [ &quot;$dir&quot; == &quot;&quot; ]
+        do
+            read -p &quot;Please input your dir: &quot; dir
+        done
+
+        function creatFiles() {
+        if [ ! -d &quot;$1&quot; ] ; then
+            mkdir $1
+        fi
+
+        if [ -z &quot;$2&quot; ] ; then
+            fileName=&quot;fileName&quot;
+        else
+            fileName=$2
+        fi
+
+        for((i=1;i&lt;=10;i++))
+        do
+            test -e $1/$2${i} &amp;&amp; echo &quot;$2${i} has existed&quot; || touch $1/$2${i}
+        done
+        }
+
+        creatFiles ${dir} ${file}
+
+        tar -c ${dir} -f ${dir}.tar
+
+        function changeFileName() {
+
+            # ls -l 不能省略成ll
+            echo &quot;The number of file is $(ls -l ${dir} | grep &quot;^-&quot; | wc -l)&quot;
+            for name in $(ls ${dir}) 
+            do 
+                # 把在屏幕中显示的信息扔在/dev/null中不显示
+                echo ${name} | grep &quot;${file}[0-9]$&quot; &amp;&gt; /dev/null  &amp;&amp; mv ${dir}/${name} ${dir}/${name/${file}/${file}0} 
+            done
+        }
+
+        changeFileName
+</pre></div>
+
+
+<h3 id='11.5'>11.5 调试</h3>
+
+<h4 id="1-bash">1) bash<a class="headerlink" href="#1-bash" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>参数<blockquote>
+<ul>
+<li>-n: 不执行script 仅查询语法问题</li>
+<li>-v: 在执行script之前先将script的内容输出到屏幕</li>
+<li>-x: 将使用到的script内容显示到屏幕上    </li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>            bash -n batchChangeFileName.sh
+</pre></div>
+
+
+<hr />
+<h2 id='12'>十二、 软件安装</h2>
+
+<h3 id='12.1'>12.1 make和configure</h3>
+
+<h4 id="1-makeconfigure">1) make和configure的关系<a class="headerlink" href="#1-makeconfigure" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>make会在当前的目录下搜索Makefile文本文件</li>
+<li>Makefile里面则记录了源码如何编译的详细信息</li>
+<li>make会自动识别判别源码是否经过了变动而自动更新执行文件 </li>
+<li>但是在make在识别的过程中需要知道用户的操作环境</li>
+<li>那检测用户的操作环境的程序文件名叫做configure或者config</li>
+<li>至于为什么要检测用户的操作环境，这是因为不同的Linux的distribution版本内核不一样，系统调用也不一样</li>
+<li>检测的内容包括<blockquote>
+<ul>
+<li>是否有合适的编译程序可以编译本软件的程序代码</li>
+<li>是否已经存在本软件所需要的函数库或者其他所需的相关软件</li>
+<li>操作系统平台是否适合本软件，包括Linux的内核版本</li>
+<li>内核的头定义文件(header include)是否存在 </li>
+</ul>
+</blockquote>
+</li>
+<li>所以安装的顺序是先运行configure检测编译所需的函数库编译器以及其他资料，生成Makefile文件，然后再通过make编译<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p><img alt="图12-1 make_configure.jpg" src="https://github.com/hblvsjtu/Linux_Study/blob/master/picture/%E5%9B%BE12-1%20make_configure.jpg?raw=true" /></p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h4 id="2-tarball">2) Tarball<a class="headerlink" href="#2-tarball" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>源码经过压缩技术压缩后的压缩包</li>
+<li>常见的压缩方式是gzip</li>
+<li>因为利用了tar和gzip的功能，所以早期的文件拓展名是*.tar.gz或者简写为*tgz</li>
+<li>近来由于bzip2的压缩率比较好，所以Tarball渐渐以bzip2的压缩技术来取代gzip</li>
+<li>经过解压缩之后，一般会源代码文件，检测程序文件（configure或者config）和安装说明README或者INSTALL</li>
+</ul>
+</blockquote>
+<h4 id="3-makefile">3) makefile<a class="headerlink" href="#3-makefile" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>格式</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>        目标(target): 目标文件1 目标文件2
+        &lt;tab&gt;   gcc -o 新欲建的可执行文件 目标文件1 目标文件2
+</pre></div>
+
+
+<blockquote>
+<ul>
+<li>Makefile文件
+            #* <strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong></li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>        # Filename: Makefile
+
+        # Description: Makefile findGF.o fight.o
+
+        # Version: 1.0
+
+        # Created: 2018/05/28
+
+        # Revision: none
+
+        # Compiler: make
+
+        # Author: Lv Hongbin
+
+        # Company: Shanghai JiaoTong Univerity
+
+        # **************************************************************/
+
+        # 变量内容等号两边允许有空格
+        OBJS=findGF.o fight.o
+
+        # $@=main
+
+        main: ${OBJS}
+            gcc -o $@ ${OBJS}
+        clean:
+            rm -f main ${OBJS}
+</pre></div>
+
+
+<blockquote>
+<ul>
+<li>结果 
+            [lvhongbin@MiWiFi-R3-srv findGF]$ vim Makefile
+            [lvhongbin@MiWiFi-R3-srv findGF]$ make clean 
+            rm -f main findGF.o fight.o
+            [lvhongbin@MiWiFi-R3-srv findGF]$ make main
+            cc    -c -o findGF.o findGF.c
+            cc    -c -o fight.o fight.c
+            gcc -o main findGF.o fight.o
+            [lvhongbin@MiWiFi-R3-srv findGF]$ ./main
+            Let&rsquo;s look for a girl
+            I&rsquo;m learning C programming language! 
+            I&rsquo;m earning money! 
+            I&rsquo;m keeping fit! </li>
+<li>FindGF.c</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>        /* ***************************************************************
+         *
+         * * Filename: FindGF.c
+         *
+         * * Description:linking and compiling test
+         *
+         * * Version: 1.0
+         *
+         * * Created: 2018/05/28
+         *
+         * * Revision: none
+         *
+         * * Compiler: gcc
+         *
+         * * Author: Lv Hongbin
+         *
+         * * Company: Shanghai JiaoTong Univerity
+         *
+         * * **************************************************************/
+
+        #include&lt;stdio.h&gt;
+        int main(void) {
+            printf(&quot;Let&#39;s look for a girl\n&quot;);
+            fight();
+        }
+</pre></div>
+
+
+<blockquote>
+<ul>
+<li>Fight.c </li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>        /* ***************************************************************
+         *
+         * * Filename: Fight.c
+         *
+         * * Description:linking and compiling test
+         *
+         * * Version: 1.0
+         *
+         * * Created: 2018/05/28
+         *
+         * * Revision: none
+         *
+         * * Compiler: gcc
+         *
+         * * Author: Lv Hongbin
+         *
+         * * Company: Shanghai JiaoTong Univerity
+         *
+         * * **************************************************************/
+
+        #include&lt;stdio.h&gt;
+        void fight(void) {
+            printf(&quot;I&#39;m learning C programming language! \n&quot;);
+            printf(&quot;I&#39;m earning money! \n&quot;);
+            printf(&quot;I&#39;m keeping fit! \n&quot;);
+        }
+</pre></div>
+
+
+<blockquote>
+<ul>
+<li>注释用#</li>
+<li>make clean 清除除.c文件以外的目标文件和可执行文件</li>
+<li>make main 将.c文件编译链接成main文件，其中副产物是.o目标文件</li>
+<li>当然了可以连续操作： make clean main</li>
+</ul>
+</blockquote>
+<h4 id="4_5">4) 执行步骤<a class="headerlink" href="#4_5" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>./configure &ndash;prefix=/usr/local/bin</li>
+<li>make clean</li>
+<li>make</li>
+<li>make install 将编译好的数据安装到默认的目录中</li>
+</ul>
+</blockquote>
+<h3 id='12.2'>12.2 软件管理器RPM、RPMS和YUM</h3>
+
+<h4 id="1-rpm">1) RPM<a class="headerlink" href="#1-rpm" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>RetHat package Manager</li>
+<li>文件格式 xxx.rpm </li>
+<li>可以直接安装</li>
+<li>已经编译</li>
+<li>不可修改参数</li>
+<li>软件的安装环境必须与打包的环境需求一致</li>
+<li>需要满足软件的依赖属性</li>
+<li>-i: 安装</li>
+<li>-v: 查看更详细的安装信息</li>
+<li>-h: 以安装信息栏显示安装进度</li>
+<li>&ndash;prefix 新路径：将软降安装到其他路径中<blockquote>
+<blockquote>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th><strong>默认安装路径</strong></th>
+<th><strong>含义</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/usr/bin</td>
+<td>一些可执行文件</td>
+</tr>
+<tr>
+<td>/usr/lib</td>
+<td>一些程序需要用到的动态函数库</td>
+</tr>
+<tr>
+<td>/usr/share/doc</td>
+<td>帮助文档</td>
+</tr>
+<tr>
+<td>/usr/share/man</td>
+<td>一些可执行文件</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>        rpm -ivh package_name
+</pre></div>
+
+
+<h4 id="2-rpms">2) RPMS<a class="headerlink" href="#2-rpms" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>RPM的源代码版</li>
+<li>文件格式 xxx.src.rpm </li>
+<li>不可以直接安装</li>
+<li>没有编译</li>
+<li>可修改参数</li>
+<li>软件的安装环境不必与打包的环境需求一致</li>
+<li>需要满足软件的依赖属性 </li>
+</ul>
+</blockquote>
+<h4 id="3-yum">3) YUM<a class="headerlink" href="#3-yum" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>在线升级机制</li>
+<li>服务器中安装软件所需要的依赖列表</li>
+<li>自动检查系统中缺少的依赖进行自动安装</li>
+<li>方便快捷</li>
+</ul>
+</blockquote>
+<hr />
+<h2 id='13'>十三、 进程与程序管理</h2>
+
+<h3 id='13.1'>13.1 进程与程序</h3>
+
+<h4 id="1_15">1) 定义<a class="headerlink" href="#1_15" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>程序program：通常为二进制程序防止在存储媒介中，以物理文件的形式存在</li>
+<li>进程process：程序出发后，执行者的权限与属性，程序的程序代码与所需数据等都会被夹在到内存中，操作系统并给与这个内存内的单元一个标识符PID，可以说，进程就是一个正在运行中的程序</li>
+</ul>
+</blockquote>
+<h4 id="2_16">2) 父进程与子进程<a class="headerlink" href="#2_16" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>系统首先用fork复制一个跟父进程一模一样的进程，并暂存一个PPID的参数，然后这个冒牌父进程以exec的方式加载实际要执行的程序，并拥有自己的PID<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p><img alt="图13-1 父进程与子进程" src="https://github.com/hblvsjtu/Linux_Study/blob/master/picture/%E5%9B%BE13-1%20%E7%88%B6%E8%BF%9B%E7%A8%8B%E4%B8%8E%E5%AD%90%E8%BF%9B%E7%A8%8B.jpg?raw=true" /></p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h3 id='13.2'>13.2 工作管理</h3>
+
+<h4 id="1_16">1) 定义<a class="headerlink" href="#1_16" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>前台：你可以控制和执行命令的环境</li>
+<li>后台：可以自由运行的环境，你无法使用[ctrl]+c进行干预</li>
+</ul>
+</blockquote>
+<h4 id="2-job-control">2) job control管理<a class="headerlink" href="#2-job-control" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>直接把命令丢到后台执行的 &amp; 返回PID </li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>            [lvhongbin@MiWiFi-R3-srv Desktop]$ touch log.txt
+            [lvhongbin@MiWiFi-R3-srv Desktop]$ tar -jcv ./practise -f ./practise.tar.bz2 &gt; log.txt 2&gt;&amp;1 &amp;
+            [1] 74069
+
+            [lvhongbin@MiWiFi-R3-srv Desktop]$ cat log.txt
+            ./practise/
+            ./practise/batchChangeFileName.sh
+            ./practise/hello/
+            ./practise/hello/src/
+            ./practise/hello/build/
+            ./practise/hello/build/config.gypi
+            ./practise/hello/build/Makefile
+            ./practise/hello/build/hello.target.mk
+            ./practise/hello/build/binding.Makefile
+            ./practise/hello/build/Release/
+            ./practise/hello/build/Release/obj.target/
+            ./practise/hello/build/Release/obj.target/hello/
+            ./practise/hello/build/Release/obj.target/hello/src/
+            ./practise/hello/build/Release/.deps/
+            ./practise/hello/build/Release/.deps/Release/
+            ./practise/hello/build/Release/.deps/Release/obj.target/
+            ./practise/hello/build/Release/.deps/Release/obj.target/hello/
+            ./practise/hello/build/Release/.deps/Release/obj.target/hello/src/
+            ./practise/hello_world/build/Release/.deps/Release/hello.node.d
+            ./practise/hello_world/build/Release/hello.node
+            ./practise/hello_world/hello.js
+            ./practise/hello_world/hi.js
+            ./practise/hello_world/test.js
+            ./practise/pingip.sh
+            ./practise/sh01.sh
+            ./practise/sh02.sh
+            ./practise/sh03.sh
+            ./practise/text.txt
+            ./practise/findGF/
+            ./practise/findGF/fight.c
+            ./practise/findGF/findGF.c
+            ./practise/findGF/Makefile
+            ./practise/findGF/findGF.o
+            ./practise/findGF/fight.o
+            ./practise/findGF/main
+            ./practise/findGF.tar.bz2
+            [1]+  Done                    tar -jcv ./practise -f ./practise.tar.bz2 &gt; log.txt 2&gt;&amp;1
+</pre></div>
+
+
+<blockquote>
+<ul>
+<li>将工作丢到后台中暂停：[ctrl]-z 返回job number</li>
+<li>查看目前后台的工作状态：jobs<blockquote>
+<ul>
+<li>-l: 列出job number与命令串之外，同时累列出PID号码</li>
+<li>-r: 仅列出正在后台run的工作</li>
+<li>-s: 仅列出正在后台当中暂停的工作 </li>
+</ul>
+</blockquote>
+</li>
+<li>将后台工作拿到前台来处理：fg</li>
+<li>将后台的下的状态变成运行中：bg</li>
+<li>管理后台当中的工作：kill -l -1 -2 -9 -15 %jobnumber<blockquote>
+<ul>
+<li>-l 列出所有可执行的参数</li>
+<li>-1：重新读取一次配置文件reload</li>
+<li>-2：跟[ctrl]-c同样的作用</li>
+<li>-9：立即强制删除一个工作</li>
+<li>-15：以正常的程序终止一项工作</li>
+</ul>
+</blockquote>
+</li>
+<li>管理后台当中的工作：kill -l -1 -2 -9 -15 PID</li>
+<li>kill不能删除PID=1 PID=1是init初始进程，一旦把他删掉就会使得系统崩溃   </li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>            [lvhongbin@MiWiFi-R3-srv Desktop]$ vim log.txt
+
+            [1]+  Stopped                 vim log.txt
+            [lvhongbin@MiWiFi-R3-srv Desktop]$ jobs -l
+            [1]+ 74296 Stopped                 vim log.txt
+            [lvhongbin@MiWiFi-R3-srv Desktop]$ vim ./practise/test.txt
+
+            [2]+  Stopped                 vim ./practise/test.txt
+            [lvhongbin@MiWiFi-R3-srv Desktop]$ fg %1
+            vim log.txt
+
+            [lvhongbin@MiWiFi-R3-srv Desktop]$ kill -l
+             1) SIGHUP   2) SIGINT   3) SIGQUIT  4) SIGILL   5) SIGTRAP
+             6) SIGABRT  7) SIGBUS   8) SIGFPE   9) SIGKILL 10) SIGUSR1
+            11) SIGSEGV 12) SIGUSR2 13) SIGPIPE 14) SIGALRM 15) SIGTERM
+            16) SIGSTKFLT   17) SIGCHLD 18) SIGCONT 19) SIGSTOP 20) SIGTSTP
+            21) SIGTTIN 22) SIGTTOU 23) SIGURG  24) SIGXCPU 25) SIGXFSZ
+            26) SIGVTALRM   27) SIGPROF 28) SIGWINCH    29) SIGIO   30) SIGPWR
+            31) SIGSYS  34) SIGRTMIN    35) SIGRTMIN+1  36) SIGRTMIN+2  37) SIGRTMIN+3
+            38) SIGRTMIN+4  39) SIGRTMIN+5  40) SIGRTMIN+6  41) SIGRTMIN+7  42) SIGRTMIN+8
+            43) SIGRTMIN+9  44) SIGRTMIN+10 45) SIGRTMIN+11 46) SIGRTMIN+12 47) SIGRTMIN+13
+            48) SIGRTMIN+14 49) SIGRTMIN+15 50) SIGRTMAX-14 51) SIGRTMAX-13 52) SIGRTMAX-12
+            53) SIGRTMAX-11 54) SIGRTMAX-10 55) SIGRTMAX-9  56) SIGRTMAX-8  57) SIGRTMAX-7
+            58) SIGRTMAX-6  59) SIGRTMAX-5  60) SIGRTMAX-4  61) SIGRTMAX-3  62) SIGRTMAX-2
+            63) SIGRTMAX-1  64) SIGRTMAX
+</pre></div>
+
+
+<h4 id="3_7">3) 进程的查看<a class="headerlink" href="#3_7" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>ps: 将某个时间点的进程运行情况选取下来<blockquote>
+<ul>
+<li>-A：列出所有进程</li>
+<li>-a: 不与terminal相关的所有进程</li>
+<li>-u: 有效用户相关的进程</li>
+<li>x: 通常跟a这个参数一起使用，可列出完整的信息，输出格式规划 </li>
+<li>l: 较长，将详细的将该PID的信息列出自己相关的bash进程  </li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>            lvhongbin@MiWiFi-R3-srv Desktop]$ ps aux
+            USER        PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+            root          1  0.0  0.1  46164  6520 ?        Ss   May26   1:07 /usr/lib/systemd/systemd --system --deserialize 15
+            root          2  0.0  0.0      0     0 ?        S    May26   0:00 [kthreadd]
+            root          3  0.0  0.0      0     0 ?        S    May26   0:02 [ksoftirqd/0]
+            root          5  0.0  0.0      0     0 ?        S&lt;   May26   0:00 [kworker/0:0H]
+            root          7  0.0  0.0      0     0 ?        S    May26   0:01 [migration/0]
+            root          8  0.0  0.0      0     0 ?        S    May26   0:00 [rcu_bh]
+
+            [lvhongbin@MiWiFi-R3-srv Desktop]$ ps -l
+            F S   UID    PID   PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+            0 S  1000  67929  67919  0  80   0 - 29152 do_wai pts/0    00:00:00 bash
+            4 S  1000  73055  73054  0  80   0 - 29153 do_wai pts/0    00:00:00 bash
+            0 R  1000  74688  73055  0  80   0 - 37245 -      pts/0    00:00:00 ps
+</pre></div>
+
+
+<blockquote>
+<ul>
+<li>top 动态查看进程的状态 -d 后接更新的秒数  </li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>            [lvhongbin@MiWiFi-R3-srv Desktop]$ top -d 5
+
+            top - 17:12:23 up 2 days,  5:11,  2 users,  load average: 0.15, 0.13, 0.10
+            Tasks: 202 total,   3 running, 199 sleeping,   0 stopped,   0 zombie
+            %Cpu(s):  8.9 us,  2.9 sy,  0.0 ni, 88.2 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+            KiB Mem :  3865308 total,   152436 free,  1484608 used,  2228264 buff/cache
+            KiB Swap:  2097148 total,  2095156 free,     1992 used.  1895640 avail Mem
+
+               PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND                                                                                                                                       
+             12792 lvhongb+  20   0 2414388 338476  50036 S  19.7  8.8  55:09.93 gnome-shell                                                                                                                                   
+              2776 root      20   0  400548 116436  32948 S   3.6  3.0  16:10.81 X                                                                                                                                             
+             14443 lvhongb+  20   0 2140496 378416 157404 S   1.4  9.8 329:12.89 Web Content                                                                                                                                   
+             67919 lvhongb+  20   0  729856  23584  14676 S   0.8  0.6   0:08.63 gnome-terminal-                                                                                                                               
+             13019 lvhongb+  20   0  386616  20492  15044 R   0.4  0.5   3:02.13 vmtoolsd                                                                                                                                      
+             14385 lvhongb+  20   0 2619264 305316 118500 S   0.4  7.9  66:06.39 firefox                                                                                                                                       
+                 9 root      20   0       0      0      0 R   0.2  0.0   0:41.44 rcu_sched                                                                                                                                     
+               410 root      20   0       0      0      0 S   0.2  0.0   0:35.63 xfsaild/dm-0                                                                                                                                  
+             12819 lvhongb+  20   0  451664   6796   3284 S   0.2  0.2   0:56.11 ibus-daemon                                                                                                                                   
+             13005 lvhongb+  20   0  529540  15724  10304 S   0.2  0.4   0:00.49 abrt-applet                                                                                                                                   
+             74676 root      20   0       0      0      0 S   0.2  0.0   0:00.32 kworker/1:0                                                                                                                                   
+             74790 lvhongb+  20   0  157784   2368   1580 R   0.2  0.1   0:00.65 top
+</pre></div>
+
+
+<blockquote>
+<ul>
+<li>pstree 进程的相关性  </li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>            [lvhongbin@MiWiFi-R3-srv Desktop]$ pstree
+            systemd─┬─ModemManager───2*[{ModemManager}]
+                    ├─NetworkManager─┬─dhclient
+                    │                └─2*[{NetworkManager}]
+                    ├─VGAuthService
+                    ├─2*[abrt-watch-log]
+                    ├─abrtd
+                    ├─accounts-daemon───2*[{accounts-daemon}]
+                    ├─agetty
+                    ├─alsactl
+                    ├─at-spi-bus-laun─┬─dbus-daemon───{dbus-daemon}
+                    │                 └─3*[{at-spi-bus-laun}]
+                    ├─at-spi2-registr───2*[{at-spi2-registr}]
+                    ├─atd
+                    ├─auditd─┬─audispd─┬─sedispatch
+                    │        │         └─{audispd}
+                    │        └─{auditd}
+                    ├─avahi-daemon───avahi-daemon
+                    ├─bluetoothd
+                    ├─chronyd
+                    ├─colord───2*[{colord}]
+                    ├─crond
+                    ├─cupsd
+                    ├─2*[dbus-daemon───{dbus-daemon}]
+                    ├─dbus-launch
+                    ├─dconf-service───2*[{dconf-service}]
+                    ├─dnsmasq───dnsmasq
+                    ├─evolution-addre─┬─evolution-addre───5*[{evolution-addre}]
+                    │                 └─5*[{evolution-addre}]
+                    ├─evolution-calen─┬─evolution-calen───7*[{evolution-calen}]
+                    │                 ├─evolution-calen───5*[{evolution-calen}]
+                    │                 └─5*[{evolution-calen}]
+                    ├─evolution-sourc───4*[{evolution-sourc}]
+                    ├─firefox─┬─Web Content───22*[{Web Content}]
+                    │         └─45*[{firefox}]
+                    ├─firewalld───{firewalld}
+                    ├─gconfd-2
+                    ├─gdm─┬─X───3*[{X}]
+                    │     ├─gdm-session-wor─┬─gnome-session-b─┬─abrt-applet───2*[{abrt-applet}]
+                    │     │                 │                 ├─gnome-settings-───4*[{gnome-settings-}]
+                    │     │                 │                 ├─gnome-shell─┬─ibus-daemon─┬─ibus-dconf───3*[{ibus-dconf}]
+                    │     │                 │                 │             │             ├─ibus-engine-lib───2*[{ibus-engine-lib}]
+                    │     │                 │                 │             │             ├─ibus-engine-sim───2*[{ibus-engine-sim}]
+                    │     │                 │                 │             │             └─2*[{ibus-daemon}]
+                    │     │                 │                 │             └─10*[{gnome-shell}]
+                    │     │                 │                 ├─gnome-software───3*[{gnome-software}]
+                    │     │                 │                 ├─nautilus-deskto───3*[{nautilus-deskto}]
+                    │     │                 │                 ├─seapplet
+                    │     │                 │                 ├─ssh-agent
+                    │     │                 │                 ├─tracker-extract───14*[{tracker-extract}]
+                    │     │                 │                 ├─tracker-miner-a───3*[{tracker-miner-a}]
+                    │     │                 │                 ├─tracker-miner-f───3*[{tracker-miner-f}]
+                    │     │                 │                 ├─tracker-miner-u───3*[{tracker-miner-u}]
+                    │     │                 │                 └─3*[{gnome-session-b}]
+                    │     │                 └─2*[{gdm-session-wor}]
+                    │     └─3*[{gdm}]
+                    ├─glib-pacrunner───2*[{glib-pacrunner}]
+                    ├─gnome-keyring-d───3*[{gnome-keyring-d}]
+                    ├─gnome-shell-cal───6*[{gnome-shell-cal}]
+                    ├─gnome-terminal-─┬─bash───su───bash───su───bash───pstree
+                    │                 ├─gnome-pty-helpe
+                    │                 └─3*[{gnome-terminal-}]
+                    ├─goa-daemon───4*[{goa-daemon}]
+                    ├─goa-identity-se───3*[{goa-identity-se}]
+                    ├─gsd-printer───2*[{gsd-printer}]
+                    ├─gssproxy───5*[{gssproxy}]
+                    ├─gvfs-afc-volume───3*[{gvfs-afc-volume}]
+                    ├─gvfs-goa-volume───2*[{gvfs-goa-volume}]
+                    ├─gvfs-gphoto2-vo───2*[{gvfs-gphoto2-vo}]
+                    ├─gvfs-mtp-volume───2*[{gvfs-mtp-volume}]
+                    ├─gvfs-udisks2-vo───2*[{gvfs-udisks2-vo}]
+                    ├─gvfsd───2*[{gvfsd}]
+                    ├─gvfsd-dnssd───2*[{gvfsd-dnssd}]
+                    ├─gvfsd-fuse───5*[{gvfsd-fuse}]
+                    ├─gvfsd-metadata───2*[{gvfsd-metadata}]
+                    ├─gvfsd-network───3*[{gvfsd-network}]
+                    ├─gvfsd-recent───2*[{gvfsd-recent}]
+                    ├─gvfsd-trash───2*[{gvfsd-trash}]
+                    ├─ibus-daemon─┬─ibus-dconf───3*[{ibus-dconf}]
+                    │             └─2*[{ibus-daemon}]
+                    ├─2*[ibus-x11───2*[{ibus-x11}]]
+                    ├─irqbalance
+                    ├─ksmtuned───sleep
+                    ├─libvirtd───15*[{libvirtd}]
+                    ├─lsmd
+                    ├─lvmetad
+                    ├─master─┬─pickup
+                    │        └─qmgr
+                    ├─mission-control───3*[{mission-control}]
+                    ├─nautilus───3*[{nautilus}]
+                    ├─packagekitd───2*[{packagekitd}]
+                    ├─polkitd───5*[{polkitd}]
+                    ├─pulseaudio───2*[{pulseaudio}]
+                    ├─rngd
+                    ├─rsyslogd───2*[{rsyslogd}]
+                    ├─rtkit-daemon───2*[{rtkit-daemon}]
+                    ├─smartd
+                    ├─sshd
+                    ├─systemd-journal
+                    ├─systemd-logind
+                    ├─systemd-udevd
+                    ├─tracker-store───7*[{tracker-store}]
+                    ├─tuned───4*[{tuned}]
+                    ├─udisksd───4*[{udisksd}]
+                    ├─upowerd───2*[{upowerd}]
+                    ├─vmtoolsd───{vmtoolsd}
+                    ├─vmtoolsd
+                    ├─wpa_supplicant
+                    └─xdg-permission-───2*[{xdg-permission-}]
+</pre></div>
+
+
+<h4 id="4_6">4) 进程的优先级<a class="headerlink" href="#4_6" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>PRI值越小代表优先级越高</li>
+<li>通过改变nice动态改变PRI，但是这种改动是有限的，最终的PRI值由系统决定</li>
+<li>renice: 已存在进程的PRI调整 </li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>            [lvhongbin@MiWiFi-R3-srv Desktop]$ ps -l
+            F S   UID    PID   PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+            0 S  1000  67929  67919  0  80   0 - 29152 do_wai pts/0    00:00:00 bash
+            4 S  1000  73055  73054  0  80   0 - 29153 do_wai pts/0    00:00:00 bash
+            0 R  1000  75105  73055  0  80   0 - 37245 -      pts/0    00:00:00 ps
+            [lvhongbin@MiWiFi-R3-srv Desktop]$ renice 10 67929
+            67929 (process ID) old priority 0, new priority 10
+            [lvhongbin@MiWiFi-R3-srv Desktop]$ ps -l
+            F S   UID    PID   PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+            0 S  1000  67929  67919  0  90  10 - 29152 do_wai pts/0    00:00:00 bash
+            4 S  1000  73055  73054  0  80   0 - 29153 do_wai pts/0    00:00:00 bash
+            0 R  1000  75119  73055  0  80   0 - 37245 -      pts/0    00:00:00 ps
+</pre></div>
+
+
+<h3 id='13.3'>13.3 系统资源的查看</h3>
+
+<h4 id="1_17">1) 相关命令<a class="headerlink" href="#1_17" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>free: 查看内存的使用情况 -b: 单位是byte -m: 单位是MB -g: 单位是GB</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>            [lvhongbin@MiWiFi-R3-srv Desktop]$ free
+                          total        used        free      shared  buff/cache   available
+            Mem:        3865308     1439404      192716      131888     2233188     1938440
+            Swap:       2097148        1980     2095168
+</pre></div>
+
+
+<blockquote>
+<ul>
+<li>uname: 查看跟系统内核相关的信息 -a: 列出全部</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>            [lvhongbin@MiWiFi-R3-srv Desktop]$ uname
+            Linux
+            [lvhongbin@MiWiFi-R3-srv Desktop]$ uname -a
+            Linux MiWiFi-R3-srv 3.10.0-693.el7.x86_64 #1 SMP Tue Aug 22 21:09:27 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux
+</pre></div>
+
+
+<blockquote>
+<ul>
+<li>-netstat: 跟踪网络</li>
+</ul>
+</blockquote>
+<hr />
+<h2 id='14'>十四、 Linux中常见的网络命令</h2>
+
+<h3 id='14.1'>14.1 设置网络参数的命令</h3>
+
+<h4 id="1-ifconfigifupifdown">1) ifconfig，ifup，ifdown<a class="headerlink" href="#1-ifconfigifupifdown" title="Permanent link"></a></h4>
+<blockquote>
+<ul>
+<li>查询，设置网卡与IP网络等相关参数,比如IP参数以及MTU</li>
+</ul>
+</blockquote>
+<div class="codehilite"><pre>            ifconfig {interface} {up/down} &lt;==查看与启动接口
+</pre></div>
+
+
+<blockquote>
+<ul>
+<li>interface 网络接口，一般形式是eth0, eth1, eth2</li>
+<li>netmask 子网掩码</li>
+<li>broadcast 广播地址</li>
+<li>MTU </li>
+<li></li>
+</ul>
+</blockquote></article></body></html>
