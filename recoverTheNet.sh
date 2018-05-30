@@ -1,3 +1,24 @@
+# # ###############################################################
+#
+# # Filename: recoverTheNet.sh
+#
+# # Description:recover the net when it is broken
+#
+# # Version: 1.0
+#
+# # Created: 2018/05/28
+#
+# # Revision: 1.0
+#
+# # Compiler: gcc
+#
+# # Author: Lv Hongbin
+#
+# # Company: Shanghai JiaoTong Univerity
+#
+# # ###############################################################
+
+# set the arguments
 ipaddr=192.168.31.15
 gateway=192.168.31.1
 netmask=255.255.255.0

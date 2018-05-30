@@ -93,7 +93,6 @@
 ## [十四、 Linux中常见的网络命令](#14)
 ### [14.1 网络基本概念](#14.1)
 ### [14.2 设置网络参数的命令](#14.2)
-### [14.3 系统资源的查看](#14.3)
 ------      
         
         
@@ -2431,7 +2430,7 @@ v，然后移动光标，就可以进行矩形选择，然后按下y或者d可�
 >>>>>>> ![图14-6 常见的控制标志位](https://github.com/hblvsjtu/Linux_Study/blob/master/picture/%E5%9B%BE14-6%20%E5%B8%B8%E8%A7%81%E7%9A%84%E6%8E%A7%E5%88%B6%E6%A0%87%E5%BF%97%E4%BD%8D.jpg?raw=true)        
 > - socket pair IP+端口       
 > - TCP三次握手
->>>>>> ![图14-8 TCP三次握手.jpg]()
+>>>>>> ![图14-8 TCP三次握手.jpg](https://github.com/hblvsjtu/Linux_Study/blob/master/picture/%E5%9B%BE14-8%20TCP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B.jpg?raw=true)
         
 > - UDP User Datagram Protocol 用户数据报协议 由于不需要经过三次握手等可靠性服务，所报头内容比较少，这意味着可以填充更多的Data数据。同时UDP比较适合一些影像实时传输等。连接比较快速。有些软件采用的是先UDP，如果在一定时间内无法取得连接就换用TCP连接。           
 #### 6) 网络防火墙       
@@ -2439,8 +2438,8 @@ v，然后移动光标，就可以进行矩形选择，然后按下y或者d可�
         
 <h3 id='14.2'>14.2 设置网络参数的命令</h3> 
         
-#### 2) Linux网络相关的配置文件
->>>>>>> ![图14-9 网路配置文件.jpg]()
+#### 1) Linux网络相关的配置文件
+>>>>>>> ![图14-9 网路配置文件.jpg](https://github.com/hblvsjtu/Linux_Study/blob/master/picture/%E5%9B%BE14-9%20%E7%BD%91%E8%B7%AF%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6.jpg?raw=true)
         
 > - /etc/services 记录类似TCP/UDP等各种协议，如果你定义的一个新的协议与port相对应，就需要改这个文件
 > - /etc/protocols 定义IP数据包协议的相关数据
@@ -2481,7 +2480,7 @@ v，然后移动光标，就可以进行矩形选择，然后按下y或者d可�
                 [lvhongbin@localhost ~]$ hostname
                 localhost.localdomain
                 
-#### 1) ifconfig，ifup，ifdown
+#### 2) ifconfig，ifup，ifdown
 > - 查询，即可临时设置设置网卡与IP网络等相关参数,比如IP参数以及MTU。这种查询方式不管网络接口有没有被启动，都会显示其参数，并且这些操作都是暂时性地。因此可以利用/etc/init.d/network restart或者service network restart来重新启动网络
         
                 ifconfig {interface} {up/down} <==查看与启动接口，但不让其具备IP参数
@@ -2527,7 +2526,27 @@ v，然后移动光标，就可以进行矩形选择，然后按下y或者d可�
         [root@MiWiFi-R3-srv Desktop]# /etc/init.d/network restart
         Restarting network (via systemctl):                      [  OK ]
 > - recoverTheNet.sh
-                
+        
+         # # ###############################################################
+         #
+         # # Filename: recoverTheNet.sh
+         #
+         # # Description:recover the net when it is broken
+         #
+         # # Version: 1.0
+         #
+         # # Created: 2018/05/28
+         #
+         # # Revision: 1.0
+         #
+         # # Compiler: gcc
+         #
+         # # Author: Lv Hongbin
+         #
+         # # Company: Shanghai JiaoTong Univerity
+         #
+         # # ###############################################################
+
         ipaddr=192.168.31.15
         gateway=192.168.31.1
         netmask=255.255.255.0
@@ -2588,3 +2607,359 @@ v，然后移动光标，就可以进行矩形选择，然后按下y或者d可�
 > - 如果还是无法开机自启动网络服务，设定开机启动一个名为NetworkManager-wait-online服务，命令为：
                 
                 systemctl enable NetworkManager-wait-online.service
+#### 3) route 路由 具体看[14.1节路由的概念部分](#14.1)
+#### 4) ip 是一个万能命令
+> - ip \[-s\] link show 查看相关设备参数 -s: 能显示更多统计信息
+        
+                [lvhongbin@localhost network-scripts]$ ip link show
+                1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT qlen 1
+                    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+                2: ens33: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT qlen 1000
+                    link/ether 00:0c:29:26:57:2e brd ff:ff:ff:ff:ff:ff
+                3: virbr0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN mode DEFAULT qlen 1000
+                    link/ether 52:54:00:37:dc:34 brd ff:ff:ff:ff:ff:ff
+                4: virbr0-nic: <BROADCAST,MULTICAST> mtu 1500 qdisc pfifo_fast master virbr0 state DOWN mode DEFAULT qlen 1000
+                    link/ether 52:54:00:37:dc:34 brd ff:ff:ff:ff:ff:ff
+> - ip link set {interface} {动作或者参数，如up, down, address, name, mtu} 
+> - ip address show 也是查看IP参数
+        
+                [lvhongbin@localhost network-scripts]$ ip address show
+                1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN qlen 1
+                    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+                    inet 127.0.0.1/8 scope host lo
+                       valid_lft forever preferred_lft forever
+                    inet6 ::1/128 scope host 
+                       valid_lft forever preferred_lft forever
+                2: ens33: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP qlen 1000
+                    link/ether 00:0c:29:26:57:2e brd ff:ff:ff:ff:ff:ff
+                    inet 192.168.31.15/24 brd 192.168.31.255 scope global ens33
+                       valid_lft forever preferred_lft forever
+                    inet6 fe80::aadd:46b8:d80a:837c/64 scope link 
+                       valid_lft forever preferred_lft forever
+                3: virbr0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN qlen 1000
+                    link/ether 52:54:00:37:dc:34 brd ff:ff:ff:ff:ff:ff
+                    inet 192.168.122.1/24 brd 192.168.122.255 scope global virbr0
+                       valid_lft forever preferred_lft forever
+                4: virbr0-nic: <BROADCAST,MULTICAST> mtu 1500 qdisc pfifo_fast master virbr0 state DOWN qlen 1000
+                    link/ether 52:54:00:37:dc:34 brd ff:ff:ff:ff:ff:ff
+                [lvhongbin@localhost network-scripts]$ 
+> - ip address \[add|del\] \[ip参数 broadcast, label, scope\] \[interface\] \[相关参数\]也是查看IP参数
+> - ip route show 也是查看路由参数
+        
+                [lvhongbin@localhost network-scripts]$ ip route show
+                default via 192.168.31.1 dev ens33 proto static metric 100 
+                192.168.31.0/24 dev ens33 proto kernel scope link src 192.168.31.15 metric 100 
+                192.168.122.0/24 dev virbr0 proto kernel scope link src 192.168.122.1 
+> - ip route \[add|del\] \[ip或者网络号\] \[via 目标路由\] \[interface\]
+#### 5) 无线网络相关命令
+> - 前提：必须要有无线网卡
+> - iwlist 
+> - iwconfig 
+#### 6) dhcp客户端命令：dhclient
+> - dhclient \[interface\]: 立刻让网卡使用dhcp协议去获取IP
+#### ７) 网络排错与查看命令
+> - 两台主机的连通性判断：ping {ip} 
+>> - -c: 后面加数值，表示ping的次数
+>> - -s: 后面加数值，表示发送出去ICMP数据包的大小，默认是56bytes
+>> - -t: 后面加数值，表示TTL数值，没经过一个节点（路由）减1直至0后停止传播 值得注意的是，在内网，TTL默认是64，外网TTL默认是255
+>> - -M \[do|dont\]: 主要检测网络MTU数值的大小 do表示传送一个DF标志，不让数据包被拆包
+>> - -W: 后面加数值，表示等待响应对方主机的秒数
+        
+                [lvhongbin@localhost network-scripts]$ ping -c 3 www.baidu.com
+                PING www.a.shifen.com (119.75.216.20) 56(84) bytes of data.
+                64 bytes from 119.75.216.20 (119.75.216.20): icmp_seq=1 ttl=50 time=28.6 ms
+                64 bytes from 119.75.216.20 (119.75.216.20): icmp_seq=2 ttl=50 time=28.7 ms
+                64 bytes from 119.75.216.20 (119.75.216.20): icmp_seq=3 ttl=50 time=28.7 ms
+
+                --- www.a.shifen.com ping statistics ---
+                3 packets transmitted, 3 received, 0% packet loss, time 2004ms
+                rtt min/avg/max/mdev = 28.670/28.727/28.761/0.040 ms
+> - 找出最大的MTU值
+                ################################################################
+                # # 
+                # # filename: findTheMaxMTU.sh
+                #
+                # # Description:Find the maximun MTU with dichotomy
+                #
+                # # Version: 1.0
+                #
+                # # Created: 2018/05/28
+                #
+                # # Revision: 1.0
+                #
+                # # Compiler: gcc
+                #
+                # # Author: Lv Hongbin
+                #
+                # # Company: Shanghai JiaoTong Univerity
+                #
+                # # ###############################################################
+
+                # define the arguments
+                declare -i minimum # lower bound
+                declare -i maximum # upper bound
+                declare -i medium 
+                declare -i delta # the difference between maximum and minimum
+                declare -i num # the number of iteration
+                declare -i criteria # convergence criteria
+
+                # initial the arguments
+                minimum=0
+                medium=0
+                num=0
+                criteria=10
+                read -p "Please input the upper bound number: "  maximum
+                read -p "Please input the convergence criteria: "  criteria
+                read -p "Please input the ip you want to check(default: www.baidu.com): " ip
+                if  [ ! -n "$ip" ] ;then
+                    echo "you have not input a ip,and use the default ip: www.baidu.com!"
+                    ip=www.baidu.com
+                fi
+                if  [ ! -n "${criteria}" ] ;then
+                    echo "you have not input a criteria,and use the default value: 10!"
+                    criteria=10
+                fi
+                delta=${maximum}-${minimum}
+                medium=(${maximum}+${minimum})/2
+                echo "delta=${delta}"
+
+                # start the iteraton
+                while  test ${delta} -ge ${criteria}
+                do
+                    num=$num+1
+                    echo -e "the iterator num=${num}\n---------------------------"
+                    if test  $(ping -c 3 -s ${medium} -M do ${ip} | grep "error" | wc -l) -ge 1 ;then
+                        maximum=${medium}
+                    else
+                        minimum=${medium}
+                    fi
+                    medium=(${maximum}+${minimum})/2
+                    echo "maximum=${maximum}"
+                    echo "minimum=${minimum}"
+                    delta=${medium}-${minimum}
+                    echo "delta=${delta}"
+                    echo -e "---------------------------\n\n"
+                done
+
+                # Output the result
+                echo "The iteration is convergent!"
+                echo "The the maximun MTU is ${maximum}"
+
+                # 结果
+                [lvhongbin@localhost practise]$ bash findTheMaxMTU.sh
+                Please input the upper bound number: 2000
+                Please input the convergence criteria: 8
+                Please input the ip you want to check(default: www.baidu.com): 
+                you have not input a ip,and use the default ip: www.baidu.com!
+                delta=2000
+                the iterator num=1
+                ---------------------------
+                maximum=2000
+                minimum=1000
+                delta=500
+                ---------------------------
+
+
+                the iterator num=2
+                ---------------------------
+                ping: local error: Message too long, mtu=1500
+                ping: local error: Message too long, mtu=1500
+                ping: local error: Message too long, mtu=1500
+                maximum=1500
+                minimum=1000
+                delta=250
+                ---------------------------
+
+
+                the iterator num=3
+                ---------------------------
+                maximum=1500
+                minimum=1250
+                delta=125
+                ---------------------------
+
+
+                the iterator num=4
+                ---------------------------
+                maximum=1500
+                minimum=1375
+                delta=62
+                ---------------------------
+
+
+                the iterator num=5
+                ---------------------------
+                maximum=1500
+                minimum=1437
+                delta=31
+                ---------------------------
+
+
+                the iterator num=6
+                ---------------------------
+                maximum=1500
+                minimum=1468
+                delta=16
+                ---------------------------
+
+
+                the iterator num=7
+                ---------------------------
+                ping: local error: Message too long, mtu=1500
+                ping: local error: Message too long, mtu=1500
+                ping: local error: Message too long, mtu=1500
+                maximum=1484
+                minimum=1468
+                delta=8
+                ---------------------------
+
+
+                the iterator num=8
+                ---------------------------
+                ping: local error: Message too long, mtu=1500
+                ping: local error: Message too long, mtu=1500
+                ping: local error: Message too long, mtu=1500
+                maximum=1476
+                minimum=1468
+                delta=4
+                ---------------------------
+
+
+                The iteration is convergent!
+                The the maximun MTU is 1476
+> - 两台主机的联通过程中个节点的状态：traceroute \[选项与参数\] {ip} 
+>> - -n: 可以不必使用主机的名称去判断，而用IP，速度比较快
+>> - -U: 使用UDP的port 33434来检测， 这是默认的检测协议
+>> - -I: 使用ICMP来检测
+>> - -T: 使用TCP来检测，默认使用80端口 
+>> - -U: 使用UDP的port 33434来检测 
+>> - -w: 若对方在几秒后不回应就声明不通，默认是5秒 
+>> - -p 端口号: 使用制定端口号来检测
+>> - 由于目前ICMP/UDP的攻击层出不穷，所以很多路由器就取消了这两个数据包的相应功能，所以会出现* * *的现象netstat
+        
+                # 使用TCP连接，需要root权限 * * *可能是防火墙导致
+                [root@localhost practise]# traceroute -n -T  hblvsjtu.picp.io
+                traceroute to hblvsjtu.picp.io (103.46.128.47), 30 hops max, 60 byte packets
+                 1  192.168.31.1  0.854 ms  0.959 ms  0.868 ms
+                 2  211.80.63.254  4.357 ms  4.306 ms  5.040 ms
+                 3  10.19.32.253  3.794 ms  3.743 ms  3.662 ms
+                 4  10.3.2.1  3.607 ms  3.540 ms  3.702 ms
+                 5  * 10.3.0.5  4.441 ms  4.367 ms
+                 6  * * *
+                 7  * * 10.255.38.1  2.842 ms
+                 8  10.255.38.1  2.684 ms  2.523 ms  2.949 ms
+                 9  * 10.255.38.254  2.002 ms *
+                10  * 101.4.115.174  2.056 ms  2.090 ms
+                11  101.4.117.46  33.465 ms  33.379 ms 101.4.115.174  2.139 ms
+                12  101.4.117.41  34.170 ms 101.4.117.46  36.857 ms 101.4.117.41  33.699 ms
+                13  101.4.117.41  33.528 ms  35.351 ms 101.4.112.45  34.818 ms
+                14  101.4.118.154  33.622 ms 101.4.112.45  34.442 ms  34.257 ms
+                15  202.97.15.237  34.988 ms 101.4.118.154  33.993 ms 202.112.61.70  33.775 ms
+                16  202.97.18.238  32.994 ms 202.97.15.237  34.705 ms 202.97.18.238  32.822 ms
+                17  202.97.18.238  32.757 ms *  32.625 ms
+                18  * * *
+                19  43.227.152.130  65.655 ms  65.670 ms  64.200 ms
+                20  43.227.152.130  63.601 ms  63.447 ms  63.657 ms
+                21  183.136.167.34  81.256 ms  81.463 ms  82.245 ms
+                22  183.136.167.34  79.732 ms  79.499 ms *
+                23  * * *
+                24  * * *
+                25  103.46.128.47  58.168 ms  77.146 ms  63.116 ms
+
+                # 使用UDP连接
+                [root@localhost practise]# traceroute -n -U  hblvsjtu.picp.io
+                traceroute to hblvsjtu.picp.io (103.46.128.47), 30 hops max, 60 byte packets
+                 1  192.168.31.1  0.874 ms  0.690 ms  0.926 ms
+                 2  211.80.63.254  3.908 ms  3.735 ms  4.500 ms
+                 3  10.19.32.253  2.270 ms  2.159 ms  2.460 ms
+                 4  10.3.2.1  2.352 ms  2.509 ms  2.834 ms
+                 5  * 10.3.0.5  2.591 ms  2.984 ms
+                 6  * 10.255.38.54  6.361 ms *
+                 7  10.255.38.54  6.151 ms  5.342 ms 10.255.38.1  3.218 ms
+                 8  10.255.38.1  2.989 ms  2.885 ms 10.255.38.254  2.750 ms
+                 9  * 10.255.38.254  2.109 ms  2.363 ms
+                10  202.112.27.1  4.983 ms 101.4.115.174  9.391 ms *
+                11  101.4.117.46  34.869 ms 101.4.115.174  7.500 ms  7.416 ms
+                12  101.4.117.46  34.584 ms 101.4.117.41  34.498 ms 101.4.117.46  34.382 ms
+                13  101.4.112.45  35.850 ms  35.704 ms 101.4.117.41  36.549 ms
+                14  101.4.118.154  35.863 ms 101.4.112.45  32.140 ms  32.022 ms
+                15  202.112.61.70  34.848 ms  35.544 ms 101.4.118.154  35.396 ms
+                16  202.97.18.238  31.284 ms 202.97.15.237  35.786 ms  33.532 ms
+                17  202.97.18.238  36.649 ms 202.97.85.102  35.730 ms  36.809 ms
+                18  220.191.200.10  32.900 ms 202.97.85.102  35.914 ms  36.071 ms
+                19  43.227.152.130  63.076 ms *  61.173 ms
+                20  43.227.152.130  62.767 ms  62.765 ms  61.543 ms
+                21  43.227.152.130  62.207 ms 183.136.167.34  80.815 ms 43.227.152.130  62.045 ms
+                22  183.136.167.34  80.733 ms  79.933 ms *
+                23  * * *
+                24  * * *
+                25  * * *
+                26  * * *
+                27  * * *
+                28  * * *
+                29  * * *
+                30  * * *
+> - netstat 查看本机的网络连接和后门
+>> - -r: 列出路由表 
+>> - -n: 可以不必使用主机的名称去判断，而用IP
+>> - -a: 列出所有的连接
+>> - -t: 仅列出TCP数据包的连接
+>> - -u: 仅列出UDP数据包的连接
+>> - -c: 可以设置几秒钟自动更新一次
+> - host/dig/nslookupp {server} 查看主机或者服务器的IP地址 用dig命令也可以，dig更详细
+>> - -a: 列出详细的信息
+        
+                # host命令
+                [lvhongbin@localhost ~]$ host hblvsjtu.picp.io
+                hblvsjtu.picp.io has address 103.46.128.47
+                Host hblvsjtu.picp.io not found: 3(NXDOMAIN)
+                Host hblvsjtu.picp.io not found: 3(NXDOMAIN)
+
+                [lvhongbin@localhost ~]$ host -a hblvsjtu.picp.io
+                Trying "hblvsjtu.picp.io"
+                Received 34 bytes from 8.8.8.8#53 in 162 ms
+                Trying "hblvsjtu.picp.io.localdomain"
+                Host hblvsjtu.picp.io not found: 3(NXDOMAIN)
+                Received 121 bytes from 8.8.8.8#53 in 81 ms
+
+                # dig命令
+                [lvhongbin@localhost ~]$ dig hblvsjtu.picp.io
+                ; <<>> DiG 9.9.4-RedHat-9.9.4-50.el7 <<>> hblvsjtu.picp.io
+                ;; global options: +cmd
+                ;; Got answer:
+                ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 2384
+                ;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+                ;; OPT PSEUDOSECTION:
+                ; EDNS: version: 0, flags:; udp: 512
+                ;; QUESTION SECTION:
+                ;hblvsjtu.picp.io.      IN  A
+
+                ;; ANSWER SECTION:
+                hblvsjtu.picp.io.   59  IN  A   103.46.128.47
+
+                ;; Query time: 401 msec
+                ;; SERVER: 8.8.8.8#53(8.8.8.8)
+                ;; WHEN: Wed May 30 11:36:46 CST 2018
+                ;; MSG SIZE  rcvd: 61
+
+                # nslookup命令
+                [lvhongbin@localhost ~]$ nslookup hblvsjtu.picp.io
+                Server:     8.8.8.8
+                Address:    8.8.8.8#53
+
+                Non-authoritative answer:
+                Name:   hblvsjtu.picp.io
+                Address: 103.46.128.47
+
+
+
+
+> - 
+
+ 
+
+> - 
+> - 
+> - 
+> - 
