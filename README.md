@@ -84,6 +84,7 @@
 ## [十二、 软件安装](#12)
 ### [12.1 make和configure](#12.1)
 ### [12.2 软件管理器RPM、RPMS和YUM](#12.2)
+### [12.3 直接安装快捷方式](#12.3)
         
 ## [十三、 进程与程序管理](#13)
 ### [13.1 进程与程序](#13.1)
@@ -2046,7 +2047,61 @@ v，然后移动光标，就可以进行矩形选择，然后按下y或者d可�
 > - 服务器中安装软件所需要的依赖列表
 > - 自动检查系统中缺少的依赖进行自动安装
 > - 方便快捷
-           
+        
+<h3 id='12.3'>12.3 直接安装快捷方式 已安装sublime为例</h3> 
+        
+#### 1) 步骤
+> - 下载安装包 至/opt/
+                
+                lvhongbin@localhost software]$ wget https://download.sublimetext.com/sublime_text_3_build_3176_x64.tar.bz2
+                --2018-05-31 18:37:32--  https://download.sublimetext.com/sublime_text_3_build_3176_x64.tar.bz2
+                Resolving download.sublimetext.com (download.sublimetext.com)... 104.236.0.104
+                Connecting to download.sublimetext.com (download.sublimetext.com)|104.236.0.104|:443... connected.
+                HTTP request sent, awaiting response... 200 OK
+                Length: 10314226 (9.8M) [application/octet-stream]
+                Saving to: ‘sublime_text_3_build_3176_x64.tar.bz2’
+
+                100%[=========================================================================================================================================================================>] 10,314,226  60.8KB/s   in 84s    
+
+                2018-05-31 18:38:58 (119 KB/s) - ‘sublime_text_3_build_3176_x64.tar.bz2’ saved [10314226/10314226]
+> - 解压安装包
+                
+                [lvhongbin@localhost software]$ tar -jxvf sublime_text_3_build_3176_x64.tar.bz2
+> - 复制桌面配置文件sublime_text.desktop至/usr/share/applications
+                
+                [root@localhost software]# cp /opt/sublime_text_3/sublime_text.desktop /usr/share/applications
+> - 修改桌面配置文件sublime_text.desktop
+>> - Exec路径
+>> - Icon路径
+>> - Categories类别 
+                                  
+                [root@localhost software]# vim /usr/share/applications/sublime_text.desktop
+                [root@localhost software]# cat /usr/share/applications/sublime_text.desktop
+                [Desktop Entry]
+                Version=1.0
+                Type=Application
+                Name=Sublime Text
+                GenericName=Text Editor
+                Comment=Sophisticated text editor for code, markup and prose
+                Exec=/opt/sublime_text_3/sublime_text %F
+                Terminal=false
+                MimeType=text/plain;
+                Icon=/opt/sublime_text_3/Icon/48x48/sublime-text.png
+                Categories=TextEditor;Development;
+                StartupNotify=true
+                Actions=Window;Document;
+
+                [Desktop Action Window]
+                Name=New Window
+                Exec=/opt/sublime_text_3/sublime_text -n
+                OnlyShowIn=Unity;
+
+                [Desktop Action Document]
+                Name=New File
+                Exec=/opt/sublime_text_3/sublime_text --command new_file
+                OnlyShowIn=Unity;
+
+                
 ------      
         
         
