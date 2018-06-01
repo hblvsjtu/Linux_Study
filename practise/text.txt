@@ -1,0 +1,5 @@
+total 12
+drwxrwxr-x. 5 lvhongbin lvhongbin    50 May 26 14:28 hello
+drwxr-xr-x. 5 lvhongbin lvhongbin   158 May 26 10:48 hello_world
+-rwxr--r--. 1 lvhongbin lvhongbin 10410 Aug  9  2017 org.gnome.Terminal.desktop
+-rwsrwxrw-. 1 root      root          0 May 26 17:54 text.txt
