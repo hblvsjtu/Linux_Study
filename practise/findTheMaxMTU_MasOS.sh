@@ -2,7 +2,7 @@
 # # 
 # # filename: findTheMaxMTU.sh
 #
-# # Description:Find the maximun MTU with dichotomy for Linux
+# # Description:Find the maximun MTU with dichotomy for MacOS
 #
 # # Version: 1.0
 #
@@ -51,7 +51,7 @@ while  test ${delta} -ge ${criteria}
 do
     num=$num+1
     echo -e "the iterator num=${num}\n---------------------------"
-    if test  $(ping -c 3 -s ${medium} -M do ${ip} | grep "error" | wc -l) -ge 1 ;then
+    if test  $(ping -c 3 -s ${medium}  ${ip} | grep "100.0% packet loss" | wc -l) -eq 1 ;then
         maximum=${medium}
     else
         minimum=${medium}
@@ -67,3 +67,4 @@ done
 # Output the result
 echo "The iteration is convergent!"
 echo "The the maximun MTU is ${maximum}"
+
